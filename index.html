@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PixelForge Studio — Digital Products, Web Apps &amp; POS Solutions</title>
+  <meta name="description" content="PixelForge Studio crafts exceptional digital experiences — high-performance websites, scalable web applications, POS software, and ATS-optimized portfolios." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=5.5" />
+</head>
+<body class="saas-theme">
+  <!-- AMBIENT CURSOR GLOW -->
+  <div class="cursor-glow" id="cursor-glow"></div>
+
+  <!-- INTERACTIVE BACKGROUND CANVAS -->
+  <canvas class="bg-canvas" id="bg-canvas"></canvas>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo" id="nav-logo">
+        <span class="logo-symbol">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="28" height="28" rx="8" fill="url(#logo-grad)"/>
+            <path d="M8 8H20V12H12V14H18V18H12V20H8V8Z" fill="white"/>
+            <defs>
+              <linearGradient id="logo-grad" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#8B5CF6"/>
+                <stop offset="0.5" stop-color="#EC4899"/>
+                <stop offset="1" stop-color="#F59E0B"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="logo-text">Pixel<span class="logo-accent">Forge</span> <span class="logo-badge">Studio</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#services" class="nav-link">Services We Offer</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="preview.html" class="btn btn-ghost btn-sm" id="nav-preview">
+          <span>&#127912;</span> Options
+        </a>
+        <a href="#contact" class="btn btn-primary btn-sm" id="nav-cta">Get Started &#8594;</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION: OPTION C STRIPE & MODERN SAAS -->
+  <section class="hero hero-saas" id="home">
+    <!-- FLUID MULTI-COLOR MESH BACKGROUND -->
+    <div class="hero-mesh-bg">
+      <div class="mesh-orb mesh-orb-1"></div>
+      <div class="mesh-orb mesh-orb-2"></div>
+      <div class="mesh-orb mesh-orb-3"></div>
+      <div class="mesh-orb mesh-orb-4"></div>
+      <div class="hero-grid-pattern"></div>
+    </div>
+
+    <div class="hero-container saas-container">
+      <div class="hero-content-center">
+        <div class="hero-pill-badge">
+          <span class="badge-sparkle">&#128640;</span>
+          <span>Open For Client Projects &bull; Direct 1-on-1 Developer Access</span>
+        </div>
+        
+        <h1 class="hero-title hero-title-saas">
+          High-Impact Websites &amp; Apps<br/>
+          <span class="mesh-gradient-text rotator-wrap">
+            <span class="rotator-text" id="rotator-text">Built to Win Clients</span>
+          </span>
+        </h1>
+        
+        <p class="hero-subtitle hero-subtitle-saas">
+          Starting a business, launching a product, or leveling up your career? We craft custom websites, scalable web apps, POS software, and ATS resumes. Transparent pricing from &#8377;250, fast delivery, and 100% source code ownership.
+        </p>
+
+        <div class="hero-actions hero-actions-saas">
+          <a href="#contact" class="btn btn-primary btn-pill btn-magnetic" id="hero-explore-btn">
+            <span>Get a Free Quote &rarr;</span>
+          </a>
+          <a href="https://wa.me/917012080365?text=Hi%20PixelForge,%20I%20have%20a%20project%20idea%20and%20would%20like%20a%20free%20quote." target="_blank" rel="noopener" class="btn btn-ghost btn-pill btn-magnetic" id="hero-contact-btn">
+            <span>&#128172; Chat on WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3D HERO DASHBOARD SHOWPIECE: CLIENT BLUEPRINT & COMMITMENTS -->
+      <div class="hero-showpiece-wrap" id="services">
+        <div class="showpiece-backdrop-glow"></div>
+        
+        <!-- OPTION 2: LIVE INTERACTIVE SCOPE CONFIGURATOR SHOWPIECE -->
+        <div class="saas-dashboard-card config-dashboard-card" id="hero-dashboard">
+          <div class="dash-window-header">
+            <div class="window-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="window-title">pixelforge-scope-estimator.dev</div>
+            <div class="window-badge"><span class="live-dot"></span> Live Instant Scope &amp; Quote Engine</div>
+          </div>
+          
+          <div class="dash-window-body config-body">
+            <div class="config-intro-bar">
+              <div>
+                <h3 class="config-intro-title">Select What You Want to Build:</h3>
+                <p class="config-intro-sub">Click any service below to explore deliverables, turnaround timeline &amp; transparent pricing.</p>
+              </div>
+              <div class="config-guarantee-pill">
+                <span>&#10003; 30% Advance &bull; 70% Upon Staging Approval</span>
+              </div>
+            </div>
+
+            <!-- 5 CORE SERVICES SELECTOR TABS -->
+            <div class="config-services-selector" role="tablist">
+              <button class="config-tab active" data-service="resume" type="button" role="tab" aria-selected="true" id="cfg-tab-resume">
+                <span class="config-tab-icon">&#128196;</span>
+                <span class="config-tab-label">ATS Resume</span>
+                <span class="config-tab-time">24&ndash;48h</span>
+              </button>
+              <button class="config-tab" data-service="portfolio" type="button" role="tab" aria-selected="false" id="cfg-tab-portfolio">
+                <span class="config-tab-icon">&#128187;</span>
+                <span class="config-tab-label">Portfolio</span>
+                <span class="config-tab-time">3&ndash;5 Days</span>
+              </button>
+              <button class="config-tab" data-service="website" type="button" role="tab" aria-selected="false" id="cfg-tab-website">
+                <span class="config-tab-icon">&#127760;</span>
+                <span class="config-tab-label">Website</span>
+                <span class="config-tab-time">5&ndash;7 Days</span>
+              </button>
+              <button class="config-tab" data-service="webapp" type="button" role="tab" aria-selected="false" id="cfg-tab-webapp">
+                <span class="config-tab-icon">&#9889;</span>
+                <span class="config-tab-label">Web App</span>
+                <span class="config-tab-time">1&ndash;2 Weeks</span>
+              </button>
+              <button class="config-tab" data-service="pos" type="button" role="tab" aria-selected="false" id="cfg-tab-pos">
+                <span class="config-tab-icon">&#127978;</span>
+                <span class="config-tab-label">POS Software</span>
+                <span class="config-tab-time">1&ndash;2 Weeks</span>
+              </button>
+            </div>
+
+            <!-- DYNAMIC RESULT PREVIEW CARD -->
+            <div class="config-result-box" id="config-result-box">
+              <div class="config-details-col">
+                <div class="config-tag-wrap">
+                  <span id="cfg-cat" class="cfg-category-tag">Resume Solution</span>
+                  <span class="cfg-mode-tag">&#9889; Production Ready</span>
+                </div>
+                <h4 class="res-title" id="cfg-title">ATS-Compliant Professional Resume</h4>
+                <p class="res-summary" id="cfg-summary">Engineered to pass employer Applicant Tracking Systems (ATS) with targeted industry keywords, crisp typography, and recruiter-focused achievement formatting.</p>
+                
+                <div class="res-deliverables-header">&#128269; Deliverables &amp; What's Included:</div>
+                <ul class="res-deliverables" id="cfg-deliverables">
+                  <li><span class="check-icon">&#10003;</span> 90%+ ATS Scan Score Pass Rate Guarantee</li>
+                  <li><span class="check-icon">&#10003;</span> Role-Specific Keyword &amp; Skill Mapping</li>
+                  <li><span class="check-icon">&#10003;</span> Dual Formats: Editable DOCX + Clean PDF</li>
+                  <li><span class="check-icon">&#10003;</span> Targeted Executive Cover Letter Included</li>
+                </ul>
+
+                <div class="res-trust-badges">
+                  <span class="trust-badge">&#128176; No Hidden Charges</span>
+                  <span class="trust-badge">&#128274; 100% Code &amp; Asset Ownership</span>
+                  <span class="trust-badge">&#128241; Direct 1:1 WhatsApp Line</span>
+                </div>
+              </div>
+
+              <div class="config-meta-card">
+                <div class="meta-price-block">
+                  <span class="meta-price-label">Starting Investment</span>
+                  <div class="meta-price-val" id="cfg-price">&#8377;250</div>
+                  <span class="meta-price-note">Transparent fixed scope &bull; No surprise bills</span>
+                </div>
+
+                <div class="meta-time-badge" id="cfg-time">&#9201; 24&ndash;48h Turnaround</div>
+
+                <a href="https://wa.me/917012080365?text=Hi%20PixelForge,%20I%20would%20like%20to%20inquire%20about%20the%20ATS-Compliant%20Professional%20Resume%20(Starting%20at%20%E2%82%B9250)" target="_blank" rel="noopener" class="btn-config-action" id="cfg-whatsapp-btn">
+                  <span>&#128172; Book on WhatsApp &rarr;</span>
+                </a>
+
+                <a href="#contact" class="meta-secondary-link">
+                  <span>Or Request Custom Scope Form &darr;</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- PIPELINE MINI STRIP: ZERO CONFUSION CLIENT JOURNEY -->
+            <div class="config-flow-strip">
+              <div class="flow-step-item">
+                <span class="f-num">1</span>
+                <span>Choose scope &amp; get fixed quote</span>
+              </div>
+              <span class="flow-arrow">&rarr;</span>
+              <div class="flow-step-item">
+                <span class="f-num">2</span>
+                <span>30% advance to start build</span>
+              </div>
+              <span class="flow-arrow">&rarr;</span>
+              <div class="flow-step-item">
+                <span class="f-num">3</span>
+                <span>Preview live staging demo</span>
+              </div>
+              <span class="flow-arrow">&rarr;</span>
+              <div class="flow-step-item">
+                <span class="f-num">4</span>
+                <span>Approve &amp; receive 100% handover</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE TECH MARQUEE BANNER -->
+  <div class="tech-marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-content">
+        <span>&#9889; High-Performance Web Apps</span>
+        <span class="marquee-separator">&bull;</span>
+        <span>&#128196; ATS-Optimized Resumes</span>
+        <span class="marquee-separator">&bull;</span>
+        <span>&#127760; Custom Modern Websites</span>
+        <span class="marquee-separator">&bull;</span>
+        <span>&#127978; Intelligent POS Systems</span>
+        <span class="marquee-separator">&bull;</span>
+        <span>&#127912; High-Converting Portfolios</span>
+        <span class="marquee-separator">&bull;</span>
+        <span>&#128241; 100% Mobile Responsive</span>
+        <span class="marquee-separator">&bull;</span>
+        <span>&#128274; Production-Ready Security</span>
+        <span class="marquee-separator">&bull;</span>
+        <span>&#128640; Fast Delivery &amp; Dedicated Support</span>
+        <span class="marquee-separator">&bull;</span>
+      </div>
+      <div class="marquee-content" aria-hidden="true">
+        <span>&#9889; High-Performance Web Apps</span>
+        <span class="marquee-separator">&bull;</span>
+        <span>&#128196; ATS-Optimized Resumes</span>
+        <span class="marquee-separator">&bull;</span>
+        <span>&#127760; Custom Modern Websites</span>
+        <span class="marquee-separator">&bull;</span>
+        <span>&#127978; Intelligent POS Systems</span>
+        <span class="marquee-separator">&bull;</span>
+        <span>&#127912; High-Converting Portfolios</span>
+        <span class="marquee-separator">&bull;</span>
+        <span>&#128241; 100% Mobile Responsive</span>
+        <span class="marquee-separator">&bull;</span>
+        <span>&#128274; Production-Ready Security</span>
+        <span class="marquee-separator">&bull;</span>
+        <span>&#128640; Fast Delivery &amp; Dedicated Support</span>
+        <span class="marquee-separator">&bull;</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ABOUT -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="about-card-main">
+            <div class="about-avatar">
+              <div class="avatar-ring"></div>
+              <div class="avatar-inner"><span>&#x2B21;</span></div>
+            </div>
+            <h3>PixelForge Studio</h3>
+            <p>Your Digital Partner</p>
+            <div class="about-skills">
+              <span class="skill-tag">HTML/CSS</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">UI/UX</span>
+              <span class="skill-tag">POS Dev</span>
+              <span class="skill-tag">Resume</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-content">
+          <span class="section-tag">Direct Collaboration &bull; Why PixelForge</span>
+          <h2 class="section-title">Senior Engineering Without <span class="gradient-text">Agency Overhead</span></h2>
+          <p class="about-desc">PixelForge was founded to solve a common frustration: bloated agency invoices, slow turnaround times, and dealing with non-technical middle managers. Here, you collaborate directly with the developer building your project.</p>
+          <p class="about-desc">Whether you need a high-converting website, an ATS-compliant resume, a full SaaS MVP, or retail POS software &mdash; every deliverable is crafted with modern engineering standards, responsive perfection, and clean, documented source code that you 100% own.</p>
+          <div class="about-values">
+            <div class="value-item">
+              <span class="value-icon">&#128737;&#65039;</span>
+              <div><h4>Pay After Demo Review</h4><p>Test your website live on staging or review your resume draft before releasing the final payment.</p></div>
+            </div>
+            <div class="value-item">
+              <span class="value-icon">&#128230;</span>
+              <div><h4>100% Source Ownership</h4><p>You own all code repositories, design assets, and database credentials with zero vendor lock-in.</p></div>
+            </div>
+            <div class="value-item">
+              <span class="value-icon">&#128640;</span>
+              <div><h4>Free 30-Day Launch Care</h4><p>We stay with you after launch for free bug fixes, domain deployment, and technical assistance.</p></div>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-primary" id="about-cta-btn">Start Your Project &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Start Your <span class="gradient-text">Project</span></h2>
+        <p class="section-sub">Ready to bring your vision to life? Fill out the form and we will get back to you within 24 hours.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Let&apos;s Build Something Amazing</h3>
+          <p>Whether you need a resume, a website, a web app, or a full POS system - we are here to help.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <span class="contact-icon">&#128231;</span>
+              <div><span class="ci-label">Email Us</span><a href="mailto:nfaisal4998@gmail.com" class="ci-value">nfaisal4998@gmail.com</a></div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">&#128241;</span>
+              <div><span class="ci-label">WhatsApp / Call</span><a href="https://wa.me/917012080365" target="_blank" rel="noopener" class="ci-value">+91 70120 80365</a></div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">&#9201;</span>
+              <div><span class="ci-label">Response Time</span><span class="ci-value">Within 24 Hours</span></div>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="https://wa.me/917012080365" target="_blank" rel="noopener" class="social-btn" id="social-whatsapp" aria-label="WhatsApp">wa</a>
+            <a href="mailto:nfaisal4998@gmail.com" class="social-btn" id="social-mail" aria-label="Email">@</a>
+            <a href="#" class="social-btn" id="social-linkedin" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-btn" id="social-github" aria-label="GitHub">gh</a>
+          </div>
+        </div>
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-name">Full Name *</label>
+              <input type="text" id="contact-name" name="name" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email Address *</label>
+              <input type="email" id="contact-email" name="email" placeholder="you@domain.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contact-service">Service Needed *</label>
+            <select id="contact-service" name="service" required>
+              <option value="" disabled selected>Select a service...</option>
+              <option value="resume">Resume Writing</option>
+              <option value="portfolio">Portfolio Design</option>
+              <option value="website">Website Development</option>
+              <option value="webapp">Web Application</option>
+              <option value="pos">POS Software</option>
+            </select>
+          </div>
+          <div class="form-group budget-group">
+            <div class="budget-header">
+              <label for="contact-budget-input">Estimated Budget (&#8377;)</label>
+              <div class="budget-display" title="Click to type custom amount">
+                <span class="budget-symbol">&#8377;</span>
+                <input 
+                  type="number" 
+                  id="contact-budget-input" 
+                  name="budget" 
+                  min="250" 
+                  max="10000000" 
+                  step="50" 
+                  value="25000" 
+                  class="budget-number-input"
+                  aria-label="Enter budget amount in Rupees (minimum 250)"
+                  placeholder="25000"
+                />
+              </div>
+            </div>
+            <div class="budget-slider-wrapper">
+              <input 
+                type="range" 
+                id="contact-budget" 
+                min="250" 
+                max="150000" 
+                step="250" 
+                value="25000" 
+                class="budget-slider"
+                aria-label="Budget slider in Rupees"
+              />
+              <div class="budget-range-labels">
+                <span>&#8377;250</span>
+                <span>&#8377;50,000</span>
+                <span>&#8377;1,00,000</span>
+                <span>&#8377;1,50,000+</span>
+              </div>
+            </div>
+            <span class="budget-help-text">&#9998; Type any custom amount above or drag the slider (Min &#8377;250)</span>
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Project Details *</label>
+            <textarea id="contact-message" name="message" placeholder="Tell us about your project, goals, and any specific requirements..." rows="5" required></textarea>
+          </div>
+          <div class="form-buttons">
+            <button type="submit" class="btn btn-primary btn-submit-main" id="form-submit-btn">
+              <span class="btn-text">Send Message &#128640;</span>
+              <span class="btn-loader" style="display:none">Sending...</span>
+            </button>
+            <a href="https://wa.me/917012080365" target="_blank" rel="noopener" class="btn btn-whatsapp" id="btn-whatsapp-direct">
+              <span>&#128172;</span> Chat on WhatsApp
+            </a>
+          </div>
+          <div class="form-success" id="form-success" style="display:none">
+            &#9989; Message sent! We will be in touch within 24 hours.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="nav-logo">
+            <span class="logo-icon">&#x2B21;</span>
+            <span class="logo-text">Pixel<span class="logo-accent">Forge</span></span>
+          </a>
+          <p>Crafting premium digital experiences - resumes, portfolios, websites, web apps and POS software.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services" data-select-service="resume">Resume Writing</a></li>
+            <li><a href="#services" data-select-service="portfolio">Portfolio Design</a></li>
+            <li><a href="#services" data-select-service="website">Website Development</a></li>
+            <li><a href="#services" data-select-service="webapp">Web Applications</a></li>
+            <li><a href="#services" data-select-service="pos">POS Software</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services We Offer</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:nfaisal4998@gmail.com">nfaisal4998@gmail.com</a></li>
+            <li><a href="https://wa.me/917012080365" target="_blank" rel="noopener">+91 70120 80365</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&#169; 2026 PixelForge Studio. All rights reserved.</p>
+        <p>Built with &#10084;&#65039; for digital excellence.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING THEME SWITCHER -->
+  <aside class="theme-switcher-wrapper" id="theme-switcher" aria-label="Theme Switcher">
+    <div class="theme-switcher-title">
+      <span>&#127912;</span> Theme
+    </div>
+    <button class="theme-palette-btn theme-btn-purple active" data-theme="purple" data-tooltip="Stripe &amp; Modern SaaS" aria-label="Stripe &amp; Modern SaaS Theme"></button>
+    <button class="theme-palette-btn theme-btn-cyberpunk" data-theme="cyberpunk" data-tooltip="Cyberpunk Neon" aria-label="Cyberpunk Neon Theme"></button>
+    <button class="theme-palette-btn theme-btn-emerald" data-theme="emerald" data-tooltip="Emerald &amp; Gold" aria-label="Emerald &amp; Gold Theme"></button>
+    <button class="theme-palette-btn theme-btn-blue" data-theme="blue" data-tooltip="Corporate Blue" aria-label="Corporate Blue Theme"></button>
+    <button class="theme-palette-btn theme-btn-light" data-theme="light" data-tooltip="Clean Light Luxe" aria-label="Clean Light Luxe Theme"></button>
+  </aside>
+  <div class="theme-toast" id="theme-toast" role="status" aria-live="polite">
+    <span id="toast-icon">&#10024;</span> Theme updated to <strong id="toast-theme-name">Stripe &amp; Modern SaaS</strong>
+  </div>
+
+  <script src="app.js?v=5.5"></script>
+</body>
+</html>
