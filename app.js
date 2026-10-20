@@ -569,7 +569,7 @@ function applyTheme(themeKey, showFeedback = false) {
   
   // Save preference
   try {
-    localStorage.setItem('makewise-theme', themeKey);
+    localStorage.setItem('makewise-gold-theme', themeKey);
   } catch (err) {}
 
   // Update canvas particle colors
@@ -601,10 +601,10 @@ themeButtons.forEach(btn => {
 // Check URL params or localStorage on load
 const urlParams = new URLSearchParams(window.location.search);
 const urlTheme = urlParams.get('theme');
-const savedTheme = localStorage.getItem('makewise-theme') || localStorage.getItem('nexora-theme') || localStorage.getItem('oneclick-theme') || localStorage.getItem('pixelforge-theme');
+const savedTheme = localStorage.getItem('makewise-gold-theme');
 if (urlTheme && themeLabels[urlTheme]) {
   applyTheme(urlTheme, false);
-} else if (savedTheme && themeLabels[savedTheme] && savedTheme !== 'purple') {
+} else if (savedTheme && themeLabels[savedTheme]) {
   applyTheme(savedTheme, false);
 } else {
   applyTheme('gold', false);
