@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css?v=5.5" />
 </head>
-<body class="saas-theme">
+<body class="gold-theme" data-theme="gold">
   <!-- AMBIENT CURSOR GLOW -->
   <div class="cursor-glow" id="cursor-glow"></div>
 
@@ -27,8 +27,8 @@
             <path d="M7 21V7H10.5L14 13.5L17.5 7H21V21H18V12.5L14.8 17.5H13.2L10 12.5V21H7Z" fill="white"/>
             <defs>
               <linearGradient id="logo-grad" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#8B5CF6"/>
-                <stop offset="0.5" stop-color="#EC4899"/>
+                <stop stop-color="#FFD700"/>
+                <stop offset="0.5" stop-color="#D4AF37"/>
                 <stop offset="1" stop-color="#F59E0B"/>
               </linearGradient>
             </defs>
@@ -481,16 +481,17 @@
   <!-- FLOATING THEME SWITCHER -->
   <aside class="theme-switcher-wrapper" id="theme-switcher" aria-label="Theme Switcher">
     <div class="theme-switcher-title">
-      <span>&#127912;</span> Theme
+      <span>👑</span> Theme
     </div>
-    <button class="theme-palette-btn theme-btn-purple active" data-theme="purple" data-tooltip="Stripe &amp; Modern SaaS" aria-label="Stripe &amp; Modern SaaS Theme"></button>
+    <button class="theme-palette-btn theme-btn-gold active" data-theme="gold" data-tooltip="Black &amp; Gold Luxury" aria-label="Black &amp; Gold Luxury Theme"></button>
+    <button class="theme-palette-btn theme-btn-purple" data-theme="purple" data-tooltip="Stripe &amp; Modern SaaS" aria-label="Stripe &amp; Modern SaaS Theme"></button>
     <button class="theme-palette-btn theme-btn-cyberpunk" data-theme="cyberpunk" data-tooltip="Cyberpunk Neon" aria-label="Cyberpunk Neon Theme"></button>
     <button class="theme-palette-btn theme-btn-emerald" data-theme="emerald" data-tooltip="Emerald &amp; Gold" aria-label="Emerald &amp; Gold Theme"></button>
     <button class="theme-palette-btn theme-btn-blue" data-theme="blue" data-tooltip="Corporate Blue" aria-label="Corporate Blue Theme"></button>
     <button class="theme-palette-btn theme-btn-light" data-theme="light" data-tooltip="Clean Light Luxe" aria-label="Clean Light Luxe Theme"></button>
   </aside>
   <div class="theme-toast" id="theme-toast" role="status" aria-live="polite">
-    <span id="toast-icon">&#10024;</span> Theme updated to <strong id="toast-theme-name">Stripe &amp; Modern SaaS</strong>
+    <span id="toast-icon">👑</span> Theme updated to <strong id="toast-theme-name">Black &amp; Gold Luxury</strong>
   </div>
 
   <script src="app.js?v=5.5"></script>

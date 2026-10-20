@@ -7,8 +7,8 @@ const canvas = document.getElementById('bg-canvas');
 let ctx = canvas ? canvas.getContext('2d') : null;
 let particles = [];
 let mouse = { x: -1000, y: -1000, radius: 140 };
-let primaryRGB = [139, 92, 246];
-let secondaryRGB = [6, 182, 212];
+let primaryRGB = [212, 175, 55];
+let secondaryRGB = [245, 158, 11];
 
 function getThemeRGB(varName, fallback) {
   const val = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
@@ -547,6 +547,7 @@ const toastThemeName = document.getElementById('toast-theme-name');
 let toastTimer;
 
 const themeLabels = {
+  gold: { name: 'Black & Gold Luxury', icon: '👑' },
   purple: { name: 'Stripe & Modern SaaS', icon: '✨' },
   cyberpunk: { name: 'Cyberpunk Neon', icon: '🔥' },
   emerald: { name: 'Emerald & Gold', icon: '💎' },
@@ -555,7 +556,7 @@ const themeLabels = {
 };
 
 function applyTheme(themeKey, showFeedback = false) {
-  if (!themeLabels[themeKey]) themeKey = 'purple';
+  if (!themeLabels[themeKey]) themeKey = 'gold';
   
   // Set data-theme on html and body
   document.documentElement.setAttribute('data-theme', themeKey);
@@ -603,10 +604,10 @@ const urlTheme = urlParams.get('theme');
 const savedTheme = localStorage.getItem('makewise-theme') || localStorage.getItem('nexora-theme') || localStorage.getItem('oneclick-theme') || localStorage.getItem('pixelforge-theme');
 if (urlTheme && themeLabels[urlTheme]) {
   applyTheme(urlTheme, false);
-} else if (savedTheme && themeLabels[savedTheme]) {
+} else if (savedTheme && themeLabels[savedTheme] && savedTheme !== 'purple') {
   applyTheme(savedTheme, false);
 } else {
-  applyTheme('purple', false);
+  applyTheme('gold', false);
 }
 
 // ===== 9. HERO INTERACTIVE SCOPE CONFIGURATOR (OPTION 2) =====
