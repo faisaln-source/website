@@ -1,5 +1,5 @@
 /* ===========================
-   PIXELFORGE STUDIO - APP.JS (ALIVE & DYNAMIC ENGINE)
+   ONECLICK STUDIO - APP.JS (ALIVE & DYNAMIC ENGINE)
    =========================== */
 
 // ===== 1. INTERACTIVE BACKGROUND PARTICLE CANVAS =====
@@ -323,7 +323,7 @@ document.querySelectorAll('.btn-inquire-work').forEach(btn => {
     const title = card ? card.querySelector('.work-title')?.textContent.trim() : '';
     const messageInput = document.getElementById('contact-message');
     if (messageInput && title) {
-      messageInput.value = `Hi PixelForge, I am interested in inquiring about "${title}". Could you share details on timeline and scope?`;
+      messageInput.value = `Hi oneClick, I am interested in inquiring about "${title}". Could you share details on timeline and scope?`;
     }
     if (typeof updateWhatsAppLink === 'function') {
       updateWhatsAppLink();
@@ -568,7 +568,7 @@ function applyTheme(themeKey, showFeedback = false) {
   
   // Save preference
   try {
-    localStorage.setItem('pixelforge-theme', themeKey);
+    localStorage.setItem('oneclick-theme', themeKey);
   } catch (err) {}
 
   // Update canvas particle colors
@@ -600,7 +600,7 @@ themeButtons.forEach(btn => {
 // Check URL params or localStorage on load
 const urlParams = new URLSearchParams(window.location.search);
 const urlTheme = urlParams.get('theme');
-const savedTheme = localStorage.getItem('pixelforge-theme');
+const savedTheme = localStorage.getItem('oneclick-theme') || localStorage.getItem('pixelforge-theme');
 if (urlTheme && themeLabels[urlTheme]) {
   applyTheme(urlTheme, false);
 } else if (savedTheme && themeLabels[savedTheme]) {
@@ -719,7 +719,7 @@ if (cfgTabs.length > 0 && cfgResultBox) {
           }
 
           if (cfgWhatsappBtn) {
-            const encodedText = encodeURIComponent(`Hi PixelForge, I would like to inquire about the ${data.title} (Starting at ${data.price})`);
+            const encodedText = encodeURIComponent(`Hi oneClick, I would like to inquire about the ${data.title} (Starting at ${data.price})`);
             cfgWhatsappBtn.href = `https://wa.me/917012080365?text=${encodedText}`;
           }
 
@@ -743,4 +743,4 @@ if (cfgTabs.length > 0 && cfgResultBox) {
 }
 
 // ===== INIT =====
-console.log('%c PixelForge Studio Multi-Theme Ready ', 'background: linear-gradient(135deg,#7c3aed,#06b6d4); color: white; padding: 8px 16px; border-radius: 4px; font-size: 14px; font-weight: bold;');
+console.log('%c oneClick Studio Multi-Theme Ready ', 'background: linear-gradient(135deg,#7c3aed,#06b6d4); color: white; padding: 8px 16px; border-radius: 4px; font-size: 14px; font-weight: bold;');
