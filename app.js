@@ -398,13 +398,15 @@ function updateWhatsAppLink() {
   if (!whatsappBtn) return;
   const name = document.getElementById('contact-name')?.value.trim() || '';
   const service = document.getElementById('contact-service')?.value || '';
+  const message = document.getElementById('contact-message')?.value.trim() || '';
   const numBudget = parseInt(budgetInput?.value, 10) || parseInt(budgetSlider?.value, 10) || 25000;
   const formattedBudget = numBudget.toLocaleString('en-IN');
   
-  let msg = 'Hello! I would like to inquire about your digital services.';
-  if (name) msg += ` My name is ${name}.`;
-  if (service) msg += ` I am interested in: ${service}.`;
-  msg += ` Estimated Budget: ₹${formattedBudget}.`;
+  let msg = 'Hello MakeWise! I would like to inquire about your digital services.';
+  if (name) msg += `\n• Name: ${name}`;
+  if (service) msg += `\n• Service: ${service}`;
+  msg += `\n• Budget: ₹${formattedBudget}`;
+  if (message) msg += `\n• Details: ${message}`;
   
   whatsappBtn.href = `https://wa.me/917012080365?text=${encodeURIComponent(msg)}`;
 }
@@ -416,7 +418,7 @@ if (budgetSlider && budgetInput) {
   syncFromSlider();
 }
 
-['contact-name', 'contact-service'].forEach(id => {
+['contact-name', 'contact-service', 'contact-message'].forEach(id => {
   const el = document.getElementById(id);
   if (el) el.addEventListener('input', updateWhatsAppLink);
 });
@@ -428,13 +430,15 @@ const btnText = submitBtn.querySelector('.btn-text');
 const btnLoader = submitBtn.querySelector('.btn-loader');
 const formSuccess = document.getElementById('form-success');
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
   // Basic validation
   const name = document.getElementById('contact-name').value.trim();
   const email = document.getElementById('contact-email').value.trim();
   const service = document.getElementById('contact-service').value;
   const message = document.getElementById('contact-message').value.trim();
+  const numBudget = parseInt(budgetInput?.value, 10) || parseInt(budgetSlider?.value, 10) || 25000;
+  const formattedBudget = '₹' + numBudget.toLocaleString('en-IN');
 
   if (!name || !email || !service || !message) {
     shakeForm();
@@ -451,26 +455,59 @@ form.addEventListener('submit', (e) => {
     syncFromInput();
   }
 
-  // Simulate sending
   btnText.style.display = 'none';
   btnLoader.style.display = 'block';
   submitBtn.disabled = true;
 
-  setTimeout(() => {
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/nfaisal4998@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: `New MakeWise Inquiry: ${service} from ${name}`,
+        _template: 'table',
+        _captcha: 'false',
+        Name: name,
+        Email: email,
+        Service: service,
+        Budget: formattedBudget,
+        Message: message
+      })
+    });
+
+    if (response.ok) {
+      showSubmissionSuccess(name);
+    } else {
+      // Fallback: mailto
+      window.location.href = `mailto:nfaisal4998@gmail.com?subject=New MakeWise Inquiry from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0AService: ${encodeURIComponent(service)}%0D%0ABudget: ${encodeURIComponent(formattedBudget)}%0D%0AMessage: ${encodeURIComponent(message)}`;
+      showSubmissionSuccess(name);
+    }
+  } catch (err) {
+    // If fetch failed (e.g. adblocker), fallback to mailto
+    window.location.href = `mailto:nfaisal4998@gmail.com?subject=New MakeWise Inquiry from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0AService: ${encodeURIComponent(service)}%0D%0ABudget: ${encodeURIComponent(formattedBudget)}%0D%0AMessage: ${encodeURIComponent(message)}`;
+    showSubmissionSuccess(name);
+  } finally {
     btnText.style.display = 'flex';
     btnLoader.style.display = 'none';
     submitBtn.disabled = false;
-    formSuccess.style.display = 'block';
-    form.reset();
-    if (budgetInput && budgetSlider) {
-      budgetInput.value = 25000;
-      budgetSlider.value = 25000;
-      updateSliderTrack(25000);
-      updateWhatsAppLink();
-    }
-    setTimeout(() => { formSuccess.style.display = 'none'; }, 5000);
-  }, 1800);
+  }
 });
+
+function showSubmissionSuccess(name) {
+  formSuccess.innerHTML = `✅ Thank you <strong>${name}</strong>! Your inquiry has been sent directly to <strong>nfaisal4998@gmail.com</strong>. We will contact you within 24 hours.`;
+  formSuccess.style.display = 'block';
+  form.reset();
+  if (budgetInput && budgetSlider) {
+    budgetInput.value = 25000;
+    budgetSlider.value = 25000;
+    updateSliderTrack(25000);
+    updateWhatsAppLink();
+  }
+  setTimeout(() => { formSuccess.style.display = 'none'; }, 9000);
+}
 
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
