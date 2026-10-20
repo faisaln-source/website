@@ -1,5 +1,5 @@
 /* ===========================
-   MAKEWISE STUDIO - APP.JS (ALIVE & DYNAMIC ENGINE)
+   MAKEWISE - APP.JS (ALIVE & DYNAMIC ENGINE)
    =========================== */
 
 // ===== 1. INTERACTIVE BACKGROUND PARTICLE CANVAS =====
@@ -551,8 +551,7 @@ const themeLabels = {
   purple: { name: 'Stripe & Modern SaaS', icon: '✨' },
   cyberpunk: { name: 'Cyberpunk Neon', icon: '🔥' },
   emerald: { name: 'Emerald & Gold', icon: '💎' },
-  blue: { name: 'Corporate Blue', icon: '⚡' },
-  light: { name: 'Clean Light Luxe', icon: '☀️' }
+  blue: { name: 'Corporate Blue', icon: '⚡' }
 };
 
 function applyTheme(themeKey, showFeedback = false) {
@@ -744,4 +743,4 @@ if (cfgTabs.length > 0 && cfgResultBox) {
 }
 
 // ===== INIT =====
-console.log('%c MakeWise Studio Multi-Theme Ready ', 'background: linear-gradient(135deg,#7c3aed,#06b6d4); color: white; padding: 8px 16px; border-radius: 4px; font-size: 14px; font-weight: bold;');
+console.log('%c MakeWise Multi-Theme Ready ', 'background: linear-gradient(135deg,#ffd700,#f59e0b); color: #050507; padding: 8px 16px; border-radius: 4px; font-size: 14px; font-weight: bold;');

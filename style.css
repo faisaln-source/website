@@ -1,5 +1,5 @@
 /* ===========================
-   MAKEWISE STUDIO - STYLES (ALIVE & DYNAMIC ENGINE)
+   MAKEWISE - STYLES (ALIVE & DYNAMIC ENGINE)
    =========================== */
 
 /* ===== MULTI-THEME ENGINE ===== */
@@ -243,49 +243,7 @@
   --select-color: #f8fafc;
 }
 
-/* 5. Clean Light Luxe (Modern Minimalist Light) */
-[data-theme="light"] {
-  --theme-name: "Clean Light Luxe";
-  --primary: #6366f1;
-  --primary-light: #818cf8;
-  --primary-dark: #4338ca;
-  --primary-rgb: 99, 102, 241;
-  --secondary: #0ea5e9;
-  --secondary-light: #38bdf8;
-  --secondary-rgb: 14, 165, 233;
-  --accent: #ec4899;
-  --accent-rgb: 236, 72, 153;
-  --bg: #f8fafc;
-  --bg-2: #f1f5f9;
-  --bg-3: #e2e8f0;
-  --surface: #ffffff;
-  --surface-hover: #fcfdfe;
-  --surface-card: rgba(255, 255, 255, 0.85);
-  --border: rgba(15, 23, 42, 0.1);
-  --border-glow: rgba(99, 102, 241, 0.45);
-  --border-sheen: rgba(99, 102, 241, 0.2);
-  --text: #0f172a;
-  --text-muted: #475569;
-  --text-dim: #94a3b8;
-  --grad: linear-gradient(135deg, #6366f1 0%, #0ea5e9 100%);
-  --grad-pink: linear-gradient(135deg, #ec4899 0%, #6366f1 100%);
-  --grad-glow: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(14,165,233,0.15));
-  --shadow-primary: 0 10px 35px rgba(99, 102, 241, 0.25);
-  --shadow-purple: var(--shadow-primary);
-  --shadow-card: 0 12px 36px rgba(15, 23, 42, 0.08);
-  --purple: var(--primary);
-  --purple-light: var(--primary-light);
-  --purple-dark: var(--primary-dark);
-  --cyan: var(--secondary);
-  --cyan-light: var(--secondary-light);
-  --pink: var(--accent);
-  --orb-1: radial-gradient(circle, rgba(99, 102, 241, 0.22), transparent 70%);
-  --orb-2: radial-gradient(circle, rgba(14, 165, 233, 0.22), transparent 70%);
-  --orb-3: radial-gradient(circle, rgba(236, 72, 153, 0.15), transparent 70%);
-  --nav-bg: rgba(248, 250, 252, 0.9);
-  --grid-line: rgba(15, 23, 42, 0.05);
-  --select-bg: #ffffff;
-}
+
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -2067,7 +2025,6 @@ select option { background: var(--select-bg); color: var(--select-color); }
 .theme-btn-cyberpunk { background: linear-gradient(135deg, #f59e0b, #ff007f 55%, #00f0ff); }
 .theme-btn-emerald { background: linear-gradient(135deg, #10b981, #fbbf24); }
 .theme-btn-blue { background: linear-gradient(135deg, #3b82f6, #38bdf8); }
-.theme-btn-light { background: linear-gradient(135deg, #6366f1, #0ea5e9); border: 1px solid rgba(0,0,0,0.15); }
 
 /* Theme notification banner */
 .theme-toast {
