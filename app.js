@@ -657,7 +657,7 @@ const configData = {
       "Modern Frontend (React / Next.js) with Responsive UI",
       "Production Cloud Deployment & Environment Setup"
     ],
-    price: "₹8,000+",
+    price: "₹5,000+",
     time: "⏱ 1–2 Weeks Delivery"
   },
   pos: {
