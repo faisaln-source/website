@@ -687,31 +687,22 @@ if (cfgTabs.length > 0 && cfgResultBox) {
       const sKey = tab.getAttribute('data-service');
       const data = configData[sKey];
       if (data) {
-        cfgResultBox.style.transition = 'opacity 0.15s ease, transform 0.15s ease';
-        cfgResultBox.style.opacity = '0.35';
-        cfgResultBox.style.transform = 'scale(0.99)';
+        if (cfgCat) cfgCat.textContent = data.cat;
+        if (cfgTitle) cfgTitle.textContent = data.title;
+        if (cfgSummary) cfgSummary.textContent = data.summary;
+        if (cfgPrice) cfgPrice.textContent = data.price;
+        if (cfgTime) cfgTime.textContent = data.time;
 
-        setTimeout(() => {
-          if (cfgCat) cfgCat.textContent = data.cat;
-          if (cfgTitle) cfgTitle.textContent = data.title;
-          if (cfgSummary) cfgSummary.textContent = data.summary;
-          if (cfgPrice) cfgPrice.textContent = data.price;
-          if (cfgTime) cfgTime.textContent = data.time;
+        if (cfgDeliverables) {
+          cfgDeliverables.innerHTML = data.deliverables
+            .map(d => `<li><span class="check-icon">&#10003;</span> ${d}</li>`)
+            .join('');
+        }
 
-          if (cfgDeliverables) {
-            cfgDeliverables.innerHTML = data.deliverables
-              .map(d => `<li><span class="check-icon">&#10003;</span> ${d}</li>`)
-              .join('');
-          }
-
-          if (cfgWhatsappBtn) {
-            const encodedText = encodeURIComponent(`Hi MakeWise, I would like to inquire about the ${data.title} (Starting at ${data.price})`);
-            cfgWhatsappBtn.href = `https://wa.me/917012080365?text=${encodedText}`;
-          }
-
-          cfgResultBox.style.opacity = '1';
-          cfgResultBox.style.transform = 'scale(1)';
-        }, 120);
+        if (cfgWhatsappBtn) {
+          const encodedText = encodeURIComponent(`Hi MakeWise, I would like to inquire about the ${data.title} (Starting at ${data.price})`);
+          cfgWhatsappBtn.href = `https://wa.me/917012080365?text=${encodedText}`;
+        }
       }
     });
   });
