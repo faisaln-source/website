@@ -26,8 +26,8 @@ function getThemeRGB(varName, fallback) {
 }
 
 function updateCanvasThemeColors() {
-  primaryRGB = getThemeRGB('--primary-rgb', [212, 175, 55]);
-  secondaryRGB = getThemeRGB('--secondary-rgb', [245, 158, 11]);
+  primaryRGB = getThemeRGB('--primary-rgb', [59, 130, 246]);
+  secondaryRGB = getThemeRGB('--secondary-rgb', [56, 189, 248]);
 }
 
 function resizeCanvas() {
@@ -521,7 +521,7 @@ if (form && submitBtn) {
     submitBtn.disabled = true;
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/nfaisal4998@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/makewisedigitalsolution@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -543,11 +543,11 @@ if (form && submitBtn) {
         showSubmissionSuccess(name);
       } else {
         // Fallback: mailto
-        window.location.href = `mailto:nfaisal4998@gmail.com?subject=New MakeWise Inquiry from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0AService: ${encodeURIComponent(service)}%0D%0ABudget: ${encodeURIComponent(formattedBudget)}%0D%0AMessage: ${encodeURIComponent(message)}`;
+        window.location.href = `mailto:makewisedigitalsolution@gmail.com?subject=New MakeWise Inquiry from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0AService: ${encodeURIComponent(service)}%0D%0ABudget: ${encodeURIComponent(formattedBudget)}%0D%0AMessage: ${encodeURIComponent(message)}`;
         showSubmissionSuccess(name);
       }
     } catch (err) {
-      window.location.href = `mailto:nfaisal4998@gmail.com?subject=New MakeWise Inquiry from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0AService: ${encodeURIComponent(service)}%0D%0ABudget: ${encodeURIComponent(formattedBudget)}%0D%0AMessage: ${encodeURIComponent(message)}`;
+      window.location.href = `mailto:makewisedigitalsolution@gmail.com?subject=New MakeWise Inquiry from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0AService: ${encodeURIComponent(service)}%0D%0ABudget: ${encodeURIComponent(formattedBudget)}%0D%0AMessage: ${encodeURIComponent(message)}`;
       showSubmissionSuccess(name);
     } finally {
       if (btnText) btnText.style.display = 'flex';
@@ -559,7 +559,7 @@ if (form && submitBtn) {
 
 function showSubmissionSuccess(name) {
   if (!formSuccess) return;
-  formSuccess.innerHTML = `✅ Thank you <strong>${name}</strong>! Your inquiry has been sent directly to <strong>nfaisal4998@gmail.com</strong>. We will contact you within 24 hours.`;
+  formSuccess.innerHTML = `✅ Thank you <strong>${name}</strong>! Your inquiry has been sent directly to <strong>makewisedigitalsolution@gmail.com</strong>. We will contact you within 24 hours.`;
   formSuccess.style.display = 'block';
   if (form) form.reset();
   if (budgetInput && budgetSlider) {
@@ -590,76 +590,19 @@ document.querySelectorAll('.form-group input, .form-group textarea, .form-group 
   }, { passive: true });
 });
 
-// ===== MULTI-THEME CONTROLLER =====
-const themeButtons = document.querySelectorAll('.theme-palette-btn');
-const themeToast = document.getElementById('theme-toast');
-const toastThemeName = document.getElementById('toast-theme-name');
-let toastTimer;
-
-const themeLabels = {
-  gold: { name: 'Black & Gold Luxury', icon: '👑' },
-  purple: { name: 'Stripe & Modern SaaS', icon: '✨' },
-  cyberpunk: { name: 'Cyberpunk Neon', icon: '🔥' },
-  emerald: { name: 'Emerald & Gold', icon: '💎' },
-  blue: { name: 'Corporate Blue', icon: '⚡' }
-};
-
-function applyTheme(themeKey, showFeedback = false) {
-  if (!themeLabels[themeKey]) themeKey = 'gold';
-  
-  document.documentElement.setAttribute('data-theme', themeKey);
-  document.body.setAttribute('data-theme', themeKey);
-  
-  themeButtons.forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-theme') === themeKey);
-  });
-  
-  try {
-    localStorage.setItem('makewise-gold-theme', themeKey);
-  } catch (err) {}
-
-  setTimeout(updateCanvasThemeColors, 40);
-  
-  if (showFeedback && themeToast && toastThemeName) {
-    const meta = themeLabels[themeKey];
-    toastThemeName.textContent = meta.name;
-    const toastIcon = document.getElementById('toast-icon');
-    if (toastIcon) toastIcon.textContent = meta.icon;
-    
-    themeToast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => {
-      themeToast.classList.remove('show');
-    }, 2400);
-  }
-}
-
-themeButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const selectedTheme = btn.getAttribute('data-theme');
-    applyTheme(selectedTheme, true);
-  });
-});
-
-const urlParams = new URLSearchParams(window.location.search);
-const urlTheme = urlParams.get('theme');
-const savedTheme = localStorage.getItem('makewise-gold-theme');
-if (urlTheme && themeLabels[urlTheme]) {
-  applyTheme(urlTheme, false);
-} else if (savedTheme && themeLabels[savedTheme]) {
-  applyTheme(savedTheme, false);
-} else {
-  applyTheme('gold', false);
-}
+// Legacy theme cleanup
+try {
+  localStorage.removeItem('makewise-gold-theme');
+} catch (e) {}
 
 // ===== 7. HERO INTERACTIVE SCOPE CONFIGURATOR =====
 const configData = {
   resume: {
     cat: "Resume Solution",
-    title: "ATS-Compliant Professional Resume",
+    title: "ATS Resume",
     summary: "Engineered to pass employer Applicant Tracking Systems (ATS) with targeted industry keywords, crisp typography, and recruiter-focused achievement formatting.",
     deliverables: [
-      "90%+ ATS Scan Score Pass Rate Guarantee",
+      "Guaranteed ATS-Friendly Parsing & Formatting",
       "Role-Specific Keyword & Skill Mapping",
       "Dual Formats: Editable DOCX + Clean PDF",
       "Targeted Executive Cover Letter Included"

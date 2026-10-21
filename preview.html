@@ -6,7 +6,9 @@
   <title>MakeWise — Design Concepts Showcase</title>
   <meta name="description" content="Explore live design showcase options and interactive prototypes by MakeWise." />
   <meta name="theme-color" content="#080914" />
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpeg" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/logo.jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet" />
@@ -14,7 +16,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background: #080914;
+      background: #040814;
       color: #f8fafc;
       line-height: 1.6;
       min-height: 100vh;
@@ -35,9 +37,9 @@
       filter: blur(100px);
       opacity: 0.28;
     }
-    .mesh-orb-1 { width: 600px; height: 600px; background: #8b5cf6; top: -100px; left: -100px; }
-    .mesh-orb-2 { width: 500px; height: 500px; background: #ec4899; top: 30%; right: -100px; }
-    .mesh-orb-3 { width: 550px; height: 550px; background: #06b6d4; bottom: 0; left: 20%; }
+    .mesh-orb-1 { width: 600px; height: 600px; background: #3b82f6; top: -100px; left: -100px; }
+    .mesh-orb-2 { width: 500px; height: 500px; background: #38bdf8; top: 30%; right: -100px; }
+    .mesh-orb-3 { width: 550px; height: 550px; background: #6366f1; bottom: 0; left: 20%; }
 
     /* HEADER */
     .header {
@@ -52,9 +54,9 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(139, 92, 246, 0.15);
-      border: 1px solid rgba(139, 92, 246, 0.35);
-      color: #c084fc;
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      color: #60a5fa;
       padding: 6px 18px;
       border-radius: 100px;
       font-size: 0.82rem;
@@ -65,9 +67,9 @@
     }
     .badge-dot {
       width: 8px; height: 8px;
-      background: #22c55e;
+      background: #38bdf8;
       border-radius: 50%;
-      box-shadow: 0 0 10px #22c55e;
+      box-shadow: 0 0 10px #38bdf8;
     }
     h1 {
       font-family: 'Outfit', sans-serif;
@@ -78,7 +80,7 @@
       letter-spacing: -0.02em;
     }
     .gradient-text {
-      background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #f59e0b 100%);
+      background: linear-gradient(135deg, #38bdf8 0%, #3b82f6 50%, #6366f1 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -608,6 +610,15 @@
 
   <!-- HEADER -->
   <header class="header">
+    <div style="display:flex; justify-content:center; align-items:center; margin-bottom: 22px;">
+      <a href="index.html" style="display:inline-flex; align-items:center; gap:12px; text-decoration:none; padding: 8px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 100px; backdrop-filter: blur(16px); transition: all 0.3s ease;">
+        <img src="assets/logo.jpeg" alt="MakeWise Logo" style="width:38px; height:38px; border-radius:50%; object-fit:cover; border:1.5px solid rgba(56,189,248,0.5); box-shadow:0 0 16px rgba(56,189,248,0.4);" />
+        <div style="text-align:left; line-height:1.15;">
+          <div style="font-family:'Outfit',sans-serif; font-size:1.25rem; font-weight:800; color:#fff;">Make<span style="color:#38bdf8;">Wise</span></div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:0.56rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#94a3b8;">Digital Solutions</div>
+        </div>
+      </a>
+    </div>
     <div class="badge">
       <span class="badge-dot"></span>
       <span>MakeWise 2.0 &bull; Visual Concept Showcase</span>
@@ -712,7 +723,7 @@
             <span class="bento-tech-pill">&#128450; PostgreSQL &amp; Supabase</span>
             <span class="bento-tech-pill">&#128179; Stripe &amp; Razorpay</span>
             <span class="bento-tech-pill">&#127978; POS Thermal Billing</span>
-            <span class="bento-tech-pill">&#128196; ATS 90%+ Resumes</span>
+            <span class="bento-tech-pill">&#128196; ATS Resumes</span>
           </div>
         </div>
       </div>
@@ -769,10 +780,10 @@
         <div class="config-result-box" id="config-result-box">
           <div>
             <span id="cfg-cat" style="font-size: 0.76rem; font-weight: 700; color: #ec4899; text-transform: uppercase; letter-spacing: 0.08em;">Resume Solution</span>
-            <h4 class="res-title" id="cfg-title">ATS-Compliant Professional Resume</h4>
+            <h4 class="res-title" id="cfg-title">ATS Resume</h4>
             <p class="res-summary" id="cfg-summary">Engineered to pass employer Applicant Tracking Systems (ATS) with targeted industry keywords, crisp typography, and recruiter-focused achievement formatting.</p>
             <ul class="res-deliverables" id="cfg-deliverables">
-              <li><span>&#10003;</span> 90%+ ATS Scan Score Pass Rate Guarantee</li>
+              <li><span>&#10003;</span> Guaranteed ATS-Friendly Parsing &amp; Formatting</li>
               <li><span>&#10003;</span> Role-Specific Keyword &amp; Tooling Mapping</li>
               <li><span>&#10003;</span> Dual Formats: Editable DOCX + Clean PDF</li>
               <li><span>&#10003;</span> Targeted Executive Cover Letter Included</li>
@@ -835,7 +846,7 @@
   ],
 
   <span class="code-key">supportedServices</span>: {
-    <span class="code-key">resumes</span>: { <span class="code-key">turnaround</span>: <span class="code-string">"24-48h"</span>, <span class="code-key">atsScore</span>: <span class="code-string">"90%+"</span> },
+    <span class="code-key">resumes</span>: { <span class="code-key">turnaround</span>: <span class="code-string">"24-48h"</span>, <span class="code-key">format</span>: <span class="code-string">"ATS-Ready"</span> },
     <span class="code-key">portfolios</span>: { <span class="code-key">stack</span>: <span class="code-string">"Next.js 14 / HTML5"</span>, <span class="code-key">speedScore</span>: <span class="code-string">"99+"</span> },
     <span class="code-key">websites</span>: { <span class="code-key">seoReady</span>: <span class="code-bool">true</span>, <span class="code-key">payments</span>: [<span class="code-string">"Razorpay"</span>, <span class="code-string">"Stripe"</span>] },
     <span class="code-key">webApps</span>: { <span class="code-key">database</span>: <span class="code-string">"PostgreSQL/Supabase"</span>, <span class="code-key">auth</span>: <span class="code-bool">true</span> },
@@ -915,8 +926,8 @@
           <div>
             <div class="sb-icon">&#128196;</div>
             <span style="font-size: 0.72rem; font-weight: 700; color: #c084fc; text-transform: uppercase;">24&ndash;48h Turnaround</span>
-            <h3 class="sb-title" style="font-size: 1.15rem; margin-top: 4px;">ATS Executive Resumes</h3>
-            <p class="sb-desc">90%+ ATS scan guarantee with targeted keyword mapping. Editable DOCX + clean PDF + cover letter.</p>
+            <h3 class="sb-title" style="font-size: 1.15rem; margin-top: 4px;">ATS Resumes</h3>
+            <p class="sb-desc">Guaranteed ATS-friendly formatting with targeted keyword mapping. Editable DOCX + clean PDF + cover letter.</p>
           </div>
           <div class="sb-footer">
             <span class="sb-tag">DOCX + PDF Included</span>
@@ -977,10 +988,10 @@
     const configData = {
       resume: {
         cat: "Resume Solution",
-        title: "ATS-Compliant Professional Resume",
+        title: "ATS Resume",
         summary: "Engineered to pass employer Applicant Tracking Systems (ATS) with targeted industry keywords, crisp typography, and recruiter-focused achievement formatting.",
         deliverables: [
-          "90%+ ATS Scan Score Pass Rate Guarantee",
+          "Guaranteed ATS-Friendly Parsing & Formatting",
           "Role-Specific Keyword & Skill Mapping",
           "Dual Formats: Editable DOCX + Clean PDF",
           "Targeted Executive Cover Letter Included"
