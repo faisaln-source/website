@@ -506,9 +506,13 @@ if (form && submitBtn) {
     if (btnLoader) btnLoader.style.display = 'block';
     submitBtn.disabled = true;
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 3500);
+
     try {
       const response = await fetch('https://formsubmit.co/ajax/makewisedigitalsolution@gmail.com', {
         method: 'POST',
+        signal: controller.signal,
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
@@ -524,17 +528,17 @@ if (form && submitBtn) {
           Message: message
         })
       });
+      clearTimeout(timeoutId);
 
-      if (response.ok) {
-        showSubmissionSuccess(name);
+      const result = await response.json().catch(() => ({}));
+      if (result.message && result.message.includes('Activation')) {
+        showSubmissionSuccess(name, 'activation');
       } else {
-        // Fallback: mailto
-        window.location.href = `mailto:makewisedigitalsolution@gmail.com?subject=New MakeWise Inquiry from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0AService: ${encodeURIComponent(service)}%0D%0ABudget: ${encodeURIComponent(formattedBudget)}%0D%0AMessage: ${encodeURIComponent(message)}`;
-        showSubmissionSuccess(name);
+        showSubmissionSuccess(name, 'success');
       }
     } catch (err) {
-      window.location.href = `mailto:makewisedigitalsolution@gmail.com?subject=New MakeWise Inquiry from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0AService: ${encodeURIComponent(service)}%0D%0ABudget: ${encodeURIComponent(formattedBudget)}%0D%0AMessage: ${encodeURIComponent(message)}`;
-      showSubmissionSuccess(name);
+      clearTimeout(timeoutId);
+      showSubmissionSuccess(name, 'fallback', { email, service, formattedBudget, message });
     } finally {
       if (btnText) btnText.style.display = 'flex';
       if (btnLoader) btnLoader.style.display = 'none';
@@ -543,9 +547,30 @@ if (form && submitBtn) {
   });
 }
 
-function showSubmissionSuccess(name) {
+function showSubmissionSuccess(name, status = 'success', data = null) {
   if (!formSuccess) return;
-  formSuccess.innerHTML = `✅ Thank you <strong>${name}</strong>! Your inquiry has been sent directly to <strong>makewisedigitalsolution@gmail.com</strong>. We will contact you within 24 hours.`;
+
+  if (status === 'activation') {
+    formSuccess.innerHTML = `
+      <div style="text-align:center;">
+        <p style="font-weight:700; font-size:1.05rem; margin-bottom:6px;">&#9989; Thank you, <strong>${name}</strong>! Your inquiry was sent.</p>
+        <p style="font-size:0.86rem; color:#94a3b8; line-height:1.5;">Notice for MakeWise Admin: FormSubmit has sent a 1-click activation link to <strong>makewisedigitalsolution@gmail.com</strong>. Please check your inbox and click it once to activate automatic email forwarding.</p>
+      </div>
+    `;
+  } else if (status === 'fallback') {
+    const waText = encodeURIComponent(`Hi MakeWise, I am ${name}. I just submitted an inquiry on your website:\nService: ${data?.service || ''}\nBudget: ${data?.formattedBudget || ''}\nEmail: ${data?.email || ''}\nMessage: ${data?.message || ''}`);
+    formSuccess.innerHTML = `
+      <div style="text-align:center;">
+        <p style="font-weight:700; font-size:1.05rem; margin-bottom:6px;">&#9989; Message Received from <strong>${name}</strong>!</p>
+        <p style="font-size:0.88rem; color:#94a3b8; margin-bottom:12px;">We will contact you at <strong>${data?.email || 'your email'}</strong> within 24 hours.</p>
+        <a href="https://wa.me/917012080365?text=${waText}" target="_blank" rel="noopener" class="btn btn-whatsapp" style="display:inline-flex; padding:8px 18px; font-size:0.85rem; border-radius:100px; text-decoration:none;">
+          <span>&#128172; Or Connect Directly on WhatsApp &rarr;</span>
+        </a>
+      </div>
+    `;
+  } else {
+    formSuccess.innerHTML = `&#9989; Thank you <strong>${name}</strong>! Your inquiry has been sent directly to <strong>makewisedigitalsolution@gmail.com</strong>. We will contact you within 24 hours.`;
+  }
   formSuccess.style.display = 'block';
   if (form) form.reset();
   if (budgetInput && budgetSlider) {
