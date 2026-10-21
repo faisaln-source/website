@@ -519,13 +519,13 @@ body {
   font-weight: 700 !important;
 }
 
-/* ===== 3D HERO DASHBOARD SHOWPIECE ===== */
+/* ===== HERO DASHBOARD SHOWPIECE ===== */
 .hero-showpiece-wrap {
   position: relative;
   width: 100%;
   max-width: 980px;
   margin: 40px auto 0;
-  perspective: 1200px;
+  transform: none !important;
 }
 .showpiece-backdrop-glow {
   position: absolute;

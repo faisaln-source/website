@@ -248,10 +248,10 @@ if (rotatorText && !prefersReducedMotion) {
   }, 2900);
 }
 
-// ===== 4. CARD SPOTLIGHT & 3D TILT (DESKTOP ONLY) =====
+// ===== 4. CARD SPOTLIGHT (DESKTOP ONLY) =====
 if (isDesktopPointer && !prefersReducedMotion) {
-  const tiltCards = document.querySelectorAll('.about-card-main, .hero-float-pill, .saas-dashboard-card, .config-result-box');
-  tiltCards.forEach(card => {
+  const spotlightCards = document.querySelectorAll('.about-card-main, .hero-float-pill');
+  spotlightCards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -259,20 +259,6 @@ if (isDesktopPointer && !prefersReducedMotion) {
 
       card.style.setProperty('--mouse-x', `${x}px`);
       card.style.setProperty('--mouse-y', `${y}px`);
-
-      if (window.innerWidth > 800 && !card.classList.contains('hero-float-pill')) {
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * -5;
-        const rotateY = ((x - centerX) / centerX) * 5;
-        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
-      }
-    }, { passive: true });
-
-    card.addEventListener('mouseleave', () => {
-      if (!card.classList.contains('hero-float-pill')) {
-        card.style.transform = '';
-      }
     }, { passive: true });
   });
 
