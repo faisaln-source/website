@@ -601,7 +601,7 @@ function showSubmissionSuccess(name, status = 'success', data = null) {
         <p style="font-weight:700; font-size:1.05rem; margin-bottom:6px;">&#9989; Message Received from <strong>${name}</strong>!</p>
         <p style="font-size:0.88rem; color:#94a3b8; margin-bottom:12px;">We will contact you at <strong>${data?.email || 'your email'}</strong> within 24 hours.</p>
         <a href="https://wa.me/917012080365?text=${waText}" target="_blank" rel="noopener" class="btn btn-whatsapp" style="display:inline-flex; padding:8px 18px; font-size:0.85rem; border-radius:8px; text-decoration:none;">
-          <span>&#128172; Or Connect Directly on WhatsApp &rarr;</span>
+          <span>Connect on WhatsApp &rarr;</span>
         </a>
       </div>
     `;
