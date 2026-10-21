@@ -52,7 +52,7 @@
   --radius: 18px;
   --radius-sm: 10px;
   --radius-lg: 26px;
-  --radius-pill: 100px;
+  --radius-pill: 8px;
   --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   --mouse-x: 50%;
   --mouse-y: 50%;
@@ -139,15 +139,15 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 34px;
-  border-radius: 100px;
+  padding: 13px 28px;
+  border-radius: 8px;
   font-family: 'Outfit', sans-serif;
-  font-size: 1rem;
+  font-size: 0.96rem;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  border: none;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.3s ease;
+  border: 1px solid transparent;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.3s ease, border-color 0.25s ease;
   white-space: nowrap;
   position: relative;
   overflow: hidden;
@@ -168,13 +168,14 @@ body {
 }
 .btn-primary {
   background: var(--grad);
-  color: var(--btn-primary-text, #050507);
-  font-weight: 800;
-  box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.45);
+  color: var(--btn-primary-text, #ffffff);
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 18px rgba(var(--primary-rgb), 0.35);
 }
 .btn-primary:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 14px 35px rgba(var(--primary-rgb), 0.55);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.5);
 }
 .btn-primary .btn-arrow {
   transition: transform 0.25s ease;
@@ -184,7 +185,7 @@ body {
   transform: translateX(4px);
 }
 .btn-ghost {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
   color: var(--text);
   border: 1px solid var(--border);
   backdrop-filter: blur(12px);
@@ -192,8 +193,8 @@ body {
 .btn-ghost:hover {
   background: var(--surface-hover);
   border-color: var(--border-glow);
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 .btn-nav {
   background: var(--grad);
@@ -528,8 +529,8 @@ body {
   animation: fadeInUp 0.8s 0.5s ease both;
 }
 .btn-pill {
-  border-radius: 100px !important;
-  padding: 15px 36px !important;
+  border-radius: 8px !important;
+  padding: 13px 28px !important;
   font-weight: 700 !important;
 }
 
@@ -852,7 +853,8 @@ body {
   font-weight: 700;
   font-size: 0.92rem;
   padding: 12px 20px;
-  border-radius: 100px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -1402,7 +1404,7 @@ body {
   background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.35), rgba(var(--secondary-rgb), 0.35));
   border: 1px solid rgba(var(--primary-rgb), 0.5);
   padding: 8px 18px;
-  border-radius: 100px;
+  border-radius: 8px;
   text-decoration: none;
   transition: all 0.25s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -1715,7 +1717,8 @@ select option { background: var(--select-bg); color: var(--select-color); }
 .btn-whatsapp {
   background: #25d366;
   color: #ffffff;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
   font-weight: 600;
   box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35);
   flex: 1;
