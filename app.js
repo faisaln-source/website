@@ -280,7 +280,6 @@ if (isDesktopPointer && !prefersReducedMotion) {
 
 // ===== 6. NAVBAR SCROLL & ACTIVE LINK (THROTTLED) =====
 const navbar = document.getElementById('navbar');
-const navSections = Array.from(document.querySelectorAll('section[id]'));
 const navLinkMap = new Map();
 document.querySelectorAll('.nav-link').forEach(link => {
   const href = link.getAttribute('href');
@@ -288,6 +287,20 @@ document.querySelectorAll('.nav-link').forEach(link => {
     navLinkMap.set(href.slice(1), link);
   }
 });
+
+// Explicit ordered list of targets corresponding to navbar buttons
+const navTargetIds = ['home', 'services', 'about', 'contact'];
+
+let isManualNavClick = false;
+let navClickTimer = null;
+
+function setActiveNavLink(targetId) {
+  const targetLink = navLinkMap.get(targetId);
+  if (targetLink) {
+    navLinkMap.forEach(l => l.classList.remove('active'));
+    targetLink.classList.add('active');
+  }
+}
 
 let scrollTicking = false;
 function onScroll() {
@@ -299,18 +312,30 @@ function onScroll() {
     }
   }
 
-  // Update active nav link
-  const scrollPos = window.scrollY + 140;
-  for (let i = navSections.length - 1; i >= 0; i--) {
-    const sec = navSections[i];
-    if (scrollPos >= sec.offsetTop) {
-      const id = sec.getAttribute('id');
-      const activeLink = navLinkMap.get(id);
-      if (activeLink && !activeLink.classList.contains('active')) {
-        navLinkMap.forEach(l => l.classList.remove('active'));
-        activeLink.classList.add('active');
+  // If currently smoothly scrolling from a manual click, don't jitter
+  if (isManualNavClick) {
+    scrollTicking = false;
+    return;
+  }
+
+  // Check if reached very bottom of page
+  if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
+    setActiveNavLink('contact');
+    scrollTicking = false;
+    return;
+  }
+
+  // Target order: contact -> about -> services -> home
+  const scrollPos = window.scrollY + 180;
+  for (let i = navTargetIds.length - 1; i >= 0; i--) {
+    const id = navTargetIds[i];
+    const el = document.getElementById(id);
+    if (el) {
+      const elTop = el.getBoundingClientRect().top + window.scrollY;
+      if (scrollPos >= elTop) {
+        setActiveNavLink(id);
+        break;
       }
-      break;
     }
   }
   scrollTicking = false;
@@ -373,8 +398,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       const target = document.querySelector(targetId);
       if (target) {
         e.preventDefault();
-        const offset = 76;
+        const offset = 80;
         const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
+        // If clicked from navbar, update active state immediately
+        const cleanId = targetId.slice(1);
+        if (anchor.classList.contains('nav-link') || navLinkMap.has(cleanId)) {
+          setActiveNavLink(cleanId);
+          isManualNavClick = true;
+          clearTimeout(navClickTimer);
+          navClickTimer = setTimeout(() => {
+            isManualNavClick = false;
+          }, 850);
+        }
+
         window.scrollTo({ top, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
       }
     }

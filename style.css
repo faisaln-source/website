@@ -335,11 +335,25 @@ body {
   font-weight: 600;
   padding: 8px 16px;
   border-radius: 100px;
+  border: 1px solid transparent;
   transition: all 0.25s ease;
 }
-.nav-link:hover, .nav-link.active {
+.nav-link:hover {
   color: #fff;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+}
+.nav-link.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.18);
+}
+.nav-link:focus:not(:focus-visible) {
+  outline: none;
+}
+.nav-link:focus-visible {
+  outline: 2px solid rgba(56, 189, 248, 0.7);
+  outline-offset: 2px;
 }
 .nav-actions {
   display: flex;
@@ -526,6 +540,7 @@ body {
   max-width: 980px;
   margin: 40px auto 0;
   transform: none !important;
+  scroll-margin-top: 85px;
 }
 .showpiece-backdrop-glow {
   position: absolute;
