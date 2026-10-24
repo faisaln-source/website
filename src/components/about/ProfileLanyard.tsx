@@ -35,7 +35,7 @@ export default function ProfileLanyard() {
     logoImg.src = '/images/avatar.jpg';
 
     logoImg.onload = () => {
-      // 1. Generate Front Badge (Clean & Iconic: Only Big Logo & Name)
+      // 1. Generate Front Badge (Ultra-large Logo & Name, Zero Identifier Text)
       const canvasFront = document.createElement('canvas');
       canvasFront.width = 1536;
       canvasFront.height = 2160;
@@ -61,65 +61,43 @@ export default function ProfileLanyard() {
         ctxF.roundRect(canvasFront.width / 2 - 180, 75, 360, 60, 30);
         ctxF.fill();
 
-        // Eyebrow Header
-        ctxF.fillStyle = '#64748b';
-        ctxF.font = '800 34px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-        ctxF.textAlign = 'center';
-        ctxF.fillText('MAKEWISE STUDIO IDENTIFIER', canvasFront.width / 2, 230);
+        // (No identifier text - completely removed as requested)
 
-        // Center Big Iconic Logo
-        const logoSize = 540;
+        // Ultra-Large Center Logo
+        const logoSize = 780;
         const logoX = (canvasFront.width - logoSize) / 2;
-        const logoY = 380;
+        const logoY = 240;
 
-        // Gradient border for logo
+        // Gradient outer ring for logo
         const grad = ctxF.createLinearGradient(logoX, logoY, logoX + logoSize, logoY + logoSize);
         grad.addColorStop(0, '#ea580c');
         grad.addColorStop(1, '#f59e0b');
         ctxF.fillStyle = grad;
         ctxF.beginPath();
-        ctxF.roundRect(logoX - 12, logoY - 12, logoSize + 24, logoSize + 24, 104);
+        ctxF.roundRect(logoX - 14, logoY - 14, logoSize + 28, logoSize + 28, 134);
         ctxF.fill();
 
         // Draw avatar / logo image
         ctxF.save();
         ctxF.beginPath();
-        ctxF.roundRect(logoX, logoY, logoSize, logoSize, 96);
+        ctxF.roundRect(logoX, logoY, logoSize, logoSize, 120);
         ctxF.clip();
         ctxF.drawImage(logoImg, logoX, logoY, logoSize, logoSize);
         ctxF.restore();
 
-        // Studio Name (Giant, bold, unmissable)
+        // Massive Bold MakeWise Name
         ctxF.textAlign = 'center';
         ctxF.fillStyle = '#0f172a';
-        ctxF.font = '900 156px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-        ctxF.fillText('MakeWise', canvasFront.width / 2, 1140);
+        ctxF.font = '900 210px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctxF.fillText('MakeWise', canvasFront.width / 2, 1230);
 
-        // Studio Subtitle / Category
+        // Large High-Impact Subtitle
         ctxF.fillStyle = '#ea580c';
-        ctxF.font = '800 52px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-        ctxF.fillText('Digital Products & Web Solutions', canvasFront.width / 2, 1235);
+        ctxF.font = '800 68px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctxF.fillText('Digital Products & Web Solutions', canvasFront.width / 2, 1345);
 
-        // Status Badge Pill
-        const pillW = 460;
-        const pillH = 68;
-        const pillX = (canvasFront.width - pillW) / 2;
-        const pillY = 1330;
-        ctxF.fillStyle = 'rgba(16, 185, 129, 0.12)';
-        ctxF.strokeStyle = '#10b981';
-        ctxF.lineWidth = 4;
-        ctxF.beginPath();
-        ctxF.roundRect(pillX, pillY, pillW, pillH, 34);
-        ctxF.fill();
-        ctxF.stroke();
-
-        ctxF.fillStyle = '#047857';
-        ctxF.font = '900 34px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-        ctxF.textAlign = 'center';
-        ctxF.fillText('● DIRECT DEVELOPER PASS', canvasFront.width / 2, pillY + 46);
-
-        // Bottom Decorative Barcode
-        const barcodeY = 1580;
+        // Bottom Decorative Barcode (Clean & minimal)
+        const barcodeY = 1620;
         ctxF.fillStyle = '#0f172a';
         let bx = 268;
         const barWidths = [
@@ -130,17 +108,11 @@ export default function ProfileLanyard() {
           bx += barWidths[i] + (i % 3 === 0 ? 14 : 8);
         }
 
-        // Pass ID
-        ctxF.fillStyle = '#64748b';
-        ctxF.font = '900 38px monospace';
-        ctxF.textAlign = 'center';
-        ctxF.fillText('ID: MW-2026-DEV • VERIFIED STUDIO', canvasFront.width / 2, 1765);
-
         // Footer Tagline
-        ctxF.fillStyle = '#475569';
-        ctxF.font = '900 36px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctxF.fillStyle = '#64748b';
+        ctxF.font = '800 42px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
         ctxF.textAlign = 'center';
-        ctxF.fillText('makewise.vercel.app', canvasFront.width / 2, 1920);
+        ctxF.fillText('makewise.vercel.app', canvasFront.width / 2, 1840);
 
         setFrontImage(canvasFront.toDataURL('image/png'));
       }
@@ -164,39 +136,39 @@ export default function ProfileLanyard() {
         ctxB.fillRect(18, 18, canvasBack.width - 36, 16);
 
         // Center Big Logo
-        const bLogoSize = 380;
+        const bLogoSize = 420;
         const bLogoX = (canvasBack.width - bLogoSize) / 2;
-        const bLogoY = 280;
+        const bLogoY = 260;
 
         const gradB = ctxB.createLinearGradient(bLogoX, bLogoY, bLogoX + bLogoSize, bLogoY + bLogoSize);
         gradB.addColorStop(0, '#ea580c');
         gradB.addColorStop(1, '#f59e0b');
         ctxB.fillStyle = gradB;
         ctxB.beginPath();
-        ctxB.roundRect(bLogoX - 10, bLogoY - 10, bLogoSize + 20, bLogoSize + 20, 76);
+        ctxB.roundRect(bLogoX - 10, bLogoY - 10, bLogoSize + 20, bLogoSize + 20, 84);
         ctxB.fill();
 
         ctxB.save();
         ctxB.beginPath();
-        ctxB.roundRect(bLogoX, bLogoY, bLogoSize, bLogoSize, 68);
+        ctxB.roundRect(bLogoX, bLogoY, bLogoSize, bLogoSize, 74);
         ctxB.clip();
         ctxB.drawImage(logoImg, bLogoX, bLogoY, bLogoSize, bLogoSize);
         ctxB.restore();
 
         // Branding
         ctxB.fillStyle = '#ffffff';
-        ctxB.font = '900 110px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctxB.font = '900 120px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
         ctxB.textAlign = 'center';
-        ctxB.fillText('MakeWise', canvasBack.width / 2, 780);
+        ctxB.fillText('MakeWise', canvasBack.width / 2, 790);
 
         ctxB.fillStyle = '#ea580c';
-        ctxB.font = '800 50px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-        ctxB.fillText('DIRECT-TO-DEVELOPER DIGITAL STUDIO', canvasBack.width / 2, 865);
+        ctxB.font = '800 52px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctxB.fillText('DIGITAL PRODUCTS & WEB SOLUTIONS', canvasBack.width / 2, 875);
 
         // Contact Box
         const cBoxW = canvasBack.width - 180;
         const cBoxX = 90;
-        const cBoxY = 945;
+        const cBoxY = 960;
         const cBoxH = 490;
         ctxB.fillStyle = 'rgba(255, 255, 255, 0.05)';
         ctxB.strokeStyle = 'rgba(255, 255, 255, 0.18)';
@@ -208,18 +180,18 @@ export default function ProfileLanyard() {
 
         ctxB.fillStyle = '#ffffff';
         ctxB.font = '900 66px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-        ctxB.fillText('💬 WhatsApp: +91 70120 80365', canvasBack.width / 2, 1090);
+        ctxB.fillText('💬 WhatsApp: +91 70120 80365', canvasBack.width / 2, 1105);
 
         ctxB.fillStyle = '#f1f5f9';
         ctxB.font = '800 52px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-        ctxB.fillText('✉ makewisedigitalsolution@gmail.com', canvasBack.width / 2, 1215);
+        ctxB.fillText('✉ makewisedigitalsolution@gmail.com', canvasBack.width / 2, 1230);
 
         ctxB.fillStyle = '#94a3b8';
         ctxB.font = '800 46px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-        ctxB.fillText('📍 Kerala, India • Worldwide Remote Delivery', canvasBack.width / 2, 1330);
+        ctxB.fillText('📍 Kerala, India • Worldwide Remote Delivery', canvasBack.width / 2, 1345);
 
         // Security / Ownership Badge
-        const ownY = 1500;
+        const ownY = 1520;
         const ownH = 140;
         ctxB.fillStyle = 'rgba(234, 88, 12, 0.18)';
         ctxB.strokeStyle = '#ea580c';
@@ -268,8 +240,8 @@ export default function ProfileLanyard() {
             cardColor="#ffffff"
             finish="matte"
             orientation="portrait"
-            size={0.95}
-            strapLength={0.25}
+            size={0.98}
+            strapLength={0.24}
             strapColor="#ea580c"
             strapWidth={0.65}
             metal="silver"
