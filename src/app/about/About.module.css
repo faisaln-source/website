@@ -1,5 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════
    ABOUT PAGE — MODERN DIGITAL STUDIO DESIGN SYSTEM
+   MakeWise Solo-Developer Studio
    ═══════════════════════════════════════════════════════════════ */
 
 .pageContainer {
@@ -53,6 +54,10 @@
   opacity: 0.6;
 }
 
+:global([data-theme="light"]) .pageContainer {
+  background: radial-gradient(circle at 50% 0%, rgba(249, 115, 22, 0.04) 0%, rgba(250, 248, 245, 1) 45%, rgba(246, 244, 240, 1) 100%);
+}
+
 :global([data-theme="light"]) .topGlowOrb {
   opacity: 0.25;
   filter: blur(90px);
@@ -66,6 +71,7 @@
 }
 
 :global([data-theme="light"]) .statCard,
+:global([data-theme="light"]) .studioIdCard,
 :global([data-theme="light"]) .bentoCard,
 :global([data-theme="light"]) .featureCard,
 :global([data-theme="light"]) .techCard {
@@ -96,16 +102,23 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   1. HERO HEADER SECTION
+   1. HERO SECTION — SPLIT WITH MAKEWISE PROFILE CARD
    ═══════════════════════════════════════════════════════════════ */
-.heroHeader {
+.heroSection {
+  display: grid;
+  grid-template-columns: 1.25fr 0.85fr;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.heroContentLeft {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
   gap: 1.5rem;
-  max-width: 900px;
-  margin: 0 auto;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .statusPill {
@@ -160,9 +173,9 @@
 
 .mainHeading {
   font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 5.2vw, 4.2rem);
+  font-size: clamp(2.3rem, 4.6vw, 3.8rem);
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.12;
   letter-spacing: -0.035em;
   color: var(--neutral-on-background-strong);
   margin: 0;
@@ -183,18 +196,17 @@
 
 .leadSubtitle {
   font-family: var(--font-body);
-  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  font-size: clamp(1rem, 1.7vw, 1.18rem);
   line-height: 1.65;
   color: var(--neutral-on-background-weak);
-  max-width: 720px;
-  margin: 0 auto;
+  margin: 0;
+  max-width: 600px;
 }
 
-/* ── Hero Actions Strip ───────────────────────────────────── */
+/* ── Hero Actions ─────────────────────────────────────────── */
 .heroActions {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 0.5rem;
@@ -246,22 +258,110 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-.metaInfoPills {
+/* ── Right Column: MakeWise Profile Card (Requested) ──────── */
+.studioIdCard {
+  position: relative;
+  padding: clamp(1.8rem, 2.5vw, 2.4rem);
+  border-radius: 22px;
+  background: var(--surface-background);
+  border: 1px solid var(--neutral-alpha-weak);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px 18px;
-  font-family: var(--font-label);
-  font-size: 0.8125rem;
-  color: var(--neutral-on-background-weak);
-  margin-top: 4px;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 8px 32px -6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.metaPillItem {
-  display: inline-flex;
+.studioIdCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--brand-on-background-strong, #ea580c), transparent);
+}
+
+.studioIdCard:hover {
+  border-color: var(--brand-alpha-medium);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 44px -8px var(--brand-alpha-weak);
+}
+
+.studioAvatarRow {
+  display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 1rem;
+}
+
+.studioAvatarWrapper {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--brand-on-background-strong, #ea580c), #eab308);
+  box-shadow: 0 0 16px var(--brand-alpha-weak);
+  flex-shrink: 0;
+}
+
+.studioAvatarImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  object-fit: cover;
+  display: block;
+}
+
+.studioInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.studioName {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--neutral-on-background-strong);
+  margin: 0;
+}
+
+.studioRole {
+  font-family: var(--font-label);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--brand-on-background-strong);
+}
+
+.studioMetaList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 1rem;
+  border-top: 1px solid var(--neutral-alpha-weak);
+}
+
+.studioMetaItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+}
+
+.studioMetaKey {
+  color: var(--neutral-on-background-weak);
+}
+
+.studioMetaVal {
+  color: var(--neutral-on-background-strong);
+  font-weight: 600;
+  text-align: right;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -710,6 +810,9 @@
    RESPONSIVE BREAKPOINTS
    ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 960px) {
+  .heroSection {
+    grid-template-columns: 1fr;
+  }
   .statsGrid {
     grid-template-columns: repeat(2, 1fr);
   }

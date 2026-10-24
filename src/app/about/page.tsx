@@ -1,13 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import {
-  Avatar,
   Icon,
   Meta,
   Schema,
   RevealFx,
 } from "@once-ui-system/core";
-import { baseURL, about, person, social } from "@/resources";
+import { baseURL, about, person } from "@/resources";
 import styles from "./About.module.css";
 
 export async function generateMetadata() {
@@ -155,37 +154,36 @@ export default function About() {
       </div>
 
       <div className={styles.contentWrapper}>
-        {/* ── 1. HERO HEADER ── */}
-        <section className={styles.heroHeader} aria-label="About MakeWise">
-          <RevealFx translateY="8" delay={100}>
-            <div className={styles.statusPill}>
-              <span className={styles.statusDotPulse} aria-hidden="true">
-                <span className={styles.statusDotWave} />
-                <span className={styles.statusDotCore} />
-              </span>
-              <span>Direct-to-Developer Digital Studio</span>
-            </div>
-          </RevealFx>
+        {/* ── 1. HERO HEADER WITH MAKEWISE PROFILE CARD ── */}
+        <section className={styles.heroSection} aria-label="About MakeWise">
+          <div className={styles.heroContentLeft}>
+            <RevealFx translateY="8" delay={100}>
+              <div className={styles.statusPill}>
+                <span className={styles.statusDotPulse} aria-hidden="true">
+                  <span className={styles.statusDotWave} />
+                  <span className={styles.statusDotCore} />
+                </span>
+                <span>Direct-to-Developer Digital Studio</span>
+              </div>
+            </RevealFx>
 
-          <RevealFx translateY="12" delay={200}>
-            <h1 className={styles.mainHeading}>
-              Building high-impact digital products{" "}
-              <span className={styles.gradientText}>without agency bloat.</span>
-            </h1>
-          </RevealFx>
+            <RevealFx translateY="12" delay={200}>
+              <h1 className={styles.mainHeading}>
+                Building high-impact digital products{" "}
+                <span className={styles.gradientText}>without agency bloat.</span>
+              </h1>
+            </RevealFx>
 
-          <RevealFx translateY="12" delay={300}>
-            <p className={styles.leadSubtitle}>
-              MakeWise was founded to solve a universal client frustration: bloated
-              invoices, endless delay, and dealing with non-technical middle managers.
-              Here, you collaborate directly with the builder — no account managers,
-              no markup, no mystery.
-            </p>
-          </RevealFx>
+            <RevealFx translateY="12" delay={300}>
+              <p className={styles.leadSubtitle}>
+                MakeWise was founded to solve a universal client frustration: bloated
+                invoices, endless delay, and dealing with non-technical middle managers.
+                Here, you collaborate directly with the builder — no account managers,
+                no markup, no mystery.
+              </p>
+            </RevealFx>
 
-          {/* Quick Actions & Meta */}
-          <RevealFx translateY="16" delay={400} fillWidth>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", width: "100%" }}>
+            <RevealFx translateY="16" delay={400}>
               <div className={styles.heroActions}>
                 <a
                   href={whatsappLink}
@@ -207,18 +205,43 @@ export default function About() {
                   <span>Direct Email</span>
                 </a>
               </div>
+            </RevealFx>
+          </div>
 
-              <div className={styles.metaInfoPills}>
-                <div className={styles.metaPillItem}>
-                  <Icon name="globe" size="xs" onBackground="brand-weak" />
-                  <span>Kerala, India &bull; Global Remote Delivery</span>
+          {/* Right Column: MakeWise Studio Profile Card (Requested) */}
+          <RevealFx translateY="16" delay={250}>
+            <div className={styles.studioIdCard}>
+              <div className={styles.studioAvatarRow}>
+                <div className={styles.studioAvatarWrapper}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={person.avatar}
+                    alt={person.name}
+                    className={styles.studioAvatarImg}
+                  />
                 </div>
-                <div className={styles.metaPillItem}>
-                  <span>Languages: English, Malayalam</span>
+                <div className={styles.studioInfo}>
+                  <h2 className={styles.studioName}>{person.name}</h2>
+                  <span className={styles.studioRole}>{person.role}</span>
                 </div>
-                <div className={styles.metaPillItem}>
-                  <span style={{ color: "#10b981" }}>✦</span>
-                  <span>Direct Developer Chat Anytime</span>
+              </div>
+
+              <div className={styles.studioMetaList}>
+                <div className={styles.studioMetaItem}>
+                  <span className={styles.studioMetaKey}>Headquarters</span>
+                  <span className={styles.studioMetaVal}>Kerala, India (Global Remote)</span>
+                </div>
+                <div className={styles.studioMetaItem}>
+                  <span className={styles.studioMetaKey}>Communication</span>
+                  <span className={styles.studioMetaVal}>English, Malayalam</span>
+                </div>
+                <div className={styles.studioMetaItem}>
+                  <span className={styles.studioMetaKey}>Delivery Speed</span>
+                  <span className={styles.studioMetaVal} style={{ color: "#10b981" }}>3–10 Days Average</span>
+                </div>
+                <div className={styles.studioMetaItem}>
+                  <span className={styles.studioMetaKey}>Access Model</span>
+                  <span className={styles.studioMetaVal} style={{ color: "var(--brand-on-background-strong)" }}>1-on-1 Direct Developer</span>
                 </div>
               </div>
             </div>
