@@ -23,12 +23,15 @@
 
 .accordionContainer {
   width: 100%;
-  height: clamp(480px, 55vh, 530px);
+  height: 520px;
+  min-height: 480px;
+  display: block;
 }
 
 @media (max-width: 768px) {
   .accordionContainer {
     height: auto !important;
+    min-height: unset !important;
   }
 }
 

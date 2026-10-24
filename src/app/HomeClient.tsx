@@ -173,9 +173,8 @@ export default function HomeClient() {
               textColor="#FFFFFF"
               buttonColor="#FFFFFF"
               buttonTextColor="#141414"
-              autoHeight={false}
               className={styles.accordionContainer}
-              style={{ width: "100%" }}
+              style={{ width: "100%", height: "520px", minHeight: "480px" }}
             />
           </Column>
         </RevealFx>
