@@ -143,9 +143,9 @@ export default function HomeClient() {
 
         {/* ── SERVICES SWATCH ACCORDION ── */}
         <RevealFx translateY="16" delay={200} fillWidth>
-          <Column fillWidth gap="24">
-            <Row fillWidth horizontal="between" vertical="end" wrap gap="16">
-              <Column gap="4">
+          <Column fillWidth gap="16">
+            <Row fillWidth horizontal="between" vertical="center" wrap gap="16">
+              <Column gap="2">
                 <Text variant="label-strong-s" onBackground="brand-medium">WHAT WE BUILD</Text>
                 <Heading as="h2" variant="display-strong-xs">Services &amp; Digital Solutions</Heading>
               </Column>
@@ -163,7 +163,9 @@ export default function HomeClient() {
               textColor="#FFFFFF"
               buttonColor="#FFFFFF"
               buttonTextColor="#141414"
-              style={{ width: "100%", minHeight: "clamp(460px, 52vh, 520px)" }}
+              autoHeight={false}
+              className={styles.accordionContainer}
+              style={{ width: "100%", height: "clamp(480px, 55vh, 530px)" }}
             />
           </Column>
         </RevealFx>

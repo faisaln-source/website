@@ -94,6 +94,7 @@ export interface SwatchAccordionProps {
   transition?: any;
   style?: React.CSSProperties;
   className?: string;
+  autoHeight?: boolean;
 }
 
 /* ------------------------------------------------------------------ helpers */
@@ -367,6 +368,7 @@ export default function SwatchAccordion(props: SwatchAccordionProps) {
     transition = { type: "spring", duration: 0.75, bounce: 0.1, delay: 0 },
     style,
     className,
+    autoHeight: autoHeightProp,
   } = props;
 
   const count = items.length;
@@ -475,10 +477,15 @@ export default function SwatchAccordion(props: SwatchAccordionProps) {
   const body = splitFont(bodyFont, "16px");
   const label = splitFont(labelFont, "12px");
   const Heading = (titleTag || "h3") as React.ElementType;
-  const autoHeight = !(
-    style &&
-    (style.height === "100%" || typeof style.height === "number")
-  );
+  const autoHeight =
+    autoHeightProp !== undefined
+      ? autoHeightProp
+      : !(
+          style &&
+          (style.height === "100%" ||
+            typeof style.height === "number" ||
+            (typeof style.height === "string" && style.height !== "auto"))
+        );
   const pad = parseBox(padding, "28px");
   const gapParts = String(gap || "8px").trim().split(/\s+/).filter(Boolean);
   const rowGap = gapParts[0] || "8px";
@@ -901,8 +908,8 @@ const CSS = `
   .swa[data-dir="auto"] .swa-closed{width:auto;right:0;flex-direction:row;justify-content:flex-start;gap:14px;padding:0 14px 0 20px;}
   .swa[data-dir="auto"] .swa-vt{margin:0 auto 0 0;}
   .swa[data-dir="auto"] .swa-vtitle{writing-mode:horizontal-tb;transform:none;}
-  .swa[data-dir="auto"][data-auto-height] .swa-strip{flex:none;height:var(--swa-bar);transition-property:height;}
-  .swa[data-dir="auto"][data-auto-height] .swa-strip[data-open]{height:calc(75cqw + 232px);}
+  .swa[data-dir="auto"] .swa-strip{flex:none;height:var(--swa-bar);transition-property:height;}
+  .swa[data-dir="auto"] .swa-strip[data-open]{height:calc(75cqw + 232px);}
   .swa-back-container{padding:20px;}
   .swa-back-title{font-size:24px;margin-bottom:8px;}
   .swa-back-desc{font-size:13px;line-height:1.45;}
