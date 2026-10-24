@@ -149,7 +149,17 @@ export default function HomeClient() {
                 <Text variant="label-strong-s" onBackground="brand-medium">WHAT WE BUILD</Text>
                 <Heading as="h2" variant="display-strong-xs">Services &amp; Digital Solutions</Heading>
               </Column>
-              <Button href="/work" variant="tertiary" size="s" arrowIcon>
+              <Button
+                href="/work"
+                variant="tertiary"
+                size="s"
+                arrowIcon
+                onClick={() => {
+                  if (typeof window !== "undefined") {
+                    window.scrollTo({ top: 0, behavior: "instant" });
+                  }
+                }}
+              >
                 See all services
               </Button>
             </Row>

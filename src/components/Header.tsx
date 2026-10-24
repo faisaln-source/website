@@ -121,6 +121,11 @@ export const Header = () => {
                           href={item.href}
                           label={item.label}
                           selected={pathname.startsWith(item.href)}
+                          onClick={() => {
+                            if (typeof window !== "undefined") {
+                              window.scrollTo({ top: 0, behavior: "instant" });
+                            }
+                          }}
                         />
                       </Row>
                       <Row hide s={{ hide: false }}>
@@ -129,6 +134,11 @@ export const Header = () => {
                           href={item.href}
                           aria-label={item.label}
                           selected={pathname.startsWith(item.href)}
+                          onClick={() => {
+                            if (typeof window !== "undefined") {
+                              window.scrollTo({ top: 0, behavior: "instant" });
+                            }
+                          }}
                         />
                       </Row>
                     </Fragment>

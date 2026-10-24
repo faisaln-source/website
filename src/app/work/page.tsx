@@ -12,6 +12,8 @@ import {
   Schema,
 } from "@once-ui-system/core";
 import { work, person, baseURL, about } from "@/resources";
+import styles from "./work.module.css";
+import { ScrollTopOnMount } from "./ScrollTopOnMount";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -128,7 +130,8 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <Column maxWidth="m" gap="xl" paddingY="12">
+    <main className={styles.pageContainer}>
+      <ScrollTopOnMount />
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -143,22 +146,44 @@ export default function ServicesPage() {
         }}
       />
 
-      {/* Header */}
-      <Column gap="16">
-        <Heading variant="display-strong-l">Services</Heading>
-        <Text variant="body-default-xl" onBackground="neutral-weak" style={{ maxWidth: "600px" }}>
-          Everything we build — from résumés to full-stack apps — comes with transparent pricing,
-          fast turnaround, and your full source code.
-        </Text>
-      </Column>
+      {/* Ambient Background Lighting */}
+      <div className={styles.ambientBackground} aria-hidden="true">
+        <div className={styles.topGlowOrb} />
+        <div className={styles.gridPattern} />
+      </div>
 
-      <Line />
+      {/* Header */}
+      <section className={styles.heroHeader} aria-label="Services and Pricing">
+        <RevealFx translateY="8" delay={100}>
+          <div className={styles.statusPill}>
+            <span className={styles.statusDotPulse} aria-hidden="true">
+              <span className={styles.statusDotWave} />
+              <span className={styles.statusDotCore} />
+            </span>
+            <span>Transparent Pricing & Guaranteed Delivery</span>
+          </div>
+        </RevealFx>
+
+        <RevealFx translateY="12" delay={200}>
+          <h1 className={styles.mainHeading}>
+            Services &amp; <span className={styles.gradientText}>Pricing</span>
+          </h1>
+        </RevealFx>
+
+        <RevealFx translateY="12" delay={300}>
+          <p className={styles.leadSubtitle}>
+            Everything we build — from résumés to full-stack apps — comes with transparent pricing,
+            fast turnaround, and your full source code.
+          </p>
+        </RevealFx>
+      </section>
 
       {/* Services Grid */}
-      <Column gap="32">
+      <div className={styles.contentGrid}>
         {services.map((svc, i) => (
           <RevealFx key={svc.id} translateY="8" delay={i * 100}>
             <Card
+              className={styles.serviceCard}
               padding="32"
               radius="l"
               border="neutral-alpha-weak"
@@ -248,10 +273,11 @@ export default function ServicesPage() {
             </Card>
           </RevealFx>
         ))}
-      </Column>
+      </div>
 
       {/* Bottom CTA */}
       <Card
+        className={styles.bottomCtaCard}
         padding="40"
         radius="l"
         border="brand-alpha-medium"
@@ -285,6 +311,6 @@ export default function ServicesPage() {
           </Text>
         </Column>
       </Card>
-    </Column>
+    </main>
   );
 }
