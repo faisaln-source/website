@@ -102,6 +102,12 @@ export const Header = () => {
                   href="/"
                   aria-label="Home"
                   selected={pathname === "/"}
+                  onClick={() => {
+                    if (typeof window !== "undefined") {
+                      window.scrollTo({ top: 0, behavior: "instant" });
+                      window.dispatchEvent(new CustomEvent("makewise:reset-hero"));
+                    }
+                  }}
                 />
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" />

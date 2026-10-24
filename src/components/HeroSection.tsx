@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { RevealFx } from "@once-ui-system/core";
 import styles from "./HeroSection.module.css";
 
@@ -12,6 +13,7 @@ const ROTATING_PHRASES = [
 ];
 
 export function HeroSection() {
+  const pathname = usePathname();
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isRaised, setIsRaised] = useState(false);
   const curtainRef = useRef<HTMLElement>(null);
@@ -25,20 +27,43 @@ export function HeroSection() {
     return () => clearInterval(interval);
   }, []);
 
-  // Initialize state based on current scroll position
+  // Whenever navigating to Home page, ALWAYS show the Hero curtain at the top
   useEffect(() => {
-    if (typeof window !== "undefined" && window.scrollY > 60) {
-      setIsRaised(true);
+    if (pathname === "/") {
+      if (typeof window !== "undefined") {
+        if ("scrollRestoration" in window.history) {
+          window.history.scrollRestoration = "manual";
+        }
+        window.scrollTo({ top: 0, behavior: "instant" });
+      }
+      setIsRaised(false);
     }
+  }, [pathname]);
+
+  // Listen for navbar Home click reset events
+  useEffect(() => {
+    const handleReset = () => {
+      setIsRaised(false);
+      if (typeof window !== "undefined") {
+        window.scrollTo({ top: 0, behavior: "instant" });
+      }
+    };
+    window.addEventListener("makewise:reset-hero", handleReset);
+    return () => window.removeEventListener("makewise:reset-hero", handleReset);
   }, []);
 
   const raiseCurtain = useCallback(() => {
     setIsRaised(true);
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
   }, []);
 
   const lowerCurtain = useCallback(() => {
     setIsRaised(false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   }, []);
 
   // Handle subtle interactive cursor tracking for background spotlight
@@ -51,16 +76,34 @@ export function HeroSection() {
     curtainRef.current.style.setProperty("--mouse-y", `${y.toFixed(2)}%`);
   }, []);
 
+  // Manage body scroll overflow and lock scroll while raising curtain
+  useEffect(() => {
+    if (!isRaised) {
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = "";
+      };
+    } else {
+      // Ensure page is pinned at (0, 0) for 450ms while the curtain animates up
+      window.scrollTo({ top: 0, behavior: "instant" });
+      document.body.style.overflow = "hidden";
+      const timer = setTimeout(() => {
+        document.body.style.overflow = "";
+      }, 450);
+      return () => {
+        clearTimeout(timer);
+        document.body.style.overflow = "";
+      };
+    }
+  }, [isRaised]);
+
   // Detect scroll intent while the curtain is down
   useEffect(() => {
     if (isRaised) return;
 
-    // Prevent background scrolling while curtain is closed
-    const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
     const handleWheel = (e: WheelEvent) => {
       if (e.deltaY > 5) {
+        if (e.cancelable) e.preventDefault();
         raiseCurtain();
       }
     };
@@ -73,6 +116,7 @@ export function HeroSection() {
     const handleTouchMove = (e: TouchEvent) => {
       const touchEndY = e.touches[0].clientY;
       if (touchStartY - touchEndY > 20) {
+        if (e.cancelable) e.preventDefault();
         raiseCurtain();
       }
     };
@@ -83,13 +127,12 @@ export function HeroSection() {
       }
     };
 
-    window.addEventListener("wheel", handleWheel, { passive: true });
+    window.addEventListener("wheel", handleWheel, { passive: false });
     window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: false });
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.body.style.overflow = originalOverflow;
       window.removeEventListener("wheel", handleWheel);
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchmove", handleTouchMove);

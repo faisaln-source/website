@@ -163,7 +163,7 @@ export default function HomeClient() {
               textColor="#FFFFFF"
               buttonColor="#FFFFFF"
               buttonTextColor="#141414"
-              style={{ width: "100%", minHeight: "540px" }}
+              style={{ width: "100%", minHeight: "clamp(460px, 52vh, 520px)" }}
             />
           </Column>
         </RevealFx>
