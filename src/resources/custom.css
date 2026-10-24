@@ -1,0 +1,36 @@
+/* ═══════════════════════════════════════════════════════════════
+   LIGHT THEME SOOTHING WARM SAND / OAT PALETTE
+   Calms down stark fluorescent white to an elegant, tactile paper tone
+   ═══════════════════════════════════════════════════════════════ */
+
+:root[data-theme="light"],
+[data-theme="light"],
+html[data-theme="light"],
+body[data-theme="light"] {
+  /* Warm tactile oat/sand page canvas (eliminates blinding fluorescent white) */
+  --page-background: #ebe6dc !important;
+  --surface-background: #faf8f5 !important;
+
+  /* Rich contrast deep espresso/charcoal text */
+  --neutral-on-background-strong: #1c1917 !important;
+  --neutral-on-background-medium: #3f3b37 !important;
+  --neutral-on-background-weak: #57524d !important;
+
+  /* Subtle, warm card border tokens */
+  --neutral-alpha-weak: rgba(120, 80, 40, 0.1) !important;
+  --neutral-alpha-medium: rgba(120, 80, 40, 0.18) !important;
+  --neutral-alpha-strong: rgba(120, 80, 40, 0.3) !important;
+  --neutral-border-weak: rgba(120, 80, 40, 0.12) !important;
+  --neutral-border-medium: rgba(120, 80, 40, 0.22) !important;
+
+  /* Calibrated warm brand terracotta/amber tones */
+  --brand-background-strong: #ea580c !important;
+  --brand-on-background-strong: #c2410c !important;
+  --brand-alpha-weak: rgba(234, 88, 12, 0.1) !important;
+  --brand-alpha-medium: rgba(234, 88, 12, 0.22) !important;
+}
+
+[data-theme="light"] body {
+  background-color: var(--page-background) !important;
+  color: var(--neutral-on-background-strong) !important;
+}
