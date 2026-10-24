@@ -7,6 +7,7 @@ import {
   RevealFx,
 } from "@once-ui-system/core";
 import { baseURL, about, person } from "@/resources";
+import ProfileLanyard from "@/components/about/ProfileLanyard";
 import styles from "./About.module.css";
 
 export async function generateMetadata() {
@@ -208,42 +209,10 @@ export default function About() {
             </RevealFx>
           </div>
 
-          {/* Right Column: MakeWise Studio Profile Card (Requested) */}
+          {/* Right Column: MakeWise Studio 3D Interactive Lanyard Profile Card */}
           <RevealFx translateY="16" delay={250}>
-            <div className={styles.studioIdCard}>
-              <div className={styles.studioAvatarRow}>
-                <div className={styles.studioAvatarWrapper}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={person.avatar}
-                    alt={person.name}
-                    className={styles.studioAvatarImg}
-                  />
-                </div>
-                <div className={styles.studioInfo}>
-                  <h2 className={styles.studioName}>{person.name}</h2>
-                  <span className={styles.studioRole}>{person.role}</span>
-                </div>
-              </div>
-
-              <div className={styles.studioMetaList}>
-                <div className={styles.studioMetaItem}>
-                  <span className={styles.studioMetaKey}>Headquarters</span>
-                  <span className={styles.studioMetaVal}>Kerala, India (Global Remote)</span>
-                </div>
-                <div className={styles.studioMetaItem}>
-                  <span className={styles.studioMetaKey}>Communication</span>
-                  <span className={styles.studioMetaVal}>English, Malayalam</span>
-                </div>
-                <div className={styles.studioMetaItem}>
-                  <span className={styles.studioMetaKey}>Delivery Speed</span>
-                  <span className={styles.studioMetaVal} style={{ color: "#10b981" }}>3–10 Days Average</span>
-                </div>
-                <div className={styles.studioMetaItem}>
-                  <span className={styles.studioMetaKey}>Access Model</span>
-                  <span className={styles.studioMetaVal} style={{ color: "var(--brand-on-background-strong)" }}>1-on-1 Direct Developer</span>
-                </div>
-              </div>
+            <div className={styles.lanyardCardWrapper}>
+              <ProfileLanyard />
             </div>
           </RevealFx>
         </section>
