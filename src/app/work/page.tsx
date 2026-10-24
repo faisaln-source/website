@@ -208,8 +208,8 @@ export default function ServicesPage() {
                 <Line />
 
                 {/* Deliverables + CTA */}
-                <Row fillWidth gap="32" wrap>
-                  <Column gap="8" style={{ flex: "1 1 260px" }}>
+                <Row fillWidth gap="24" s={{ direction: "column" }} wrap>
+                  <Column gap="8" fillWidth style={{ flex: "1 1 240px" }}>
                     <Text variant="label-strong-s" onBackground="neutral-strong">
                       What&apos;s included
                     </Text>
@@ -222,7 +222,7 @@ export default function ServicesPage() {
                       ))}
                     </Column>
                   </Column>
-                  <Column gap="12" horizontal="center" style={{ flex: "0 0 auto", minWidth: "200px" }}>
+                  <Column gap="12" horizontal="center" fillWidth style={{ flex: "1 1 200px" }}>
                     <Button
                       id={`cta-${svc.id}`}
                       href={svc.href}

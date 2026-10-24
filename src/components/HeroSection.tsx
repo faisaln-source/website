@@ -224,24 +224,36 @@ export function HeroSection() {
           </RevealFx>
 
           {/* Trust Points Minimal Strip */}
-          <RevealFx translateY="16" delay={400}>
-            <div className={styles.trustStrip}>
-              <div className={styles.trustPill}>
-                <span className={styles.trustDot}>✦</span>
-                <span>100% Source Code Handoff</span>
+          <RevealFx translateY="16" delay={400} fillWidth>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "14px", width: "100%" }}>
+              <div className={styles.trustStrip}>
+                <div className={styles.trustPill}>
+                  <span className={styles.trustDot}>✦</span>
+                  <span>100% Source Code Handoff</span>
+                </div>
+                <div className={styles.trustPill}>
+                  <span className={styles.trustDot}>⚡</span>
+                  <span>3–10 Day Fast Delivery</span>
+                </div>
+                <div className={styles.trustPill}>
+                  <span className={styles.trustDot}>✓</span>
+                  <span>Transparent Pricing from ₹250</span>
+                </div>
+                <div className={styles.trustPill}>
+                  <span className={styles.trustDot}>★</span>
+                  <span>Zero Middlemen Markup</span>
+                </div>
               </div>
-              <div className={styles.trustPill}>
-                <span className={styles.trustDot}>⚡</span>
-                <span>3–10 Day Fast Delivery</span>
-              </div>
-              <div className={styles.trustPill}>
-                <span className={styles.trustDot}>✓</span>
-                <span>Transparent Pricing from ₹250</span>
-              </div>
-              <div className={styles.trustPill}>
-                <span className={styles.trustDot}>★</span>
-                <span>Zero Middlemen Markup</span>
-              </div>
+
+              <button
+                type="button"
+                onClick={raiseCurtain}
+                className={styles.heroExploreMobile}
+                aria-label="Explore Services & Digital Solutions"
+              >
+                <span>Explore Services &amp; Work</span>
+                <span className={styles.heroExploreArrow}>↓</span>
+              </button>
             </div>
           </RevealFx>
         </div>

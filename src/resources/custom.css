@@ -34,3 +34,17 @@ body[data-theme="light"] {
   background-color: var(--page-background) !important;
   color: var(--neutral-on-background-strong) !important;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE VIEW POLISH & FIXED BOTTOM NAVIGATION CLEARANCE
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  main {
+    padding-bottom: 110px !important;
+  }
+}

@@ -507,20 +507,82 @@
 }
 
 /* ── Mobile Responsive Adjustments ────────────────────────── */
+.heroExploreMobile {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .heroContent {
+    padding: 0 1rem;
+    gap: 12px;
+  }
+  .statusBadge {
+    font-size: 0.75rem;
+    padding: 5px 12px;
+  }
   .heroHeading {
-    font-size: 2.1rem;
+    font-size: clamp(1.8rem, 6.8vw, 2.3rem);
+    line-height: 1.15;
+  }
+  .heroSubtitle {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    max-width: 340px;
   }
   .gridPattern {
     background-size: 38px 38px;
   }
   .trustStrip {
-    flex-direction: column;
-    gap: 6px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    width: 100%;
+    max-width: 360px;
+    margin-top: 2px;
+  }
+  .trustPill {
+    font-size: 0.72rem;
+    padding: 6px 8px;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .heroExploreMobile {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 10px 22px;
+    border-radius: 9999px;
+    background: var(--brand-background-strong, #ea580c);
+    color: #ffffff;
+    font-family: var(--font-label);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 20px var(--brand-alpha-medium, rgba(234, 88, 12, 0.4));
+    animation: bounceSubtle 2.4s ease-in-out infinite;
+  }
+  .heroExploreArrow {
+    font-size: 0.95rem;
   }
   .curtainReturnBtn {
-    top: auto;
-    bottom: 20px;
-    right: 16px;
+    top: 14px;
+    bottom: auto;
+    right: 14px;
+    padding: 6px 12px;
+    font-size: 0.7rem;
+    gap: 5px;
+  }
+}
+
+@keyframes bounceSubtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
   }
 }

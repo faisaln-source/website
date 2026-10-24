@@ -184,40 +184,42 @@ export default function About() {
           </RevealFx>
 
           {/* Quick Actions & Meta */}
-          <RevealFx translateY="16" delay={400}>
-            <div className={styles.heroActions}>
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.btnPrimary}
-                aria-label="Chat on WhatsApp"
-              >
-                <Icon name="whatsapp" size="s" />
-                <span>Schedule a Call via WhatsApp</span>
-              </a>
+          <RevealFx translateY="16" delay={400} fillWidth>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", width: "100%" }}>
+              <div className={styles.heroActions}>
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.btnPrimary}
+                  aria-label="Chat on WhatsApp"
+                >
+                  <Icon name="whatsapp" size="s" />
+                  <span>Schedule a Call via WhatsApp</span>
+                </a>
 
-              <a
-                href={emailLink}
-                className={styles.btnSecondary}
-                aria-label="Direct Email"
-              >
-                <Icon name="email" size="s" />
-                <span>Direct Email</span>
-              </a>
-            </div>
+                <a
+                  href={emailLink}
+                  className={styles.btnSecondary}
+                  aria-label="Direct Email"
+                >
+                  <Icon name="email" size="s" />
+                  <span>Direct Email</span>
+                </a>
+              </div>
 
-            <div className={styles.metaInfoPills}>
-              <div className={styles.metaPillItem}>
-                <Icon name="globe" size="xs" onBackground="brand-weak" />
-                <span>Kerala, India &bull; Global Remote Delivery</span>
-              </div>
-              <div className={styles.metaPillItem}>
-                <span>Languages: English, Malayalam</span>
-              </div>
-              <div className={styles.metaPillItem}>
-                <span style={{ color: "#10b981" }}>✦</span>
-                <span>Direct Developer Chat Anytime</span>
+              <div className={styles.metaInfoPills}>
+                <div className={styles.metaPillItem}>
+                  <Icon name="globe" size="xs" onBackground="brand-weak" />
+                  <span>Kerala, India &bull; Global Remote Delivery</span>
+                </div>
+                <div className={styles.metaPillItem}>
+                  <span>Languages: English, Malayalam</span>
+                </div>
+                <div className={styles.metaPillItem}>
+                  <span style={{ color: "#10b981" }}>✦</span>
+                  <span>Direct Developer Chat Anytime</span>
+                </div>
               </div>
             </div>
           </RevealFx>

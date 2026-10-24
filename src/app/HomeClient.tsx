@@ -165,7 +165,7 @@ export default function HomeClient() {
               buttonTextColor="#141414"
               autoHeight={false}
               className={styles.accordionContainer}
-              style={{ width: "100%", height: "clamp(480px, 55vh, 530px)" }}
+              style={{ width: "100%" }}
             />
           </Column>
         </RevealFx>

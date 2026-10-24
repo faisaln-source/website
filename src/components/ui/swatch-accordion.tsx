@@ -694,6 +694,34 @@ export default function SwatchAccordion(props: SwatchAccordionProps) {
                           <span className="swa-front-title-pill">{item.title}</span>
                         </div>
                       </div>
+
+                      {/* Mobile details directly visible on front face */}
+                      <div className="swa-mobile-details">
+                        {tags.length > 0 && (
+                          <div className="swa-mobile-tags">
+                            {tags.map((tag, ti) => (
+                              <span key={ti} className="swa-mobile-tag">
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        {item.description && (
+                          <p className="swa-mobile-desc">{item.description}</p>
+                        )}
+                        {item.button && item.button.trim() && linked && (
+                          <a
+                            className="swa-mobile-cta"
+                            href={item.link}
+                            target={item.newTab ? "_blank" : undefined}
+                            rel={item.newTab ? "noopener noreferrer" : undefined}
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <span>{item.button}</span>
+                            <ArrowIcon />
+                          </a>
+                        )}
+                      </div>
                     </div>
                   )}
                 </div>
@@ -900,16 +928,24 @@ const CSS = `
 .swa-pi{display:block;transition:transform .6s var(--swa-out);}
 
 /* Responsive & Mobile */
+.swa-mobile-details{display:none;}
+@media (max-width: 768px) {
+  .swa { height: auto !important; }
+}
 @container swa (max-width: 640px){
-  .swa[data-dir="auto"] .swa-track{flex-direction:column;}
-  .swa[data-dir="auto"] .swa-strip{flex:0 0 var(--swa-bar);}
-  .swa[data-dir="auto"] .swa-strip[data-open]{flex-grow:1;}
-  .swa[data-dir="auto"] .swa-img{width:100%;height:auto;aspect-ratio:4 / 3;left:0;top:0;transform-origin:50% 0;-webkit-mask-image:linear-gradient(to bottom,#000 68%,transparent 100%);mask-image:linear-gradient(to bottom,#000 68%,transparent 100%);}
+  .swa[data-dir="auto"] .swa-track{flex-direction:column;height:auto;}
+  .swa[data-dir="auto"] .swa-strip{flex:none;height:var(--swa-bar);transition-property:height;}
+  .swa[data-dir="auto"] .swa-strip[data-open]{height:490px;}
+  .swa[data-dir="auto"] .swa-img{width:100%;height:200px;left:0;top:0;transform-origin:50% 0;-webkit-mask-image:linear-gradient(to bottom,#000 60%,transparent 100%);mask-image:linear-gradient(to bottom,#000 60%,transparent 100%);object-fit:cover;}
+  .swa[data-dir="auto"] .swa-front-overlay{position:absolute;inset:0;padding:18px 20px;display:flex;flex-direction:column;justify-content:space-between;z-index:5;pointer-events:auto;}
+  .swa[data-dir="auto"] .swa-mobile-details{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:auto;}
+  .swa[data-dir="auto"] .swa-mobile-tags{display:flex;flex-wrap:wrap;gap:6px;}
+  .swa[data-dir="auto"] .swa-mobile-tag{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#ffffff;font-size:11px;font-weight:600;}
+  .swa[data-dir="auto"] .swa-mobile-desc{font-size:13px;line-height:1.5;color:rgba(255,255,255,.9);margin:0;max-width:100%;}
+  .swa[data-dir="auto"] .swa-mobile-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 18px;border-radius:999px;background:var(--swa-color);color:#141414;font-size:13px;font-weight:700;text-decoration:none;box-shadow:0 6px 18px color-mix(in srgb,var(--swa-color) 60%,transparent);cursor:pointer;}
   .swa[data-dir="auto"] .swa-closed{width:auto;right:0;flex-direction:row;justify-content:flex-start;gap:14px;padding:0 14px 0 20px;}
   .swa[data-dir="auto"] .swa-vt{margin:0 auto 0 0;}
   .swa[data-dir="auto"] .swa-vtitle{writing-mode:horizontal-tb;transform:none;}
-  .swa[data-dir="auto"] .swa-strip{flex:none;height:var(--swa-bar);transition-property:height;}
-  .swa[data-dir="auto"] .swa-strip[data-open]{height:calc(75cqw + 232px);}
   .swa-back-container{padding:20px;}
   .swa-back-title{font-size:24px;margin-bottom:8px;}
   .swa-back-desc{font-size:13px;line-height:1.45;}
