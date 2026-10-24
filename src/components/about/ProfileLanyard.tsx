@@ -332,10 +332,6 @@ export default function ProfileLanyard() {
         ctxB.font = '900 54px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
         ctxB.fillText('★ 100% SOURCE CODE OWNERSHIP ★', canvasBack.width / 2, ownY + 90);
 
-        ctxB.fillStyle = '#94a3b8';
-        ctxB.font = '800 40px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-        ctxB.fillText('Click or drag badge to swing & flip', canvasBack.width / 2, 1800);
-
         setBackImage(canvasBack.toDataURL('image/png'));
       }
 
@@ -351,7 +347,6 @@ export default function ProfileLanyard() {
         height: '100%',
         minHeight: '520px',
         display: 'flex',
-        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
       }}
@@ -372,8 +367,8 @@ export default function ProfileLanyard() {
             cardColor="#ffffff"
             finish="matte"
             orientation="portrait"
-            size={1.05}
-            strapLength={0.16}
+            size={0.95}
+            strapLength={0.25}
             strapColor="#ea580c"
             strapWidth={0.65}
             metal="silver"
@@ -384,31 +379,6 @@ export default function ProfileLanyard() {
             damping={0.5}
           />
         )}
-      </div>
-
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '12px',
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '8px',
-          padding: '6px 16px',
-          borderRadius: '9999px',
-          background: 'rgba(0, 0, 0, 0.5)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
-          border: '1px solid rgba(255, 255, 255, 0.15)',
-          fontFamily: 'var(--font-label)',
-          fontSize: '0.8rem',
-          fontWeight: 600,
-          color: '#ffffff',
-          pointerEvents: 'none',
-          boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
-        }}
-      >
-        <span>✦</span>
-        <span>Drag or click to swing & flip</span>
       </div>
     </div>
   );
