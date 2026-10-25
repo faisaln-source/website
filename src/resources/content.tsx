@@ -131,7 +131,7 @@ const about: About = {
         role: "Professionally formatted, recruiter-optimized résumés",
         achievements: [
           <>ATS keyword optimization to pass automated screening at top companies.</>,
-          <>Clean LaTeX / Word formatting, tailored for your industry and target role.</>,
+          <>Clean Word & PDF formatting, tailored for your industry and target role.</>,
           <>One free revision round included. Fast-track delivery available.</>,
         ],
         images: [],

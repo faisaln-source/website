@@ -38,7 +38,7 @@ const services = [
       "Professionally formatted, keyword-optimized résumés that pass ATS scanners and impress recruiters at top companies.",
     deliverables: [
       "ATS keyword optimization for your target role",
-      "Clean LaTeX or Word formatting",
+      "Clean editable Word & PDF formatting",
       "Industry-tailored layout & content",
       "One free revision round",
       "Fast-track delivery available",

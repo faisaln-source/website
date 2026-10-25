@@ -28,7 +28,7 @@ const SWATCH_SERVICES: SwatchItem[] = [
   {
     title: "ATS Resume",
     description: "Keyword-optimized resumes engineered to pass employer ATS filters and impress recruiters. Includes targeted executive cover letter and editable DOCX + clean PDF.",
-    tags: "Pass Guarantee, Word & LaTeX, 24–48h Delivery, From ₹250",
+    tags: "Pass Guarantee, 24–48h Delivery, From ₹250",
     color: "#D97736",
     focus: 50,
     button: "Order ATS Resume",
