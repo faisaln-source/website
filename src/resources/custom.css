@@ -33,13 +33,14 @@ body[data-theme="light"] {
   --neutral-border-weak: rgba(120, 80, 40, 0.14) !important;
   --neutral-border-medium: rgba(120, 80, 40, 0.26) !important;
 
-  /* Calibrated warm brand terracotta/amber tones */
-  --brand-background-strong: #ea580c !important;
-  --brand-on-background-strong: #ea580c !important;
+  /* Calibrated warm brand terracotta tone — refined and balanced, not neon */
+  --brand-background-strong: #c2410c !important;
+  --brand-on-background-strong: #c2410c !important;
+  --brand-solid-medium: #c2410c !important;
   --brand-on-solid-strong: #ffffff !important;
   --brand-on-solid-medium: #ffffff !important;
-  --brand-alpha-weak: rgba(234, 88, 12, 0.1) !important;
-  --brand-alpha-medium: rgba(234, 88, 12, 0.22) !important;
+  --brand-alpha-weak: rgba(194, 65, 12, 0.08) !important;
+  --brand-alpha-medium: rgba(194, 65, 12, 0.18) !important;
 }
 
 [data-theme="light"] body {
@@ -58,19 +59,27 @@ button[data-variant="primary"],
 a[data-variant="primary"],
 .btnPrimary,
 .btnPrimary *,
+[class*="btnPrimary"],
+[class*="btnPrimary"] *,
+[class*="heroBtnPrimary"],
+[class*="heroBtnPrimary"] *,
 button[class*="primary"],
 a[class*="primary"],
 [class*="Button_primary"],
 [class*="button_primary"],
 .swa-back-cta,
-.swa-mobile-cta {
+.swa-back-cta *,
+.swa-mobile-cta,
+.swa-mobile-cta * {
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
 button[data-variant="primary"] *,
 a[data-variant="primary"] * {
   color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
 /* Visible Outline Button for "Send email" */

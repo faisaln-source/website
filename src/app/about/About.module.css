@@ -216,46 +216,104 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 11px 24px;
+  padding: 10px 22px;
   border-radius: 9999px;
-  background: var(--brand-background-strong, #ea580c);
-  color: #ffffff;
+  background: #c2410c;
+  color: #ffffff !important;
   font-family: var(--font-label);
   font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 20px -2px var(--brand-alpha-medium, rgba(234, 88, 12, 0.5));
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 10px rgba(194, 65, 12, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btnPrimary,
+.btnPrimary *,
+.btnPrimary span,
+.btnPrimary svg {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
 .btnPrimary:hover {
-  background: #f97316;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px -4px var(--brand-alpha-medium);
+  background: #d95818;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(194, 65, 12, 0.32);
+}
+
+.btnPrimary:hover,
+.btnPrimary:hover *,
+.btnPrimary:hover span,
+.btnPrimary:hover svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
 .btnSecondary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 11px 22px;
+  padding: 10px 22px;
   border-radius: 9999px;
-  background: var(--surface-background);
-  border: 1px solid var(--neutral-alpha-weak);
-  color: var(--neutral-on-background-strong);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1.5px solid rgba(28, 25, 23, 0.22);
+  color: #1c1917 !important;
   font-family: var(--font-label);
   font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: all 0.25s ease;
+  transition: all 0.22s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.btnSecondary,
+.btnSecondary *,
+.btnSecondary span,
+.btnSecondary svg {
+  color: #1c1917 !important;
+  -webkit-text-fill-color: #1c1917 !important;
+  fill: #1c1917 !important;
 }
 
 .btnSecondary:hover {
-  border-color: var(--brand-alpha-medium);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-color: #c2410c;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.btnSecondary:hover,
+.btnSecondary:hover *,
+.btnSecondary:hover span,
+.btnSecondary:hover svg {
+  color: #c2410c !important;
+  -webkit-text-fill-color: #c2410c !important;
+  fill: #c2410c !important;
+}
+
+:global([data-theme="dark"]) .btnSecondary {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff !important;
+}
+
+:global([data-theme="dark"]) .btnSecondary,
+:global([data-theme="dark"]) .btnSecondary *,
+:global([data-theme="dark"]) .btnSecondary span,
+:global([data-theme="dark"]) .btnSecondary svg {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+:global([data-theme="dark"]) .btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #f97316;
 }
 
 .lanyardCardWrapper {
