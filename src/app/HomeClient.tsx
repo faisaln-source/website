@@ -104,37 +104,6 @@ const SWATCH_SERVICES: SwatchItem[] = [
   },
 ];
 
-// Sample projects / testimonials data to bridge trust gap (Design fix #5)
-const SAMPLE_PROJECTS = [
-  {
-    category: "POS & Billing Software",
-    title: "RetailPro Cloud & Offline POS",
-    impact: "60% faster checkout · Zero internet dependency",
-    review: "MakeWise delivered our multi-counter supermarket billing system in under 10 days. The offline sync when broadband drops is a lifesaver.",
-    client: "Rajesh V. — Retail Store Owner",
-    price: "From ₹8,000",
-    badge: "Verified Delivery",
-  },
-  {
-    category: "Portfolio Website",
-    title: "Senior Full-Stack Engineer Portfolio",
-    impact: "4 remote US interview invitations in 2 weeks",
-    review: "Direct collaboration with the engineer was unbelievable. No endless briefing calls or agency fluff — just clean React code and interactive demos.",
-    client: "Kavya M. — Lead Software Engineer",
-    price: "From ₹1,500",
-    badge: "Verified Delivery",
-  },
-  {
-    category: "Web Application",
-    title: "MedSync Clinic Booking & Patient Portal",
-    impact: "Automated WhatsApp reminders · Real-time queue",
-    review: "Built with Next.js and Supabase. The handoff was 100% complete with full GitHub repo and Vercel configs. Zero vendor lock-in.",
-    client: "Dr. Anish P. — Clinic Founder",
-    price: "From ₹5,000",
-    badge: "Verified Delivery",
-  },
-];
-
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function HomeClient() {
   const [hoveredFeature, setHoveredFeature] = useState<string | null>(null);
@@ -239,72 +208,6 @@ export default function HomeClient() {
                     <Text variant="label-strong-l" as="p" marginBottom="8">{item.title}</Text>
                     <Text variant="body-default-s" onBackground="neutral-weak">{item.desc}</Text>
                   </div>
-                </div>
-              ))}
-            </div>
-          </Column>
-        </RevealFx>
-
-        <Line />
-
-        {/* ── SAMPLE PROJECTS & CLIENT RESULTS (DESIGN FIX #5: TRUST GAP) ── */}
-        <RevealFx translateY="16" delay={200} fillWidth>
-          <Column fillWidth gap="24">
-            <Row fillWidth horizontal="between" vertical="center" wrap gap="16">
-              <Column gap="4">
-                <Text variant="label-strong-s" onBackground="brand-medium">PROVEN RESULTS</Text>
-                <Heading as="h2" variant="display-strong-xs">Recent Work &amp; Client Feedback</Heading>
-              </Column>
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                Real impact delivered directly to founders, professionals, and businesses.
-              </Text>
-            </Row>
-
-            <div className={styles.featureGrid} style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))" }}>
-              {SAMPLE_PROJECTS.map((proj) => (
-                <div
-                  key={proj.title}
-                  className={styles.featureCard}
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    padding: "24px",
-                  }}
-                >
-                  <Column gap="12">
-                    <Row horizontal="between" vertical="center">
-                      <span className={styles.featureTag}>{proj.category}</span>
-                      <span
-                        style={{
-                          fontSize: "11px",
-                          fontWeight: 700,
-                          padding: "2px 8px",
-                          borderRadius: "100px",
-                          background: "var(--brand-alpha-weak)",
-                          color: "var(--brand-on-background-strong)",
-                        }}
-                      >
-                        {proj.badge}
-                      </span>
-                    </Row>
-                    <Text variant="heading-strong-s">{proj.title}</Text>
-                    <Text variant="label-strong-s" onBackground="brand-medium">
-                      ✦ {proj.impact}
-                    </Text>
-                    <Text variant="body-default-s" onBackground="neutral-weak" style={{ fontStyle: "italic" }}>
-                      &ldquo;{proj.review}&rdquo;
-                    </Text>
-                  </Column>
-
-                  <Row horizontal="between" vertical="center" paddingTop="16" style={{ borderTop: "1px solid var(--neutral-border-weak)" }}>
-                    <Text variant="label-default-xs" onBackground="neutral-weak">
-                      {proj.client}
-                    </Text>
-                    <Text variant="label-strong-xs" onBackground="neutral-strong">
-                      {proj.price}
-                    </Text>
-                  </Row>
                 </div>
               ))}
             </div>

@@ -175,17 +175,6 @@ export function HeroSection() {
 
         {/* ── Main Hero Content ── */}
         <div className={styles.heroContent}>
-          {/* Badge: Direct-to-developer digital studio */}
-          <RevealFx translateY="8" delay={100}>
-            <div className={styles.statusBadge}>
-              <span className={styles.statusIndicator} aria-hidden="true">
-                <span className={styles.statusPing} />
-                <span className={styles.statusDot} />
-              </span>
-              <span>Direct-to-developer digital studio</span>
-            </div>
-          </RevealFx>
-
           {/* Main Heading with Subtle Rotating Text */}
           <RevealFx translateY="12" delay={150}>
             <h1 className={styles.heroHeading}>
@@ -207,31 +196,6 @@ export function HeroSection() {
               and POS systems. Work directly with the builder: transparent pricing,
               rapid turnaround, and full source code ownership.
             </p>
-          </RevealFx>
-
-          {/* Hero Buttons: Get a Quote · Chat on WhatsApp */}
-          <RevealFx translateY="16" delay={320}>
-            <div className={styles.heroActions}>
-              <button
-                type="button"
-                onClick={raiseCurtain}
-                className={styles.heroBtnPrimary}
-                aria-label="Get a Quote"
-              >
-                <span>Get a Quote</span>
-                <span aria-hidden="true">→</span>
-              </button>
-
-              <a
-                href="https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%20have%20a%20project%20idea!"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.heroBtnSecondary}
-                aria-label="Chat on WhatsApp"
-              >
-                <span>Chat on WhatsApp</span>
-              </a>
-            </div>
           </RevealFx>
 
           {/* Mobile CTA to explore */}
