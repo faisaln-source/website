@@ -175,19 +175,8 @@ export function HeroSection() {
 
         {/* ── Main Hero Content ── */}
         <div className={styles.heroContent}>
-          {/* Status Pill Badge */}
-          <RevealFx translateY="8" delay={100}>
-            <div className={styles.statusBadge}>
-              <span className={styles.statusIndicator} aria-hidden="true">
-                <span className={styles.statusPing} />
-                <span className={styles.statusDot} />
-              </span>
-              <span>Open for new projects &bull; Direct developer access</span>
-            </div>
-          </RevealFx>
-
           {/* Main Heading with Subtle Rotating Text */}
-          <RevealFx translateY="12" delay={200}>
+          <RevealFx translateY="12" delay={150}>
             <h1 className={styles.heroHeading}>
               <span className={styles.heroHeadingPrefix}>
                 High-impact digital products
@@ -201,7 +190,7 @@ export function HeroSection() {
           </RevealFx>
 
           {/* Persuasive Elegant Subtitle */}
-          <RevealFx translateY="12" delay={300}>
+          <RevealFx translateY="12" delay={250}>
             <p className={styles.heroSubtitle}>
               From ATS-optimized portfolios and high-converting business websites
               to scalable web applications and POS systems. Work directly with
@@ -210,38 +199,17 @@ export function HeroSection() {
             </p>
           </RevealFx>
 
-          {/* Trust Points Minimal Strip */}
-          <RevealFx translateY="16" delay={400} fillWidth>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "14px", width: "100%" }}>
-              <div className={styles.trustStrip}>
-                <div className={styles.trustPill}>
-                  <span className={styles.trustDot}>✦</span>
-                  <span>100% Source Code Handoff</span>
-                </div>
-                <div className={styles.trustPill}>
-                  <span className={styles.trustDot}>⚡</span>
-                  <span>3–10 Day Fast Delivery</span>
-                </div>
-                <div className={styles.trustPill}>
-                  <span className={styles.trustDot}>✓</span>
-                  <span>Transparent Pricing from ₹250</span>
-                </div>
-                <div className={styles.trustPill}>
-                  <span className={styles.trustDot}>★</span>
-                  <span>Zero Middlemen Markup</span>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                onClick={raiseCurtain}
-                className={styles.heroExploreMobile}
-                aria-label="Explore Services & Digital Solutions"
-              >
-                <span>Explore Services &amp; Work</span>
-                <span className={styles.heroExploreArrow}>↓</span>
-              </button>
-            </div>
+          {/* Mobile CTA to explore */}
+          <RevealFx translateY="16" delay={350}>
+            <button
+              type="button"
+              onClick={raiseCurtain}
+              className={styles.heroExploreMobile}
+              aria-label="Explore Services & Digital Solutions"
+            >
+              <span>Explore Services &amp; Work</span>
+              <span className={styles.heroExploreArrow}>↓</span>
+            </button>
           </RevealFx>
         </div>
 
