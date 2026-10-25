@@ -3,14 +3,14 @@
    Calms down stark fluorescent white to an elegant, tactile paper tone
    ═══════════════════════════════════════════════════════════════ */
 
-:root,
+:root[data-theme="dark"],
 [data-theme="dark"],
-[data-theme="light"],
-html,
-body {
-  /* Ensure primary solid button text is always white */
-  --brand-on-solid-strong: #ffffff !important;
-  --brand-on-solid-medium: #ffffff !important;
+html[data-theme="dark"],
+body[data-theme="dark"] {
+  --brand-background-strong: #ffffff !important;
+  --brand-solid-medium: #ffffff !important;
+  --brand-on-solid-strong: #0c0a09 !important;
+  --brand-on-solid-medium: #0c0a09 !important;
 }
 
 :root[data-theme="light"],
@@ -49,21 +49,17 @@ body[data-theme="light"] {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   BUTTON DESIGN FIXES (Design fix #1 & #2)
-   - Centered alignment on all buttons
-   - Pure white text on dark solid CTA buttons
-   - Visible outline button styling
+   BUTTON DESIGN SYSTEM: THEME-AWARE CONTRAST & CENTERING
+   - Light theme: Obsidian black button + crisp white text/icons
+   - Dark theme: Pure solid white button + crisp black text/icons
    ═══════════════════════════════════════════════════════════════ */
 
-/* Primary CTA button text must ALWAYS be white across all themes and variants */
+/* Center alignment on all buttons */
 button[data-variant="primary"],
 a[data-variant="primary"],
 .btnPrimary,
-.btnPrimary *,
 [class*="btnPrimary"],
-[class*="btnPrimary"] *,
 [class*="heroBtnPrimary"],
-[class*="heroBtnPrimary"] *,
 button[class*="primary"],
 a[class*="primary"],
 [class*="Button_primary"],
@@ -72,18 +68,27 @@ a[class*="primary"],
   align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  fill: #ffffff !important;
 }
 
+/* ── Light Mode Primary Buttons ── */
 [data-theme="light"] button[data-variant="primary"],
 [data-theme="light"] a[data-variant="primary"],
 [data-theme="light"] .btnPrimary,
 [data-theme="light"] [class*="btnPrimary"] {
   background: #1c1917 !important;
-  color: #ffffff !important;
   border-color: #292524 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+[data-theme="light"] button[data-variant="primary"] *,
+[data-theme="light"] a[data-variant="primary"] *,
+[data-theme="light"] .btnPrimary *,
+[data-theme="light"] [class*="btnPrimary"] * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
 [data-theme="light"] button[data-variant="primary"]:hover,
@@ -93,6 +98,48 @@ a[class*="primary"],
   background: #292524 !important;
 }
 
+/* ── Dark Mode Primary Buttons (Fix invisible white-on-white text) ── */
+:root:not([data-theme="light"]) button[data-variant="primary"],
+:root:not([data-theme="light"]) a[data-variant="primary"],
+:root:not([data-theme="light"]) .btnPrimary,
+:root:not([data-theme="light"]) [class*="btnPrimary"],
+[data-theme="dark"] button[data-variant="primary"],
+[data-theme="dark"] a[data-variant="primary"],
+[data-theme="dark"] .btnPrimary,
+[data-theme="dark"] [class*="btnPrimary"] {
+  background: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.95) !important;
+  color: #0c0a09 !important;
+  -webkit-text-fill-color: #0c0a09 !important;
+  fill: #0c0a09 !important;
+}
+
+:root:not([data-theme="light"]) button[data-variant="primary"] *,
+:root:not([data-theme="light"]) a[data-variant="primary"] *,
+:root:not([data-theme="light"]) .btnPrimary *,
+:root:not([data-theme="light"]) [class*="btnPrimary"] *,
+[data-theme="dark"] button[data-variant="primary"] *,
+[data-theme="dark"] a[data-variant="primary"] *,
+[data-theme="dark"] .btnPrimary *,
+[data-theme="dark"] [class*="btnPrimary"] * {
+  color: #0c0a09 !important;
+  -webkit-text-fill-color: #0c0a09 !important;
+  fill: #0c0a09 !important;
+}
+
+:root:not([data-theme="light"]) button[data-variant="primary"]:hover,
+:root:not([data-theme="light"]) a[data-variant="primary"]:hover,
+:root:not([data-theme="light"]) .btnPrimary:hover,
+:root:not([data-theme="light"]) [class*="btnPrimary"]:hover,
+[data-theme="dark"] button[data-variant="primary"]:hover,
+[data-theme="dark"] a[data-variant="primary"]:hover,
+[data-theme="dark"] .btnPrimary:hover,
+[data-theme="dark"] [class*="btnPrimary"]:hover {
+  background: #e4e4e7 !important;
+  color: #0c0a09 !important;
+}
+
+/* Swatch Accordion CTAs */
 .swa-back-cta,
 .swa-back-cta *,
 .swa-mobile-cta,
@@ -102,42 +149,64 @@ a[class*="primary"],
   fill: #ffffff !important;
 }
 
-button[data-variant="primary"] *,
-a[data-variant="primary"] * {
-  color: #ffffff !important;
-  fill: #ffffff !important;
-}
-
-/* Visible Outline Button for "Send email" */
+/* ── Outline Buttons ("Send email") ── */
 .btnOutline,
 [data-button-outline="true"] {
-  border: 1.5px solid var(--neutral-alpha-medium, rgba(255, 255, 255, 0.28)) !important;
-  background: rgba(255, 255, 255, 0.05) !important;
-  color: var(--neutral-on-background-strong, #ffffff) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   font-weight: 600 !important;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.btnOutline:hover,
-[data-button-outline="true"]:hover {
-  background: rgba(255, 255, 255, 0.12) !important;
-  border-color: var(--brand-solid-medium, #ea580c) !important;
-  color: var(--neutral-on-background-strong, #ffffff) !important;
-  transform: translateY(-1px);
+/* Dark mode outline button */
+:root:not([data-theme="light"]) .btnOutline,
+:root:not([data-theme="light"]) [data-button-outline="true"],
+[data-theme="dark"] .btnOutline,
+[data-theme="dark"] [data-button-outline="true"] {
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #ffffff !important;
 }
 
+:root:not([data-theme="light"]) .btnOutline *,
+:root:not([data-theme="light"]) [data-button-outline="true"] *,
+[data-theme="dark"] .btnOutline *,
+[data-theme="dark"] [data-button-outline="true"] * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+:root:not([data-theme="light"]) .btnOutline:hover,
+:root:not([data-theme="light"]) [data-button-outline="true"]:hover,
+[data-theme="dark"] .btnOutline:hover,
+[data-theme="dark"] [data-button-outline="true"]:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  color: #ffffff !important;
+}
+
+/* Light mode outline button */
 [data-theme="light"] .btnOutline,
 [data-theme="light"] [data-button-outline="true"] {
-  border: 1.5px solid rgba(28, 25, 23, 0.28) !important;
-  background: rgba(255, 255, 255, 0.65) !important;
+  border: 1.5px solid rgba(28, 25, 23, 0.25) !important;
+  background: rgba(255, 255, 255, 0.75) !important;
   color: #1c1917 !important;
+}
+
+[data-theme="light"] .btnOutline *,
+[data-theme="light"] [data-button-outline="true"] * {
+  color: #1c1917 !important;
+  -webkit-text-fill-color: #1c1917 !important;
+  fill: #1c1917 !important;
 }
 
 [data-theme="light"] .btnOutline:hover,
 [data-theme="light"] [data-button-outline="true"]:hover {
   background: #ffffff !important;
-  border-color: #ea580c !important;
-  color: #ea580c !important;
+  border-color: #1c1917 !important;
+  color: #1c1917 !important;
 }
 
 /* ═══════════════════════════════════════════════════════════════

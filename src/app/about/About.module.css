@@ -302,9 +302,30 @@
   fill: #c2410c !important;
 }
 
+:global([data-theme="dark"]) .btnPrimary {
+  background: #ffffff !important;
+  color: #0c0a09 !important;
+  border-color: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.15) !important;
+}
+
+:global([data-theme="dark"]) .btnPrimary,
+:global([data-theme="dark"]) .btnPrimary *,
+:global([data-theme="dark"]) .btnPrimary span,
+:global([data-theme="dark"]) .btnPrimary svg {
+  color: #0c0a09 !important;
+  -webkit-text-fill-color: #0c0a09 !important;
+  fill: #0c0a09 !important;
+}
+
+:global([data-theme="dark"]) .btnPrimary:hover {
+  background: #e4e4e7 !important;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.25) !important;
+}
+
 :global([data-theme="dark"]) .btnSecondary {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
   color: #ffffff !important;
 }
 
