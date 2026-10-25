@@ -676,7 +676,6 @@ export default function ContactWithGlobe({
                     <option>Portfolio Website</option>
                     <option>Business Website</option>
                     <option>Web Application</option>
-                    <option>Mobile Web App</option>
                     <option>POS and Billing Software</option>
                     <option>Other</option>
                   </select>
@@ -712,16 +711,18 @@ export default function ContactWithGlobe({
                 />
               </div>
 
-              <button
-                type="submit"
-                className="w-fit h-11 px-8 rounded-xl font-semibold text-sm flex items-center gap-2 transition-all duration-200"
-                style={{
-                  background: "var(--brand-background-strong)",
-                  color: "#ffffff",
-                }}
-              >
-                {submitted ? "✓ Email opened!" : <>Send message <ArrowRight className="w-4 h-4" /></>}
-              </button>
+              <div className="flex justify-center w-full pt-2">
+                <button
+                  type="submit"
+                  className="w-full sm:w-auto min-w-[200px] h-11 px-8 rounded-full font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer shadow-md hover:opacity-90 active:scale-95"
+                  style={{
+                    background: "var(--brand-background-strong)",
+                    color: "#ffffff",
+                  }}
+                >
+                  {submitted ? "✓ Email opened!" : <>Send message <ArrowRight className="w-4 h-4" /></>}
+                </button>
+              </div>
             </form>
           </motion.div>
         </div>

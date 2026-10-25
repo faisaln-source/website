@@ -33,10 +33,10 @@ body[data-theme="light"] {
   --neutral-border-weak: rgba(120, 80, 40, 0.14) !important;
   --neutral-border-medium: rgba(120, 80, 40, 0.26) !important;
 
-  /* Calibrated warm brand terracotta tone — refined and balanced, not neon */
-  --brand-background-strong: #c2410c !important;
+  /* Grounded luxury button tokens — Obsidian charcoal in light mode, calm and refined */
+  --brand-background-strong: #1c1917 !important;
   --brand-on-background-strong: #c2410c !important;
-  --brand-solid-medium: #c2410c !important;
+  --brand-solid-medium: #1c1917 !important;
   --brand-on-solid-strong: #ffffff !important;
   --brand-on-solid-medium: #ffffff !important;
   --brand-alpha-weak: rgba(194, 65, 12, 0.08) !important;
@@ -50,7 +50,8 @@ body[data-theme="light"] {
 
 /* ═══════════════════════════════════════════════════════════════
    BUTTON DESIGN FIXES (Design fix #1 & #2)
-   - Pure white text on orange, blue & solid CTA buttons
+   - Centered alignment on all buttons
+   - Pure white text on dark solid CTA buttons
    - Visible outline button styling
    ═══════════════════════════════════════════════════════════════ */
 
@@ -66,7 +67,32 @@ a[data-variant="primary"],
 button[class*="primary"],
 a[class*="primary"],
 [class*="Button_primary"],
-[class*="button_primary"],
+[class*="button_primary"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+[data-theme="light"] button[data-variant="primary"],
+[data-theme="light"] a[data-variant="primary"],
+[data-theme="light"] .btnPrimary,
+[data-theme="light"] [class*="btnPrimary"] {
+  background: #1c1917 !important;
+  color: #ffffff !important;
+  border-color: #292524 !important;
+}
+
+[data-theme="light"] button[data-variant="primary"]:hover,
+[data-theme="light"] a[data-variant="primary"]:hover,
+[data-theme="light"] .btnPrimary:hover,
+[data-theme="light"] [class*="btnPrimary"]:hover {
+  background: #292524 !important;
+}
+
 .swa-back-cta,
 .swa-back-cta *,
 .swa-mobile-cta,

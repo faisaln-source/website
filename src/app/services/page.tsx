@@ -105,24 +105,6 @@ const services = [
     href: "https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20a%20Web%20Application!",
   },
   {
-    id: "mobile-app",
-    icon: "rocket",
-    title: "Mobile Web App",
-    price: "₹4,000+",
-    timeline: "Scoped per project",
-    tag: "Installable",
-    summary:
-      "Progressive web apps with a native-app feel, offline support, and touch-friendly design, installable without an app store.",
-    deliverables: [
-      "Offline caching",
-      "Mobile-first, touch-optimized interface",
-      "Install to home screen",
-      "Full source code handoff",
-    ],
-    cta: "Get a Quote",
-    href: "https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20a%20Mobile%20Web%20App!",
-  },
-  {
     id: "pos",
     icon: "grid",
     title: "POS and Billing Software",

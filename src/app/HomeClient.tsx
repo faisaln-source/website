@@ -75,20 +75,6 @@ const SWATCH_SERVICES: SwatchItem[] = [
     },
   },
   {
-    title: "Mobile Web App",
-    description: "Progressive web apps (PWAs) with a native-app feel, offline support, smooth touch gestures, and instant installation with no app store needed.",
-    tags: ["Works offline", "Mobile first", "Touch optimized", "From ₹4,000"],
-    color: "#6366F1",
-    focus: 50,
-    button: "Get a Quote",
-    link: "https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20a%20Mobile%20Web%20App!",
-    newTab: true,
-    image: {
-      src: "/images/services/05-mobile.jpg",
-      alt: "Mobile Web Applications and PWAs",
-    },
-  },
-  {
     title: "Business Website",
     description: "Lead-generating, SEO-optimized multi-page websites and online stores that build trust, rank on Google, and turn visitors into customers.",
     tags: ["Technical SEO", "WhatsApp leads", "Core Web Vitals", "From ₹3,000"],

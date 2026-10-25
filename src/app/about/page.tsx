@@ -169,7 +169,7 @@ export default function About() {
               </p>
             </RevealFx>
 
-            <RevealFx translateY="16" delay={400}>
+            <RevealFx translateY="16" delay={400} fillWidth>
               <div className={styles.heroActions}>
                 <a
                   href={whatsappLink}
