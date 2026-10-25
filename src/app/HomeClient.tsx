@@ -16,13 +16,6 @@ import ContactWithGlobe from "@/components/ui/contact-with-globe";
 import SwatchAccordion, { SwatchItem } from "@/components/ui/swatch-accordion";
 import { HeroSection } from "@/components";
 
-const MARQUEE_ITEMS = [
-  "ATS Resumes", "Portfolio Sites", "Business Websites",
-  "Web Applications", "POS Software", "React · Next.js",
-  "Supabase · Node.js", "Fast Delivery", "Transparent Pricing",
-  "Source Handoff", "Direct Collaboration", "GST Invoicing",
-];
-
 // ── Swatch Accordion Services Data ────────────────────────────────────────────
 const SWATCH_SERVICES: SwatchItem[] = [
   {
@@ -161,18 +154,6 @@ export default function HomeClient() {
             />
           </Column>
         </RevealFx>
-
-        {/* ── MARQUEE ── */}
-        <div className={styles.marqueeOuter}>
-          <div className={styles.marqueeTrack}>
-            {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((t, i) => (
-              <span key={i} className={styles.marqueeItem}>
-                {t}
-                <span className={styles.marqueeSep}>✦</span>
-              </span>
-            ))}
-          </div>
-        </div>
 
         <Line />
 
