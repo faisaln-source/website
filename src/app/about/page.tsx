@@ -147,17 +147,7 @@ export default function About() {
         {/* ── 1. HERO HEADER WITH MAKEWISE PROFILE CARD ── */}
         <section className={styles.heroSection} aria-label="About MakeWise">
           <div className={styles.heroContentLeft}>
-            <RevealFx translateY="8" delay={100}>
-              <div className={styles.statusPill}>
-                <span className={styles.statusDotPulse} aria-hidden="true">
-                  <span className={styles.statusDotWave} />
-                  <span className={styles.statusDotCore} />
-                </span>
-                <span>Direct-to-Developer Digital Studio</span>
-              </div>
-            </RevealFx>
-
-            <RevealFx translateY="12" delay={200}>
+            <RevealFx translateY="12" delay={150}>
               <h1 className={styles.mainHeading}>
                 Building high-impact digital products{" "}
                 <span className={styles.gradientText}>without agency bloat.</span>
