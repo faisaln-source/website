@@ -74,7 +74,8 @@ a[class*="primary"],
 [data-theme="light"] button[data-variant="primary"],
 [data-theme="light"] a[data-variant="primary"],
 [data-theme="light"] .btnPrimary,
-[data-theme="light"] [class*="btnPrimary"] {
+[data-theme="light"] [class*="btnPrimary"],
+[data-theme="light"] #contact-submit {
   background: #1c1917 !important;
   border-color: #292524 !important;
   color: #ffffff !important;
@@ -85,7 +86,8 @@ a[class*="primary"],
 [data-theme="light"] button[data-variant="primary"] *,
 [data-theme="light"] a[data-variant="primary"] *,
 [data-theme="light"] .btnPrimary *,
-[data-theme="light"] [class*="btnPrimary"] * {
+[data-theme="light"] [class*="btnPrimary"] *,
+[data-theme="light"] #contact-submit * {
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
   fill: #ffffff !important;
@@ -94,7 +96,8 @@ a[class*="primary"],
 [data-theme="light"] button[data-variant="primary"]:hover,
 [data-theme="light"] a[data-variant="primary"]:hover,
 [data-theme="light"] .btnPrimary:hover,
-[data-theme="light"] [class*="btnPrimary"]:hover {
+[data-theme="light"] [class*="btnPrimary"]:hover,
+[data-theme="light"] #contact-submit:hover {
   background: #292524 !important;
 }
 
@@ -103,10 +106,12 @@ a[class*="primary"],
 :root:not([data-theme="light"]) a[data-variant="primary"],
 :root:not([data-theme="light"]) .btnPrimary,
 :root:not([data-theme="light"]) [class*="btnPrimary"],
+:root:not([data-theme="light"]) #contact-submit,
 [data-theme="dark"] button[data-variant="primary"],
 [data-theme="dark"] a[data-variant="primary"],
 [data-theme="dark"] .btnPrimary,
-[data-theme="dark"] [class*="btnPrimary"] {
+[data-theme="dark"] [class*="btnPrimary"],
+[data-theme="dark"] #contact-submit {
   background: #ffffff !important;
   border-color: rgba(255, 255, 255, 0.95) !important;
   color: #0c0a09 !important;
@@ -118,10 +123,12 @@ a[class*="primary"],
 :root:not([data-theme="light"]) a[data-variant="primary"] *,
 :root:not([data-theme="light"]) .btnPrimary *,
 :root:not([data-theme="light"]) [class*="btnPrimary"] *,
+:root:not([data-theme="light"]) #contact-submit *,
 [data-theme="dark"] button[data-variant="primary"] *,
 [data-theme="dark"] a[data-variant="primary"] *,
 [data-theme="dark"] .btnPrimary *,
-[data-theme="dark"] [class*="btnPrimary"] * {
+[data-theme="dark"] [class*="btnPrimary"] *,
+[data-theme="dark"] #contact-submit * {
   color: #0c0a09 !important;
   -webkit-text-fill-color: #0c0a09 !important;
   fill: #0c0a09 !important;
@@ -131,10 +138,12 @@ a[class*="primary"],
 :root:not([data-theme="light"]) a[data-variant="primary"]:hover,
 :root:not([data-theme="light"]) .btnPrimary:hover,
 :root:not([data-theme="light"]) [class*="btnPrimary"]:hover,
+:root:not([data-theme="light"]) #contact-submit:hover,
 [data-theme="dark"] button[data-variant="primary"]:hover,
 [data-theme="dark"] a[data-variant="primary"]:hover,
 [data-theme="dark"] .btnPrimary:hover,
-[data-theme="dark"] [class*="btnPrimary"]:hover {
+[data-theme="dark"] [class*="btnPrimary"]:hover,
+[data-theme="dark"] #contact-submit:hover {
   background: #e4e4e7 !important;
   color: #0c0a09 !important;
 }

@@ -713,11 +713,12 @@ export default function ContactWithGlobe({
 
               <div className="flex justify-center w-full pt-2">
                 <button
+                  id="contact-submit"
                   type="submit"
                   className="w-full sm:w-auto min-w-[200px] h-11 px-8 rounded-full font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer shadow-md hover:opacity-90 active:scale-95"
                   style={{
                     background: "var(--brand-background-strong)",
-                    color: "#ffffff",
+                    color: "var(--brand-on-solid-strong)",
                   }}
                 >
                   {submitted ? "✓ Email opened!" : <>Send message <ArrowRight className="w-4 h-4" /></>}
