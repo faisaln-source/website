@@ -741,10 +741,10 @@ export default function SwatchAccordion(props: SwatchAccordionProps) {
                           e.stopPropagation();
                           toggleFlip(index);
                         }}
-                        aria-label="Flip back to photo"
+                        aria-label="Flip back to preview"
                       >
                         <span className="swa-flip-icon">↺</span>
-                        <span>Show photo</span>
+                        <span>View preview</span>
                       </button>
                     </div>
 
@@ -897,7 +897,7 @@ const CSS = `
 .swa-back-tag{display:inline-flex;align-items:center;height:28px;padding:0 12px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#ffffff;font-size:12px;font-weight:600;}
 .swa-back-desc{font-size:15.5px;line-height:1.6;color:rgba(255,255,255,.85);margin:0 0 12px;max-width:48ch;text-wrap:pretty;}
 .swa-back-footer{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.1);flex-wrap:wrap;}
-.swa-back-cta{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 22px;border-radius:999px;background:var(--swa-color);color:#141414;font-size:14px;font-weight:700;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease;box-shadow:0 8px 24px -6px color-mix(in srgb,var(--swa-color) 60%,transparent);cursor:pointer;}
+.swa-back-cta{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 22px;border-radius:999px;background:var(--swa-color);color:#ffffff !important;font-size:14px;font-weight:700;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease;box-shadow:0 8px 24px -6px color-mix(in srgb,var(--swa-color) 60%,transparent);cursor:pointer;}
 .swa-back-cta:hover{transform:translateY(-2px);box-shadow:0 12px 30px -4px color-mix(in srgb,var(--swa-color) 80%,transparent);}
 
 /* Trigger button */
@@ -939,7 +939,7 @@ const CSS = `
   .swa[data-dir="auto"] .swa-mobile-tags{display:flex;flex-wrap:wrap;gap:6px;}
   .swa[data-dir="auto"] .swa-mobile-tag{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#ffffff;font-size:11px;font-weight:600;}
   .swa[data-dir="auto"] .swa-mobile-desc{font-size:13px;line-height:1.5;color:rgba(255,255,255,.9);margin:0;max-width:100%;}
-  .swa[data-dir="auto"] .swa-mobile-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 18px;border-radius:999px;background:var(--swa-color);color:#141414;font-size:13px;font-weight:700;text-decoration:none;box-shadow:0 6px 18px color-mix(in srgb,var(--swa-color) 60%,transparent);cursor:pointer;}
+  .swa[data-dir="auto"] .swa-mobile-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 18px;border-radius:999px;background:var(--swa-color);color:#ffffff !important;font-size:13px;font-weight:700;text-decoration:none;box-shadow:0 6px 18px color-mix(in srgb,var(--swa-color) 60%,transparent);cursor:pointer;}
   .swa[data-dir="auto"] .swa-closed{width:auto;right:0;flex-direction:row;justify-content:flex-start;gap:14px;padding:0 14px 0 20px;}
   .swa[data-dir="auto"] .swa-vt{margin:0 auto 0 0;}
   .swa[data-dir="auto"] .swa-vtitle{writing-mode:horizontal-tb;transform:none;}

@@ -6,9 +6,10 @@ import { openEmailClient } from "@/components";
 interface SendEmailButtonProps {
   id: string;
   serviceTitle: string;
+  className?: string;
 }
 
-export function SendEmailButton({ id, serviceTitle }: SendEmailButtonProps) {
+export function SendEmailButton({ id, serviceTitle, className }: SendEmailButtonProps) {
   return (
     <Button
       id={id}
@@ -22,8 +23,10 @@ export function SendEmailButton({ id, serviceTitle }: SendEmailButtonProps) {
       variant="secondary"
       size="m"
       fillWidth
+      data-button-outline="true"
+      className={`btnOutline ${className || ""}`}
     >
-      Send Email
+      Send email
     </Button>
   );
 }

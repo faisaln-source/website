@@ -61,29 +61,29 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: "MakeWise — Digital Products, Web Apps & POS Solutions",
+  title: "MakeWise Digital Solutions — High-Impact Digital Products",
   description:
-    "MakeWise crafts high-performance websites, scalable web applications, POS software, and ATS-optimized portfolios — built by a solo developer, delivered with agency quality.",
+    "MakeWise builds fast websites, scalable web apps, POS software, and ATS-optimized résumés and portfolios, with direct developer access and agency-level quality.",
   headline: (
     <>
-      We build digital products
+      High-impact digital products,
       <br />
-      that mean business.
+      crafted with direct collaboration.
     </>
   ),
   featured: {
     display: true,
     title: (
       <>
-        <strong>MakeWise</strong> — Direct collaboration. Transparent pricing.
+        <strong>MakeWise</strong> — Direct developer access. Transparent pricing.
       </>
     ),
-    href: "/work",
+    href: "/services",
   },
   subline: (
     <>
-      From landing pages to full-stack web apps — you work directly with the developer, not a
-      middleman. Fast turnaround, honest pricing, full source handoff.
+      From ATS-optimized résumés and portfolios to business websites, web apps, and POS systems.
+      Work directly with the builder: transparent pricing, rapid turnaround, and full source code ownership.
     </>
   ),
 };
@@ -93,7 +93,7 @@ const about: About = {
   label: "About",
   title: "About — MakeWise Digital Solutions",
   description:
-    "MakeWise is a boutique digital studio delivering websites, web apps, POS software, and portfolios — founded on the principle of direct collaboration.",
+    "MakeWise is a direct-to-developer digital studio delivering websites, web apps, POS software, and résumés, built on direct collaboration.",
   tableOfContent: {
     display: true,
     subItems: false,
@@ -110,14 +110,13 @@ const about: About = {
     title: "Who we are",
     description: (
       <>
-        MakeWise was founded to solve a common frustration: bloated agency invoices, slow turnaround
-        times, and dealing with non-technical middle managers. Here, you collaborate{" "}
-        <strong>directly with the developer</strong> building your project — no account managers, no
-        markup, no mystery.
+        MakeWise was founded to solve a common client frustration: inflated invoices, endless delays,
+        and non-technical middle managers. Here, you work directly with the builder, with no account
+        managers, no markup, and no mystery.
         <br />
         <br />
-        We specialize in ATS resumes, portfolio sites, business websites, custom web applications,
-        and POS billing software — all crafted with precision and delivered fast.
+        We specialize in ATS-friendly résumés, modern portfolio sites, high-converting business
+        websites, custom web apps, and offline-first POS systems.
       </>
     ),
   },
@@ -126,9 +125,9 @@ const about: About = {
     title: "Our Services",
     experiences: [
       {
-        company: "ATS Resume Writing",
-        timeframe: "₹250 – ₹999 · Delivered in 24–48 hrs",
-        role: "Professionally formatted, recruiter-optimized résumés",
+        company: "ATS Résumé",
+        timeframe: "₹250–₹999 · 24–48 hours",
+        role: "Professionally formatted, keyword-optimized résumés",
         achievements: [
           <>ATS keyword optimization to pass automated screening at top companies.</>,
           <>Clean Word & PDF formatting, tailored for your industry and target role.</>,
@@ -208,7 +207,7 @@ const about: About = {
         name: "Fast Turnaround",
         description: (
           <>
-            Most projects ship in 3–10 days. Resumes within 24 hours. We respect your deadlines and
+            Most projects ship in 3–10 days. Résumés in 24–48 hours. We respect your deadlines and
             keep you updated at every step.
           </>
         ),
@@ -272,11 +271,11 @@ const blog: Blog = {
 };
 
 const work: Work = {
-  path: "/work",
+  path: "/services",
   label: "Services",
-  title: "Services — MakeWise",
+  title: "Services & Pricing — MakeWise Digital Solutions",
   description:
-    "Explore the full range of digital products MakeWise delivers — from ATS resumes to full-stack web apps and POS software.",
+    "Explore MakeWise services and pricing, from ATS résumés to full-stack web apps and POS software.",
 };
 
 const gallery: Gallery = {

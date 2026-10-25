@@ -3,29 +3,41 @@
    Calms down stark fluorescent white to an elegant, tactile paper tone
    ═══════════════════════════════════════════════════════════════ */
 
+:root,
+[data-theme="dark"],
+[data-theme="light"],
+html,
+body {
+  /* Ensure primary solid button text is always white */
+  --brand-on-solid-strong: #ffffff !important;
+  --brand-on-solid-medium: #ffffff !important;
+}
+
 :root[data-theme="light"],
 [data-theme="light"],
 html[data-theme="light"],
 body[data-theme="light"] {
-  /* Warm tactile oat/sand page canvas (eliminates blinding fluorescent white) */
+  /* Warm tactile oat/sand page canvas */
   --page-background: #ebe6dc !important;
   --surface-background: #faf8f5 !important;
 
-  /* Rich contrast deep espresso/charcoal text */
-  --neutral-on-background-strong: #1c1917 !important;
-  --neutral-on-background-medium: #3f3b37 !important;
-  --neutral-on-background-weak: #57524d !important;
+  /* Rich high-contrast text — darkened for optimal legibility (Design fix #3) */
+  --neutral-on-background-strong: #0f172a !important;
+  --neutral-on-background-medium: #1e293b !important;
+  --neutral-on-background-weak: #292524 !important;
 
   /* Subtle, warm card border tokens */
-  --neutral-alpha-weak: rgba(120, 80, 40, 0.1) !important;
-  --neutral-alpha-medium: rgba(120, 80, 40, 0.18) !important;
-  --neutral-alpha-strong: rgba(120, 80, 40, 0.3) !important;
-  --neutral-border-weak: rgba(120, 80, 40, 0.12) !important;
-  --neutral-border-medium: rgba(120, 80, 40, 0.22) !important;
+  --neutral-alpha-weak: rgba(120, 80, 40, 0.12) !important;
+  --neutral-alpha-medium: rgba(120, 80, 40, 0.22) !important;
+  --neutral-alpha-strong: rgba(120, 80, 40, 0.35) !important;
+  --neutral-border-weak: rgba(120, 80, 40, 0.14) !important;
+  --neutral-border-medium: rgba(120, 80, 40, 0.26) !important;
 
   /* Calibrated warm brand terracotta/amber tones */
   --brand-background-strong: #ea580c !important;
-  --brand-on-background-strong: #c2410c !important;
+  --brand-on-background-strong: #ea580c !important;
+  --brand-on-solid-strong: #ffffff !important;
+  --brand-on-solid-medium: #ffffff !important;
   --brand-alpha-weak: rgba(234, 88, 12, 0.1) !important;
   --brand-alpha-medium: rgba(234, 88, 12, 0.22) !important;
 }
@@ -33,6 +45,64 @@ body[data-theme="light"] {
 [data-theme="light"] body {
   background-color: var(--page-background) !important;
   color: var(--neutral-on-background-strong) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BUTTON DESIGN FIXES (Design fix #1 & #2)
+   - Pure white text on orange, blue & solid CTA buttons
+   - Visible outline button styling
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Primary CTA button text must ALWAYS be white across all themes and variants */
+button[data-variant="primary"],
+a[data-variant="primary"],
+.btnPrimary,
+.btnPrimary *,
+button[class*="primary"],
+a[class*="primary"],
+[class*="Button_primary"],
+[class*="button_primary"],
+.swa-back-cta,
+.swa-mobile-cta {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+button[data-variant="primary"] *,
+a[data-variant="primary"] * {
+  color: #ffffff !important;
+}
+
+/* Visible Outline Button for "Send email" */
+.btnOutline,
+[data-button-outline="true"] {
+  border: 1.5px solid var(--neutral-alpha-medium, rgba(255, 255, 255, 0.28)) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: var(--neutral-on-background-strong, #ffffff) !important;
+  font-weight: 600 !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btnOutline:hover,
+[data-button-outline="true"]:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: var(--brand-solid-medium, #ea580c) !important;
+  color: var(--neutral-on-background-strong, #ffffff) !important;
+  transform: translateY(-1px);
+}
+
+[data-theme="light"] .btnOutline,
+[data-theme="light"] [data-button-outline="true"] {
+  border: 1.5px solid rgba(28, 25, 23, 0.28) !important;
+  background: rgba(255, 255, 255, 0.65) !important;
+  color: #1c1917 !important;
+}
+
+[data-theme="light"] .btnOutline:hover,
+[data-theme="light"] [data-button-outline="true"]:hover {
+  background: #ffffff !important;
+  border-color: #ea580c !important;
+  color: #ea580c !important;
 }
 
 /* ═══════════════════════════════════════════════════════════════

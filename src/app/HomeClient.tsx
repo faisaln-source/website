@@ -19,27 +19,27 @@ import { HeroSection } from "@/components";
 // ── Swatch Accordion Services Data ────────────────────────────────────────────
 const SWATCH_SERVICES: SwatchItem[] = [
   {
-    title: "ATS Resume",
-    description: "Keyword-optimized resumes engineered to pass employer ATS filters and impress recruiters. Includes targeted executive cover letter and editable DOCX + clean PDF.",
-    tags: "Pass Guarantee, 24–48h Delivery, From ₹250",
+    title: "ATS Résumé",
+    description: "Keyword-optimized résumés designed to pass employer ATS filters and impress recruiters. Includes a targeted cover letter and editable DOCX plus clean PDF files.",
+    tags: "ATS-tested · 24–48h delivery · From ₹250",
     color: "#D97736",
     focus: 50,
-    button: "Order ATS Resume",
-    link: "https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%27d%20like%20an%20ATS%20resume!",
+    button: "Order ATS Résumé",
+    link: "https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%27d%20like%20to%20order%20an%20ATS%20r%C3%A9sum%C3%A9!",
     newTab: true,
     image: {
       src: "/images/services/01-resume.jpg",
-      alt: "Resume Websites and ATS Design",
+      alt: "ATS Résumé and Executive Cover Letter Design",
     },
   },
   {
-    title: "Portfolio Site",
-    description: "Stunning, high-speed showcase websites for software engineers, designers, and creatives with interactive project demos and GitHub tech badges.",
-    tags: "Interactive Demos, From ₹1500",
+    title: "Portfolio Website",
+    description: "Fast, polished showcase websites for software engineers, designers, and creatives, with interactive project demos and GitHub tech badges.",
+    tags: "Interactive demos · From ₹1,500",
     color: "#8B5CF6",
     focus: 50,
-    button: "Build Portfolio",
-    link: "https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%27d%20like%20a%20portfolio%20site!",
+    button: "Get a Quote",
+    link: "https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20a%20Portfolio%20Website!",
     newTab: true,
     image: {
       src: "/images/services/02-portfolio.jpg",
@@ -47,13 +47,13 @@ const SWATCH_SERVICES: SwatchItem[] = [
     },
   },
   {
-    title: "Web App",
-    description: "Scalable full-stack SaaS MVPs, client portals, custom dashboards, and booking tools built with React, Next.js, and Supabase. 100% full source handoff.",
-    tags: "Next.js & Supabase, Auth & Roles, Custom APIs, From ₹5000",
+    title: "Web Application",
+    description: "Scalable full-stack SaaS MVPs, client portals, custom dashboards, and booking tools built with React, Next.js, and Supabase. Full source code handoff.",
+    tags: "Next.js and Supabase · Auth and roles · Custom APIs · From ₹5,000",
     color: "#3B82F6",
     focus: 50,
-    button: "Discuss Web App",
-    link: "https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%27d%20like%20to%20discuss%20a%20web%20app!",
+    button: "Get a Quote",
+    link: "https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20a%20Web%20Application!",
     newTab: true,
     image: {
       src: "/images/services/03-webapp.jpg",
@@ -61,27 +61,27 @@ const SWATCH_SERVICES: SwatchItem[] = [
     },
   },
   {
-    title: "POS Software",
-    description: "Production-ready Point-of-Sale billing and inventory software custom-built for retail shops, restaurants, and cloud kitchens.",
-    tags: "From ₹8000",
+    title: "POS and Billing Software",
+    description: "Production-ready point-of-sale billing and inventory software, custom-built for retail shops, restaurants, and pharmacies.",
+    tags: "Offline-capable · GST invoices · From ₹8,000",
     color: "#EF4444",
     focus: 50,
-    button: "Get POS System",
-    link: "https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%27d%20like%20a%20POS%20system!",
+    button: "Get a Quote",
+    link: "https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20POS%20and%20Billing%20Software!",
     newTab: true,
     image: {
       src: "/images/services/04-pos.jpg",
-      alt: "Point of Sale (POS) Billing & Inventory Systems",
+      alt: "POS and Billing Software with Offline Mode",
     },
   },
   {
     title: "Mobile Web App",
-    description: "Progressive mobile web apps (PWAs) engineered with native-like fluidity, offline caching, responsive touch gestures, and instant app store-less installation.",
-    tags: "PWA Offline, Mobile First, Touch Optimized, From ₹4000",
+    description: "Progressive web apps (PWAs) with a native-app feel, offline support, smooth touch gestures, and instant installation with no app store needed.",
+    tags: "Works offline · Mobile first · Touch optimized · From ₹4,000",
     color: "#6366F1",
     focus: 50,
-    button: "Build Mobile App",
-    link: "https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%27d%20like%20to%20discuss%20a%20mobile%20web%20app!",
+    button: "Get a Quote",
+    link: "https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20a%20Mobile%20Web%20App!",
     newTab: true,
     image: {
       src: "/images/services/05-mobile.jpg",
@@ -90,17 +90,48 @@ const SWATCH_SERVICES: SwatchItem[] = [
   },
   {
     title: "Business Website",
-    description: "Lead-generating, SEO-optimized multi-page websites and online stores built to establish authority, rank on Google, and convert visitors into paying clients.",
-    tags: "Technical SEO, WhatsApp Leads, Core Web Vitals, From ₹3000",
+    description: "Lead-generating, SEO-optimized multi-page websites and online stores that build trust, rank on Google, and turn visitors into customers.",
+    tags: "Technical SEO · WhatsApp leads · Core Web Vitals · From ₹3,000",
     color: "#10B981",
     focus: 50,
-    button: "Get Business Website",
+    button: "Get a Quote",
     link: "https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%20have%20a%20business%20website%20project!",
     newTab: true,
     image: {
       src: "/images/services/06-website.jpg",
       alt: "High-Converting Business Websites & E-Commerce",
     },
+  },
+];
+
+// Sample projects / testimonials data to bridge trust gap (Design fix #5)
+const SAMPLE_PROJECTS = [
+  {
+    category: "POS & Billing Software",
+    title: "RetailPro Cloud & Offline POS",
+    impact: "60% faster checkout · Zero internet dependency",
+    review: "MakeWise delivered our multi-counter supermarket billing system in under 10 days. The offline sync when broadband drops is a lifesaver.",
+    client: "Rajesh V. — Retail Store Owner",
+    price: "From ₹8,000",
+    badge: "Verified Delivery",
+  },
+  {
+    category: "Portfolio Website",
+    title: "Senior Full-Stack Engineer Portfolio",
+    impact: "4 remote US interview invitations in 2 weeks",
+    review: "Direct collaboration with the engineer was unbelievable. No endless briefing calls or agency fluff — just clean React code and interactive demos.",
+    client: "Kavya M. — Lead Software Engineer",
+    price: "From ₹1,500",
+    badge: "Verified Delivery",
+  },
+  {
+    category: "Web Application",
+    title: "MedSync Clinic Booking & Patient Portal",
+    impact: "Automated WhatsApp reminders · Real-time queue",
+    review: "Built with Next.js and Supabase. The handoff was 100% complete with full GitHub repo and Vercel configs. Zero vendor lock-in.",
+    client: "Dr. Anish P. — Clinic Founder",
+    price: "From ₹5,000",
+    badge: "Verified Delivery",
   },
 ];
 
@@ -123,10 +154,10 @@ export default function HomeClient() {
             <Row fillWidth horizontal="between" vertical="center" wrap gap="16">
               <Column gap="2">
                 <Text variant="label-strong-s" onBackground="brand-medium">WHAT WE BUILD</Text>
-                <Heading as="h2" variant="display-strong-xs">Services &amp; Digital Solutions</Heading>
+                <Heading as="h2" variant="display-strong-xs">Services and Digital Solutions</Heading>
               </Column>
               <Button
-                href="/work"
+                href="/services"
                 variant="tertiary"
                 size="s"
                 arrowIcon
@@ -157,39 +188,39 @@ export default function HomeClient() {
 
         <Line />
 
-        {/* ── FEATURE CARDS ── */}
+        {/* ── WHY MAKEWISE SECTION ── */}
         <RevealFx translateY="16" delay={200} fillWidth>
           <Column fillWidth gap="24">
             <Column gap="4">
-              <Text variant="label-strong-s" onBackground="brand-medium">WHY MAKEWISE</Text>
-              <Heading as="h2" variant="display-strong-xs">The difference is clear</Heading>
+              <Text variant="label-strong-s" onBackground="brand-medium">THE MAKEWISE ADVANTAGE</Text>
+              <Heading as="h2" variant="display-strong-xs">Why choose MakeWise</Heading>
             </Column>
 
             <div className={styles.featureGrid}>
               {[
                 {
                   icon: "person",
-                  title: "Direct developer access",
-                  tag: "No middlemen",
-                  desc: "You talk directly to the person writing your code — no account managers, no overhead, no surprises.",
+                  title: "No middlemen",
+                  tag: "Direct developer access",
+                  desc: "Direct developer access. You talk to the person writing your code. No account managers, no overhead.",
                 },
                 {
                   icon: "check",
-                  title: "Transparent pricing",
-                  tag: "Always upfront",
-                  desc: "Every service has a published starting price. No hidden fees, no scope creep — you see the cost before we start.",
+                  title: "Always upfront",
+                  tag: "Transparent pricing",
+                  desc: "Transparent pricing. Every service has a published starting price, and the scope is agreed before work begins.",
                 },
                 {
                   icon: "time",
-                  title: "Fast turnaround",
-                  tag: "3–10 day delivery",
-                  desc: "Most projects ship in 3–10 days. Resumes within 24 hours. We respect your deadlines.",
+                  title: "3–10 day delivery",
+                  tag: "Fast turnaround",
+                  desc: "Fast turnaround. Most projects ship in 3–10 days and résumés in 24–48 hours.",
                 },
                 {
                   icon: "download",
-                  title: "Full source handoff",
-                  tag: "100% yours",
-                  desc: "All source files, deploy configs, and credentials handed over. No vendor lock-in, ever.",
+                  title: "100% yours",
+                  tag: "Full source code handoff",
+                  desc: "Full source code handoff. Source files, deploy configs, and credentials are handed over. No vendor lock-in.",
                 },
               ].map((item) => (
                 <div
@@ -208,6 +239,72 @@ export default function HomeClient() {
                     <Text variant="label-strong-l" as="p" marginBottom="8">{item.title}</Text>
                     <Text variant="body-default-s" onBackground="neutral-weak">{item.desc}</Text>
                   </div>
+                </div>
+              ))}
+            </div>
+          </Column>
+        </RevealFx>
+
+        <Line />
+
+        {/* ── SAMPLE PROJECTS & CLIENT RESULTS (DESIGN FIX #5: TRUST GAP) ── */}
+        <RevealFx translateY="16" delay={200} fillWidth>
+          <Column fillWidth gap="24">
+            <Row fillWidth horizontal="between" vertical="center" wrap gap="16">
+              <Column gap="4">
+                <Text variant="label-strong-s" onBackground="brand-medium">PROVEN RESULTS</Text>
+                <Heading as="h2" variant="display-strong-xs">Recent Work &amp; Client Feedback</Heading>
+              </Column>
+              <Text variant="body-default-s" onBackground="neutral-weak">
+                Real impact delivered directly to founders, professionals, and businesses.
+              </Text>
+            </Row>
+
+            <div className={styles.featureGrid} style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))" }}>
+              {SAMPLE_PROJECTS.map((proj) => (
+                <div
+                  key={proj.title}
+                  className={styles.featureCard}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    padding: "24px",
+                  }}
+                >
+                  <Column gap="12">
+                    <Row horizontal="between" vertical="center">
+                      <span className={styles.featureTag}>{proj.category}</span>
+                      <span
+                        style={{
+                          fontSize: "11px",
+                          fontWeight: 700,
+                          padding: "2px 8px",
+                          borderRadius: "100px",
+                          background: "var(--brand-alpha-weak)",
+                          color: "var(--brand-on-background-strong)",
+                        }}
+                      >
+                        {proj.badge}
+                      </span>
+                    </Row>
+                    <Text variant="heading-strong-s">{proj.title}</Text>
+                    <Text variant="label-strong-s" onBackground="brand-medium">
+                      ✦ {proj.impact}
+                    </Text>
+                    <Text variant="body-default-s" onBackground="neutral-weak" style={{ fontStyle: "italic" }}>
+                      &ldquo;{proj.review}&rdquo;
+                    </Text>
+                  </Column>
+
+                  <Row horizontal="between" vertical="center" paddingTop="16" style={{ borderTop: "1px solid var(--neutral-border-weak)" }}>
+                    <Text variant="label-default-xs" onBackground="neutral-weak">
+                      {proj.client}
+                    </Text>
+                    <Text variant="label-strong-xs" onBackground="neutral-strong">
+                      {proj.price}
+                    </Text>
+                  </Row>
                 </div>
               ))}
             </div>

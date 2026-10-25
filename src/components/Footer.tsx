@@ -27,23 +27,19 @@ export const Footer = () => {
         }}
       >
         <Text variant="body-default-s" onBackground="neutral-strong">
-          <Text onBackground="neutral-weak">© {currentYear} /</Text>
-          <Text paddingX="4">{person.name}</Text>
-          <Text onBackground="neutral-weak">
-            · +91 70120 80365 ·{" "}
-            <SmartLink
-              href="mailto:makewisedigitalsolution@gmail.com"
-              onClick={(e) => {
-                e.preventDefault();
-                openEmailClient({
-                  to: "makewisedigitalsolution@gmail.com",
-                  subject: "Inquiry - MakeWise Digital Solutions",
-                });
-              }}
-            >
-              makewisedigitalsolution@gmail.com
-            </SmartLink>
-          </Text>
+          <Text onBackground="neutral-weak">© {currentYear} MakeWise Digital Solutions · +91 70120 80365 · </Text>
+          <SmartLink
+            href="mailto:makewisedigitalsolution@gmail.com"
+            onClick={(e) => {
+              e.preventDefault();
+              openEmailClient({
+                to: "makewisedigitalsolution@gmail.com",
+                subject: "Inquiry - MakeWise Digital Solutions",
+              });
+            }}
+          >
+            makewisedigitalsolution@gmail.com
+          </SmartLink>
         </Text>
         <Row gap="8">
           {social

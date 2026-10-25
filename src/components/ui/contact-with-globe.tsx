@@ -502,7 +502,7 @@ interface ContactWithGlobeProps {
 export default function ContactWithGlobe({
   title = "Start your project",
   subtitle = "Get in touch",
-  description = "Tell us what you need — we respond with a custom quote within hours. Direct collaboration, transparent pricing, fast delivery.",
+  description = "Tell us what you need and get a custom quote, usually within a few hours. Direct collaboration, transparent pricing, fast delivery.",
   className,
 }: ContactWithGlobeProps) {
   const [formState, setFormState] = useState({ name: "", service: "", email: "", message: "" });
@@ -557,7 +557,7 @@ export default function ContactWithGlobe({
         {/* Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto items-start">
 
-          {/* Left â€” contact links + globe */}
+          {/* Left — contact links + globe */}
           <motion.div
             initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 1.0, delay: 0.2, ease: smoothEase }}
@@ -566,7 +566,7 @@ export default function ContactWithGlobe({
             <div className="flex flex-col gap-1">
               <h3 className="text-xl font-semibold" style={{ color: "var(--neutral-on-background-strong)" }}>Reach us directly</h3>
               <p className="text-sm leading-relaxed max-w-xs" style={{ color: "var(--neutral-on-background-weak)" }}>
-                Prefer a quick chat? Message us on WhatsApp — we typically respond within the hour.
+                Prefer a quick chat? Message MakeWise on WhatsApp. Replies usually come within the hour.
               </p>
             </div>
 
@@ -626,7 +626,7 @@ export default function ContactWithGlobe({
             </div>
           </motion.div>
 
-          {/* Right â€” contact form */}
+          {/* Right — contact form */}
           <motion.div
             initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 1.0, delay: 0.35, ease: smoothEase }}
@@ -639,7 +639,7 @@ export default function ContactWithGlobe({
             <div>
               <h3 className="text-lg font-semibold mb-0.5" style={{ color: "var(--neutral-on-background-strong)" }}>Send a message</h3>
               <p className="text-sm" style={{ color: "var(--neutral-on-background-weak)" }}>
-                Fill out the form and we'll get back to you with a quote.
+                Fill out the form and you will get a quote by reply.
               </p>
             </div>
 
@@ -672,11 +672,12 @@ export default function ContactWithGlobe({
                     }}
                   >
                     <option value="">Select service...</option>
-                    <option>ATS Resume</option>
+                    <option>ATS Résumé</option>
                     <option>Portfolio Website</option>
                     <option>Business Website</option>
                     <option>Web Application</option>
-                    <option>POS Software</option>
+                    <option>Mobile Web App</option>
+                    <option>POS and Billing Software</option>
                     <option>Other</option>
                   </select>
                 </div>
@@ -700,7 +701,7 @@ export default function ContactWithGlobe({
                 <label className="text-xs font-semibold tracking-widest uppercase" style={{ color: "var(--neutral-on-background-weak)" }}>Project Details</label>
                 <textarea
                   required rows={4}
-                  placeholder="Describe your project — what you need, your timeline, and budget range."
+                  placeholder="Describe your project: what you need, your timeline, and your budget range."
                   value={formState.message} onChange={e => setFormState(s => ({ ...s, message: e.target.value }))}
                   className="w-full rounded-xl px-4 py-3 text-sm resize-none outline-none transition-all duration-200"
                   style={{
@@ -716,10 +717,10 @@ export default function ContactWithGlobe({
                 className="w-fit h-11 px-8 rounded-xl font-semibold text-sm flex items-center gap-2 transition-all duration-200"
                 style={{
                   background: "var(--brand-background-strong)",
-                  color: "var(--brand-on-background-strong)",
+                  color: "#ffffff",
                 }}
               >
-                {submitted ? "âœ“ Email opened!" : <>Send Message <ArrowRight className="w-4 h-4" /></>}
+                {submitted ? "✓ Email opened!" : <>Send message <ArrowRight className="w-4 h-4" /></>}
               </button>
             </form>
           </motion.div>

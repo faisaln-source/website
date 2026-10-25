@@ -6,9 +6,9 @@ import { RevealFx } from "@once-ui-system/core";
 import styles from "./HeroSection.module.css";
 
 const ROTATING_PHRASES = [
+  "crafted with direct collaboration.",
   "built to win clients.",
   "engineered for speed & scale.",
-  "crafted with direct collaboration.",
   "delivered with agency quality.",
 ];
 
@@ -175,11 +175,22 @@ export function HeroSection() {
 
         {/* ── Main Hero Content ── */}
         <div className={styles.heroContent}>
+          {/* Badge: Direct-to-developer digital studio */}
+          <RevealFx translateY="8" delay={100}>
+            <div className={styles.statusBadge}>
+              <span className={styles.statusIndicator} aria-hidden="true">
+                <span className={styles.statusPing} />
+                <span className={styles.statusDot} />
+              </span>
+              <span>Direct-to-developer digital studio</span>
+            </div>
+          </RevealFx>
+
           {/* Main Heading with Subtle Rotating Text */}
           <RevealFx translateY="12" delay={150}>
             <h1 className={styles.heroHeading}>
               <span className={styles.heroHeadingPrefix}>
-                High-impact digital products
+                High-impact digital products,
               </span>
               <span className={styles.rotatorContainer}>
                 <span key={phraseIndex} className={styles.rotatingPhrase}>
@@ -192,22 +203,46 @@ export function HeroSection() {
           {/* Persuasive Elegant Subtitle */}
           <RevealFx translateY="12" delay={250}>
             <p className={styles.heroSubtitle}>
-              From ATS-optimized portfolios and high-converting business websites
-              to scalable web applications and POS systems. Work directly with
-              the builder &mdash; transparent pricing, rapid turnaround, and 100%
-              source code ownership.
+              From ATS-optimized résumés and portfolios to business websites, web apps,
+              and POS systems. Work directly with the builder: transparent pricing,
+              rapid turnaround, and full source code ownership.
             </p>
           </RevealFx>
 
+          {/* Hero Buttons: Get a Quote · Chat on WhatsApp */}
+          <RevealFx translateY="16" delay={320}>
+            <div className={styles.heroActions}>
+              <button
+                type="button"
+                onClick={raiseCurtain}
+                className={styles.heroBtnPrimary}
+                aria-label="Get a Quote"
+              >
+                <span>Get a Quote</span>
+                <span aria-hidden="true">→</span>
+              </button>
+
+              <a
+                href="https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%20have%20a%20project%20idea!"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.heroBtnSecondary}
+                aria-label="Chat on WhatsApp"
+              >
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
+          </RevealFx>
+
           {/* Mobile CTA to explore */}
-          <RevealFx translateY="16" delay={350}>
+          <RevealFx translateY="16" delay={400}>
             <button
               type="button"
               onClick={raiseCurtain}
               className={styles.heroExploreMobile}
               aria-label="Explore Services & Digital Solutions"
             >
-              <span>Explore Services &amp; Work</span>
+              <span>Explore Services &amp; Digital Solutions</span>
               <span className={styles.heroExploreArrow}>↓</span>
             </button>
           </RevealFx>
