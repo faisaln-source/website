@@ -24,7 +24,7 @@ const STATS = [
   {
     number: "3–10 days",
     label: "Fast delivery",
-    subtext: "Most sites ship in 3–10 days; résumés in 24–48 hours.",
+    subtext: "Most sites ship in 3–10 days; resumes in 24–48 hours.",
   },
   {
     number: "100%",
@@ -72,7 +72,7 @@ const FEATURES = [
     title: "Rapid turnaround",
     desc: "Without agency layers, projects move from first conversation to live deployment in days rather than months.",
     checklist: [
-      "ATS résumés delivered within 24–48 hours",
+      "ATS resumes delivered within 24–48 hours",
       "Portfolio and business websites live in 3–10 days",
       "Deadlines respected, with proactive updates",
     ],
@@ -234,7 +234,7 @@ export default function About() {
               </p>
               <p className={styles.cardParagraph}>
                 MakeWise runs a leaner, more transparent model: you speak directly with
-                the developer writing the code. The focus is ATS-friendly résumés,
+                the developer writing the code. The focus is ATS-friendly resumes,
                 modern portfolio sites, high-converting business websites, custom web
                 apps, and offline-first POS systems.
               </p>

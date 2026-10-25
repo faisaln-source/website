@@ -63,7 +63,7 @@ const home: Home = {
   label: "Home",
   title: "MakeWise Digital Solutions — High-Impact Digital Products",
   description:
-    "MakeWise builds fast websites, scalable web apps, POS software, and ATS-optimized résumés and portfolios, with direct developer access and agency-level quality.",
+    "MakeWise builds fast websites, scalable web apps, POS software, and ATS-optimized resumes and portfolios, with direct developer access and agency-level quality.",
   headline: (
     <>
       High-impact digital products,
@@ -82,7 +82,7 @@ const home: Home = {
   },
   subline: (
     <>
-      From ATS-optimized résumés and portfolios to business websites, web apps, and POS systems.
+      From ATS-optimized resumes and portfolios to business websites, web apps, and POS systems.
       Work directly with the builder: transparent pricing, rapid turnaround, and full source code ownership.
     </>
   ),
@@ -93,7 +93,7 @@ const about: About = {
   label: "About",
   title: "About — MakeWise Digital Solutions",
   description:
-    "MakeWise is a direct-to-developer digital studio delivering websites, web apps, POS software, and résumés, built on direct collaboration.",
+    "MakeWise is a direct-to-developer digital studio delivering websites, web apps, POS software, and resumes, built on direct collaboration.",
   tableOfContent: {
     display: true,
     subItems: false,
@@ -115,7 +115,7 @@ const about: About = {
         managers, no markup, and no mystery.
         <br />
         <br />
-        We specialize in ATS-friendly résumés, modern portfolio sites, high-converting business
+        We specialize in ATS-friendly resumes, modern portfolio sites, high-converting business
         websites, custom web apps, and offline-first POS systems.
       </>
     ),
@@ -125,9 +125,9 @@ const about: About = {
     title: "Our Services",
     experiences: [
       {
-        company: "ATS Résumé",
+        company: "ATS Resume",
         timeframe: "₹250–₹999 · 24–48 hours",
-        role: "Professionally formatted, keyword-optimized résumés",
+        role: "Professionally formatted, keyword-optimized resumes",
         achievements: [
           <>ATS keyword optimization to pass automated screening at top companies.</>,
           <>Clean Word & PDF formatting, tailored for your industry and target role.</>,
@@ -207,7 +207,7 @@ const about: About = {
         name: "Fast Turnaround",
         description: (
           <>
-            Most projects ship in 3–10 days. Résumés in 24–48 hours. We respect your deadlines and
+            Most projects ship in 3–10 days. Resumes in 24–48 hours. We respect your deadlines and
             keep you updated at every step.
           </>
         ),
@@ -275,7 +275,7 @@ const work: Work = {
   label: "Services",
   title: "Services & Pricing — MakeWise Digital Solutions",
   description:
-    "Explore MakeWise services and pricing, from ATS résumés to full-stack web apps and POS software.",
+    "Explore MakeWise services and pricing, from ATS resumes to full-stack web apps and POS software.",
 };
 
 const gallery: Gallery = {

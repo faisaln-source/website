@@ -30,12 +30,12 @@ const services = [
   {
     id: "resume",
     icon: "document",
-    title: "ATS Résumé",
+    title: "ATS Resume",
     price: "₹250–₹999",
     timeline: "24–48 hours",
     tag: "Most popular",
     summary:
-      "Professionally formatted, keyword-optimized résumés designed to pass ATS scanners and impress recruiters.",
+      "Professionally formatted, keyword-optimized resumes designed to pass ATS scanners and impress recruiters.",
     deliverables: [
       "ATS keyword optimization for your target role",
       "Clean, editable Word and PDF files",
@@ -45,7 +45,7 @@ const services = [
       "Targeted cover letter included",
     ],
     cta: "Order on WhatsApp",
-    href: "https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%27d%20like%20to%20order%20an%20ATS%20r%C3%A9sum%C3%A9!",
+    href: "https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%27d%20like%20to%20order%20an%20ATS%20resume!",
   },
   {
     id: "portfolio",
@@ -187,7 +187,7 @@ export default function ServicesPage() {
 
         <RevealFx translateY="12" delay={300}>
           <p className={styles.leadSubtitle}>
-            From résumés to full-stack apps, every service has transparent pricing and fast
+            From resumes to full-stack apps, every service has transparent pricing and fast
             turnaround. Websites and apps include your full source code.
           </p>
         </RevealFx>

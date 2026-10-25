@@ -672,7 +672,7 @@ export default function ContactWithGlobe({
                     }}
                   >
                     <option value="">Select service...</option>
-                    <option>ATS Résumé</option>
+                    <option>ATS Resume</option>
                     <option>Portfolio Website</option>
                     <option>Business Website</option>
                     <option>Web Application</option>

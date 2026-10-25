@@ -19,17 +19,17 @@ import { HeroSection } from "@/components";
 // ── Swatch Accordion Services Data ────────────────────────────────────────────
 const SWATCH_SERVICES: SwatchItem[] = [
   {
-    title: "ATS Résumé",
-    description: "Keyword-optimized résumés designed to pass employer ATS filters and impress recruiters. Includes a targeted cover letter and editable DOCX plus clean PDF files.",
+    title: "ATS Resume",
+    description: "Keyword-optimized resumes designed to pass employer ATS filters and impress recruiters. Includes a targeted cover letter and editable DOCX plus clean PDF files.",
     tags: "ATS-tested · 24–48h delivery · From ₹250",
     color: "#D97736",
     focus: 50,
-    button: "Order ATS Résumé",
-    link: "https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%27d%20like%20to%20order%20an%20ATS%20r%C3%A9sum%C3%A9!",
+    button: "Order ATS Resume",
+    link: "https://wa.me/917012080365?text=Hi%20MakeWise%2C%20I%27d%20like%20to%20order%20an%20ATS%20resume!",
     newTab: true,
     image: {
       src: "/images/services/01-resume.jpg",
-      alt: "ATS Résumé and Executive Cover Letter Design",
+      alt: "ATS Resume and Executive Cover Letter Design",
     },
   },
   {
@@ -183,7 +183,7 @@ export default function HomeClient() {
                   icon: "time",
                   title: "3–10 day delivery",
                   tag: "Fast turnaround",
-                  desc: "Fast turnaround. Most projects ship in 3–10 days and résumés in 24–48 hours.",
+                  desc: "Fast turnaround. Most projects ship in 3–10 days and resumes in 24–48 hours.",
                 },
                 {
                   icon: "download",

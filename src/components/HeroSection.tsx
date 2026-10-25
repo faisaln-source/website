@@ -192,7 +192,7 @@ export function HeroSection() {
           {/* Persuasive Elegant Subtitle */}
           <RevealFx translateY="12" delay={250}>
             <p className={styles.heroSubtitle}>
-              From ATS-optimized résumés and portfolios to business websites, web apps,
+              From ATS-optimized resumes and portfolios to business websites, web apps,
               and POS systems. Work directly with the builder: transparent pricing,
               rapid turnaround, and full source code ownership.
             </p>
