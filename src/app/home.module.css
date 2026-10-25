@@ -326,11 +326,30 @@
   mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
+@keyframes marqueeScroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
 .marqueeTrack {
   display: flex;
   align-items: center;
   width: max-content;
+  animation: marqueeScroll 26s linear infinite;
   will-change: transform;
+}
+@media (hover: hover) and (pointer: fine) {
+  .marqueeOuter:hover .marqueeTrack {
+    animation-play-state: paused;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+  }
 }
 .marqueeItem {
   display: inline-flex;

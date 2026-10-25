@@ -39,9 +39,14 @@ body[data-theme="light"] {
    MOBILE VIEW POLISH & FIXED BOTTOM NAVIGATION CLEARANCE
    ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
-  html, body {
-    overflow-x: hidden !important;
-    max-width: 100vw !important;
+  html {
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    overflow-x: clip;
+    -webkit-overflow-scrolling: touch;
   }
 
   main {

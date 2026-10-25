@@ -168,7 +168,7 @@ function GlobeWireframe({
   scale = 1,
   backgroundColor,
 }: GlobeWireframeProps) {
-  const svgRef = useRef<SVGSVGElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [progress] = useState(0);
   const [worldData, setWorldData] = useState<GeoFeature[]>([]);
@@ -298,12 +298,12 @@ function GlobeWireframe({
   const handleMouseDown = (event: React.MouseEvent) => {
     if (!enableInteraction) return;
     setIsDragging(true);
-    const rect = svgRef.current?.getBoundingClientRect();
+    const rect = canvasRef.current?.getBoundingClientRect();
     if (rect) setLastMouse([event.clientX - rect.left, event.clientY - rect.top]);
   };
   const handleMouseMove = (event: React.MouseEvent) => {
     if (!isDragging || !enableInteraction) return;
-    const rect = svgRef.current?.getBoundingClientRect();
+    const rect = canvasRef.current?.getBoundingClientRect();
     if (!rect) return;
     const cur = [event.clientX - rect.left, event.clientY - rect.top];
     const dx = cur[0] - lastMouse[0], dy = cur[1] - lastMouse[1];
@@ -313,36 +313,52 @@ function GlobeWireframe({
   const handleMouseUp = () => setIsDragging(false);
   const handleMouseLeave = () => setIsDragging(false);
 
+  const handleTouchStart = (event: React.TouchEvent) => {
+    if (!enableInteraction || event.touches.length !== 1) return;
+    setIsDragging(true);
+    const rect = canvasRef.current?.getBoundingClientRect();
+    if (rect) setLastMouse([event.touches[0].clientX - rect.left, event.touches[0].clientY - rect.top]);
+  };
+  const handleTouchMove = (event: React.TouchEvent) => {
+    if (!isDragging || !enableInteraction || event.touches.length !== 1) return;
+    const rect = canvasRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const cur = [event.touches[0].clientX - rect.left, event.touches[0].clientY - rect.top];
+    const dx = cur[0] - lastMouse[0], dy = cur[1] - lastMouse[1];
+    setRotation((prev) => [prev[0] + dx * 0.5, Math.max(-90, Math.min(90, prev[1] - dy * 0.5))]);
+    setLastMouse(cur);
+  };
+
+  const getResolvedColor = (color: string, fallback: string) => {
+    if (color && color !== "currentColor") return color;
+    if (typeof window !== "undefined" && canvasRef.current) {
+      const computed = window.getComputedStyle(canvasRef.current).color;
+      if (computed && computed !== "currentColor") return computed;
+    }
+    return fallback;
+  };
+
   useEffect(() => {
-    if (!svgRef.current || worldData.length === 0 || !isVisible) return;
+    const canvas = canvasRef.current;
+    if (!canvas || worldData.length === 0 || !isVisible) return;
     if (useResponsive && dimensions.width === 0) return;
 
-    const svg = d3.select(svgRef.current);
-    svg.selectAll("*").remove();
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
-    let finalCountryFill = "none";
-    let finalStrokeWidth = strokeWidth;
-    let finalOpacity = 1.0;
-    let renderGraticule = showGraticule;
-    let finalGraticuleOpacity = graticuleOpacity;
-    let finalSphereOutlineWidth = sphereOutlineWidth;
-
-    if (variant === "wireframesolid") {
-      finalCountryFill = "none"; finalStrokeWidth = strokeWidth; finalOpacity = 1.0;
-      renderGraticule = false; finalGraticuleOpacity = 0; finalSphereOutlineWidth = 1.5;
-    } else if (variant === "solid") {
-      finalCountryFill = defaultCountryFillColor; finalStrokeWidth = strokeWidth * 0.5; finalOpacity = 0.3;
-      renderGraticule = false; finalGraticuleOpacity = 0; finalSphereOutlineWidth = 1.5;
+    const dpr = Math.min(typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1, 2);
+    const w = Math.round(finalWidth * dpr);
+    const h = Math.round(finalHeight * dpr);
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width = w;
+      canvas.height = h;
     }
 
-    if (defaultBackgroundColor !== "transparent") {
-      const radius = (Math.min(finalWidth, finalHeight) / 2) * scale * 0.9;
-      svg.append("circle").attr("cx", finalWidth / 2).attr("cy", finalHeight / 2).attr("r", radius).attr("fill", defaultBackgroundColor);
-    }
+    ctx.save();
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, finalWidth, finalHeight);
 
     let projection: d3.GeoProjection | CustomProjection;
-    const path = d3.geoPath();
-
     if (variant === "wireframe") {
       const t = progress / 100;
       const alpha = Math.pow(t, 0.5);
@@ -350,54 +366,65 @@ function GlobeWireframe({
       const scaleRange = d3.scaleLinear().domain([0, 1]).range([baseScale * 0.9 * scale, baseScale * 0.54 * scale]);
       projection = interpolateProjection(orthographicRaw, equirectangularRaw)
         .scale(scaleRange(alpha)).translate([finalWidth / 2, finalHeight / 2])
-        .rotate([rotation[0], rotation[1]]).precision(0.1);
+        .rotate([rotation[0], rotation[1]]).precision(0.5);
       (projection as CustomProjection).alpha(alpha);
-      path.projection(projection);
     } else {
       projection = d3.geoOrthographic()
         .scale((Math.min(finalWidth, finalHeight) / 2) * scale * 0.9)
         .translate([finalWidth / 2, finalHeight / 2])
-        .rotate([rotation[0], rotation[1]]).precision(0.1);
-      path.projection(projection);
+        .rotate([rotation[0], rotation[1]]).precision(0.5);
     }
 
-    if (renderGraticule && finalGraticuleOpacity > 0) {
+    const path = d3.geoPath(projection, ctx);
+
+    if (defaultBackgroundColor !== "transparent") {
+      ctx.beginPath();
+      ctx.arc(finalWidth / 2, finalHeight / 2, (Math.min(finalWidth, finalHeight) / 2) * scale * 0.9, 0, 2 * Math.PI);
+      ctx.fillStyle = defaultBackgroundColor;
+      ctx.fill();
+    }
+
+    const shouldGraticule = variant === "wireframe" && showGraticule && graticuleOpacity > 0;
+    if (shouldGraticule) {
       try {
         const graticule = d3.geoGraticule();
-        const gPath = path(graticule());
-        if (gPath) svg.append("path").datum(graticule()).attr("d", gPath).attr("fill", "none").attr("stroke", defaultGraticuleColor).attr("stroke-width", 1).attr("opacity", finalGraticuleOpacity);
-      } catch { /* ignore */ }
+        ctx.beginPath();
+        path(graticule());
+        ctx.strokeStyle = getResolvedColor(defaultGraticuleColor, "rgba(255, 255, 255, 0.2)");
+        ctx.lineWidth = 0.8;
+        ctx.globalAlpha = graticuleOpacity;
+        ctx.stroke();
+        ctx.globalAlpha = 1.0;
+      } catch {}
     }
 
-    svg.selectAll(".country").data(worldData).enter().append("path").attr("class", "country")
-      .attr("d", (d: GeoFeature) => {
-        try {
-          const p = path(d as unknown as GeoPermissibleObjects);
-          if (!p || (typeof p === "string" && (p.includes("NaN") || p.includes("Infinity")))) return "";
-          return p;
-        } catch { return ""; }
-      })
-      .attr("fill", finalCountryFill).attr("stroke", defaultStrokeColor)
-      .attr("stroke-width", finalStrokeWidth).attr("opacity", finalOpacity)
-      .style("visibility", function (this: SVGPathElement) {
-        const pd = d3.select(this).attr("d");
-        return pd && pd.length > 0 && !pd.includes("NaN") ? "visible" : "hidden";
-      })
-      .on("mouseenter", function (this: SVGPathElement) {
-        if (countryHoverColor && variant === "solid") d3.select(this).attr("fill", countryHoverColor);
-      })
-      .on("mouseleave", function (this: SVGPathElement) {
-        if (variant === "solid") d3.select(this).attr("fill", finalCountryFill);
-      });
+    try {
+      ctx.beginPath();
+      path({ type: "Sphere" });
+      ctx.strokeStyle = getResolvedColor(defaultSphereOutlineColor, "rgba(234, 88, 12, 0.4)");
+      ctx.lineWidth = variant === "wireframe" ? sphereOutlineWidth : 1.5;
+      ctx.globalAlpha = variant === "wireframe" ? 1.0 : 0.8;
+      ctx.stroke();
+      ctx.globalAlpha = 1.0;
+    } catch {}
 
     try {
-      const sphereOutline = path({ type: "Sphere" });
-      if (sphereOutline) {
-        svg.append("path").datum({ type: "Sphere" }).attr("d", sphereOutline)
-          .attr("fill", "none").attr("stroke", defaultSphereOutlineColor)
-          .attr("stroke-width", finalSphereOutlineWidth).attr("opacity", variant === "wireframe" ? 1.0 : 0.8);
+      ctx.beginPath();
+      for (let i = 0; i < worldData.length; i++) {
+        path(worldData[i] as unknown as GeoPermissibleObjects);
       }
-    } catch { /* ignore */ }
+      if (variant === "solid") {
+        ctx.fillStyle = getResolvedColor(defaultCountryFillColor, "rgba(234, 88, 12, 0.2)");
+        ctx.globalAlpha = 0.35;
+        ctx.fill();
+        ctx.globalAlpha = 1.0;
+      }
+      ctx.strokeStyle = getResolvedColor(defaultStrokeColor, "rgba(234, 88, 12, 0.7)");
+      ctx.lineWidth = variant === "solid" ? strokeWidth * 0.5 : strokeWidth;
+      ctx.stroke();
+    } catch {}
+
+    ctx.restore();
   }, [
     worldData, progress, rotation, isVisible, finalWidth, finalHeight,
     defaultStrokeColor, strokeWidth, defaultGraticuleColor, graticuleOpacity,
@@ -408,18 +435,23 @@ function GlobeWireframe({
 
   return (
     <div ref={containerRef} className={`relative ${className}`}>
-      <svg
-        ref={svgRef}
+      <canvas
+        ref={canvasRef}
         width={finalWidth}
         height={finalHeight}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseLeave}
-        className={useResponsive ? "w-full h-full opacity-0 transition-opacity duration-1000" : ""}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleMouseUp}
+        onTouchCancel={handleMouseUp}
+        className={useResponsive ? "w-full h-full opacity-0 transition-opacity duration-700" : ""}
         style={{
           cursor: enableInteraction ? (isDragging ? "grabbing" : "grab") : "default",
           opacity: useResponsive ? (dimensions.width > 0 ? 1 : 0) : 1,
+          touchAction: "pan-y",
         }}
       />
     </div>

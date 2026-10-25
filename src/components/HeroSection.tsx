@@ -76,7 +76,7 @@ export function HeroSection() {
     curtainRef.current.style.setProperty("--mouse-y", `${y.toFixed(2)}%`);
   }, []);
 
-  // Manage body scroll overflow and lock scroll while raising curtain
+  // Manage body scroll overflow while curtain is down
   useEffect(() => {
     if (!isRaised) {
       document.body.style.overflow = "hidden";
@@ -84,16 +84,7 @@ export function HeroSection() {
         document.body.style.overflow = "";
       };
     } else {
-      // Ensure page is pinned at (0, 0) for 450ms while the curtain animates up
-      window.scrollTo({ top: 0, behavior: "instant" });
-      document.body.style.overflow = "hidden";
-      const timer = setTimeout(() => {
-        document.body.style.overflow = "";
-      }, 450);
-      return () => {
-        clearTimeout(timer);
-        document.body.style.overflow = "";
-      };
+      document.body.style.overflow = "";
     }
   }, [isRaised]);
 
@@ -110,14 +101,17 @@ export function HeroSection() {
 
     let touchStartY = 0;
     const handleTouchStart = (e: TouchEvent) => {
-      touchStartY = e.touches[0].clientY;
+      if (e.touches.length > 0) {
+        touchStartY = e.touches[0].clientY;
+      }
     };
 
     const handleTouchMove = (e: TouchEvent) => {
-      const touchEndY = e.touches[0].clientY;
-      if (touchStartY - touchEndY > 20) {
-        if (e.cancelable) e.preventDefault();
-        raiseCurtain();
+      if (e.touches.length > 0) {
+        const touchEndY = e.touches[0].clientY;
+        if (touchStartY - touchEndY > 25) {
+          raiseCurtain();
+        }
       }
     };
 
@@ -129,7 +123,7 @@ export function HeroSection() {
 
     window.addEventListener("wheel", handleWheel, { passive: false });
     window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchmove", handleTouchMove, { passive: false });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {

@@ -38,7 +38,7 @@ const THICKNESS = 0.018;
 const BEVEL = 0.007;
 const JOINTS = 4;
 const NODE_WEIGHT = 1 / 0.05;
-const MAX_STEP = 1 / 960;
+const MAX_STEP = 1 / 480;
 const ITERATIONS = 2;
 const SAMPLES = 72;
 const FOV = 24;
@@ -1188,7 +1188,11 @@ const Lanyard: React.FC<LanyardProps> = ({
         placeHanging(sim, layout, false);
       }
       render();
-      const resting = sim.calm > 1.2 && !sim.grab && current.breeze === 0;
+      const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+      const resting = !sim.grab && (
+        (isMobile && sim.calm > 1.2) ||
+        (sim.calm > 2.0 && current.breeze === 0)
+      );
       if (visible && !resting) raf = requestAnimationFrame(tick);
     };
 
@@ -1248,7 +1252,6 @@ const Lanyard: React.FC<LanyardProps> = ({
       press = { x: event.clientX, y: event.clientY, time: performance.now(), point: hit.point.clone() };
       canvas.setPointerCapture?.(event.pointerId);
       setCursor('grabbing');
-      event.preventDefault();
       start();
     };
 
@@ -1279,7 +1282,9 @@ const Lanyard: React.FC<LanyardProps> = ({
     const onTouchStart = (event: TouchEvent) => {
       if (!settingsRef.current.interactive || event.touches.length !== 1) return;
       toPointer(event.touches[0]);
-      if (pickCard()) event.preventDefault();
+      if (pickCard()) {
+        start();
+      }
     };
 
     canvas.addEventListener('pointerdown', onPointerDown);
@@ -1287,12 +1292,13 @@ const Lanyard: React.FC<LanyardProps> = ({
     canvas.addEventListener('pointerup', onPointerUp);
     canvas.addEventListener('pointercancel', onPointerUp);
     canvas.addEventListener('lostpointercapture', onPointerUp);
-    canvas.addEventListener('touchstart', onTouchStart, { passive: false });
+    canvas.addEventListener('touchstart', onTouchStart, { passive: true });
 
     const resize = () => {
       view.width = Math.max(1, container.clientWidth);
       view.height = Math.max(1, container.clientHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.25 : 2));
       renderer.setSize(view.width, view.height, false);
       apply();
       render();

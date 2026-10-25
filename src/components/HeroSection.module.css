@@ -32,6 +32,14 @@
   pointer-events: none !important;
   box-shadow: none !important;
   border-bottom-color: transparent !important;
+  visibility: hidden !important;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.65s step-end,
+              box-shadow 0.65s ease !important;
+}
+
+.curtainRaised .meshOrb {
+  animation-play-state: paused !important;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -512,6 +520,19 @@
 }
 
 @media (max-width: 768px) {
+  .meshOrb {
+    filter: blur(28px) !important;
+    animation: none !important;
+    will-change: auto !important;
+  }
+  .meshOrb1 {
+    transform: translateX(-50%) !important;
+  }
+  .statusBadge,
+  .trustPill {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
   .heroContent {
     padding: 0 1rem;
     gap: 12px;

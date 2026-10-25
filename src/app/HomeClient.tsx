@@ -10,7 +10,7 @@ import {
   Line,
   Icon,
 } from "@once-ui-system/core";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import styles from "./home.module.css";
 import ContactWithGlobe from "@/components/ui/contact-with-globe";
 import SwatchAccordion, { SwatchItem } from "@/components/ui/swatch-accordion";
@@ -114,23 +114,6 @@ const SWATCH_SERVICES: SwatchItem[] = [
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function HomeClient() {
   const [hoveredFeature, setHoveredFeature] = useState<string | null>(null);
-  const marqueeRef = useRef<HTMLDivElement>(null);
-
-  // RAF marquee
-  useEffect(() => {
-    const el = marqueeRef.current;
-    if (!el) return;
-    let x = 0;
-    let raf: number;
-    const tick = () => {
-      x -= 0.45;
-      if (x <= -(el.scrollWidth / 2)) x = 0;
-      el.style.transform = `translateX(${x}px)`;
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, []);
 
   return (
     <Column fillWidth maxWidth="xl" gap="0" paddingY="0" horizontal="center" style={{ maxWidth: "min(1480px, 100%)" }}>
@@ -181,7 +164,7 @@ export default function HomeClient() {
 
         {/* ── MARQUEE ── */}
         <div className={styles.marqueeOuter}>
-          <div className={styles.marqueeTrack} ref={marqueeRef}>
+          <div className={styles.marqueeTrack}>
             {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((t, i) => (
               <span key={i} className={styles.marqueeItem}>
                 {t}
