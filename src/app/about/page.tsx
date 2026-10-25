@@ -113,17 +113,6 @@ const TECH_CATEGORIES = [
       { name: "JavaScript", icon: "javascript" as const },
     ],
   },
-  {
-    title: "Specialized Systems",
-    desc: "Custom business tools, automated keyword parsers, and offline retail workflows.",
-    chips: [
-      { name: "Offline POS Billing", icon: "grid" as const },
-      { name: "GST Invoice Engine", icon: "document" as const },
-      { name: "Barcode Scanning", icon: "check" as const },
-      { name: "ATS Optimization", icon: "document" as const },
-      { name: "Vercel Deploy", icon: "globe" as const },
-    ],
-  },
 ];
 
 export default function About() {
