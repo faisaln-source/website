@@ -59,13 +59,6 @@ export function HeroSection() {
     }
   }, []);
 
-  const lowerCurtain = useCallback(() => {
-    setIsRaised(false);
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }, []);
-
   // Handle subtle interactive cursor tracking for background spotlight
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
     if (!curtainRef.current) return;
@@ -265,18 +258,6 @@ export function HeroSection() {
           title="Click or scroll to view website"
         />
       </aside>
-
-      {/* ── Return-to-Hero Floating Pill (visible when curtain is raised) ── */}
-      <button
-        type="button"
-        onClick={lowerCurtain}
-        className={`${styles.curtainReturnBtn} ${isRaised ? styles.curtainReturnBtnVisible : ""}`}
-        aria-label="Lower curtain to view hero"
-        title="View Hero Intro"
-      >
-        <span>✦</span>
-        <span>Hero Intro</span>
-      </button>
     </>
   );
 }

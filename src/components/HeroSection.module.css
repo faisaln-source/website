@@ -471,49 +471,6 @@
   box-shadow: 0 0 16px var(--brand-on-background-strong, #ea580c);
 }
 
-/* ── Floating Return-to-Curtain Pill (visible when curtain is up) ── */
-.curtainReturnBtn {
-  position: fixed;
-  top: 16px;
-  right: 24px;
-  z-index: 99;
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 8px 16px;
-  border-radius: 9999px;
-  background: var(--surface-background);
-  border: 1px solid var(--brand-alpha-medium, rgba(234, 88, 12, 0.4));
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  color: var(--neutral-on-background-strong);
-  font-family: var(--font-label);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), 0 0 12px var(--brand-alpha-weak);
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-8px);
-}
-
-.curtainReturnBtnVisible {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-.curtainReturnBtn:hover {
-  color: #ffffff;
-  background: var(--brand-background-strong, #ea580c);
-  border-color: var(--brand-background-strong, #ea580c);
-  box-shadow: 0 6px 20px var(--brand-alpha-medium);
-  transform: translateY(-1px);
-}
-
 /* ── Mobile Responsive Adjustments ────────────────────────── */
 .heroExploreMobile {
   display: none;
@@ -588,14 +545,6 @@
   }
   .heroExploreArrow {
     font-size: 0.95rem;
-  }
-  .curtainReturnBtn {
-    top: 14px;
-    bottom: auto;
-    right: 14px;
-    padding: 6px 12px;
-    font-size: 0.7rem;
-    gap: 5px;
   }
 }
 
