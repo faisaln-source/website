@@ -9,3 +9,4 @@ export { ScrollToHash } from "@/components/ScrollToHash";
 export { ThemeToggle } from "@/components/ThemeToggle";
 export { CustomMDX } from "@/components/mdx";
 export { HeroSection } from "@/components/HeroSection";
+export { EmailModal, openEmailClient } from "@/components/ui/EmailModal";

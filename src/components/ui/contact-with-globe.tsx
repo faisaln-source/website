@@ -14,6 +14,7 @@ import type {
   GeometryObject,
 } from "topojson-specification";
 import type { GeoPermissibleObjects } from "d3";
+import { openEmailClient } from "./EmailModal";
 
 const smoothEase = [0.25, 0.1, 0.25, 1] as const;
 
@@ -28,6 +29,7 @@ const CONTACT_LINKS = [
     icon: Mail,
     label: "makewisedigitalsolution@gmail.com",
     href: "mailto:makewisedigitalsolution@gmail.com",
+    isEmail: true,
   },
   {
     icon: Phone,
@@ -508,9 +510,9 @@ export default function ContactWithGlobe({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Project inquiry from ${formState.name}${formState.service ? ` â€” ${formState.service}` : ""}`);
-    const body = encodeURIComponent(`Name: ${formState.name}\nService: ${formState.service}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`);
-    window.open(`mailto:makewisedigitalsolution@gmail.com?subject=${subject}&body=${body}`, "_blank");
+    const subject = `Project inquiry from ${formState.name}${formState.service ? ` — ${formState.service}` : ""}`;
+    const body = `Name: ${formState.name}\nService: ${formState.service}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`;
+    openEmailClient({ to: "makewisedigitalsolution@gmail.com", subject, body });
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 4000);
   };
@@ -569,9 +571,23 @@ export default function ContactWithGlobe({
             </div>
 
             <div className="flex flex-col gap-3">
-              {CONTACT_LINKS.map(({ icon: Icon, label, href }, i) => (
+              {CONTACT_LINKS.map(({ icon: Icon, label, href, isEmail }, i) => (
                 <motion.a
-                  key={label} href={href} target="_blank" rel="noopener noreferrer"
+                  key={label}
+                  href={href}
+                  target={isEmail ? undefined : "_blank"}
+                  rel={isEmail ? undefined : "noopener noreferrer"}
+                  onClick={
+                    isEmail
+                      ? (e) => {
+                          e.preventDefault();
+                          openEmailClient({
+                            to: "makewisedigitalsolution@gmail.com",
+                            subject: "Inquiry - MakeWise Digital Solutions",
+                          });
+                        }
+                      : undefined
+                  }
                   initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 + i * 0.1, ease: smoothEase }}
                   className="group flex items-center gap-3 w-fit text-sm transition-colors duration-200"

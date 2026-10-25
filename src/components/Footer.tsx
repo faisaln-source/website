@@ -1,6 +1,9 @@
+"use client";
+
 import { Row, IconButton, SmartLink, Text } from "@once-ui-system/core";
 import { person, social } from "@/resources";
 import styles from "./Footer.module.scss";
+import { openEmailClient } from "@/components/ui/EmailModal";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -28,7 +31,16 @@ export const Footer = () => {
           <Text paddingX="4">{person.name}</Text>
           <Text onBackground="neutral-weak">
             · +91 70120 80365 ·{" "}
-            <SmartLink href="mailto:makewisedigitalsolution@gmail.com">
+            <SmartLink
+              href="mailto:makewisedigitalsolution@gmail.com"
+              onClick={(e) => {
+                e.preventDefault();
+                openEmailClient({
+                  to: "makewisedigitalsolution@gmail.com",
+                  subject: "Inquiry - MakeWise Digital Solutions",
+                });
+              }}
+            >
               makewisedigitalsolution@gmail.com
             </SmartLink>
           </Text>

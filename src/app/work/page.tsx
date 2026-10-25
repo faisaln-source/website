@@ -14,6 +14,7 @@ import {
 import { work, person, baseURL, about } from "@/resources";
 import styles from "./work.module.css";
 import { ScrollTopOnMount } from "./ScrollTopOnMount";
+import { SendEmailButton } from "./SendEmailButton";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -258,15 +259,10 @@ export default function ServicesPage() {
                     >
                       {svc.cta}
                     </Button>
-                    <Button
+                    <SendEmailButton
                       id={`email-${svc.id}`}
-                      href={`mailto:makewisedigitalsolution@gmail.com?subject=Inquiry:%20${encodeURIComponent(svc.title)}`}
-                      variant="secondary"
-                      size="m"
-                      fillWidth
-                    >
-                      Send Email
-                    </Button>
+                      serviceTitle={svc.title}
+                    />
                   </Column>
                 </Row>
               </Column>
