@@ -41,8 +41,8 @@ const SWATCH_SERVICES: SwatchItem[] = [
   },
   {
     title: "Portfolio Site",
-    description: "Stunning, high-speed showcase websites for software engineers, designers, and creatives with interactive project demos, GitHub tech badges, and Vercel hosting.",
-    tags: "Interactive Demos, Vercel Hosting, 99+ Speed, From ₹1500",
+    description: "Stunning, high-speed showcase websites for software engineers, designers, and creatives with interactive project demos and GitHub tech badges.",
+    tags: "Interactive Demos, From ₹1500",
     color: "#8B5CF6",
     focus: 50,
     button: "Build Portfolio",
