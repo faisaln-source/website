@@ -69,8 +69,8 @@ const SWATCH_SERVICES: SwatchItem[] = [
   },
   {
     title: "POS Software",
-    description: "Production-ready Point-of-Sale billing and inventory software custom-built for retail shops, restaurants, and cloud kitchens with barcode scanning and thermal printing.",
-    tags: "Thermal Printing, Barcode Scanning, GST Invoices, From ₹8000",
+    description: "Production-ready Point-of-Sale billing and inventory software custom-built for retail shops, restaurants, and cloud kitchens.",
+    tags: "From ₹8000",
     color: "#EF4444",
     focus: 50,
     button: "Get POS System",
