@@ -21,7 +21,7 @@ const SWATCH_SERVICES: SwatchItem[] = [
   {
     title: "ATS Resume",
     description: "Keyword-optimized resumes designed to pass employer ATS filters and impress recruiters. Includes a targeted cover letter and editable DOCX plus clean PDF files.",
-    tags: "ATS-tested · 24–48h delivery · From ₹250",
+    tags: ["ATS-tested", "24–48h delivery", "From ₹250"],
     color: "#D97736",
     focus: 50,
     button: "Order ATS Resume",
@@ -35,7 +35,7 @@ const SWATCH_SERVICES: SwatchItem[] = [
   {
     title: "Portfolio Website",
     description: "Fast, polished showcase websites for software engineers, designers, and creatives, with interactive project demos and GitHub tech badges.",
-    tags: "Interactive demos · From ₹1,500",
+    tags: ["Interactive demos", "From ₹1,500"],
     color: "#8B5CF6",
     focus: 50,
     button: "Get a Quote",
@@ -49,7 +49,7 @@ const SWATCH_SERVICES: SwatchItem[] = [
   {
     title: "Web Application",
     description: "Scalable full-stack SaaS MVPs, client portals, custom dashboards, and booking tools built with React, Next.js, and Supabase. Full source code handoff.",
-    tags: "Next.js and Supabase · Auth and roles · Custom APIs · From ₹5,000",
+    tags: ["Next.js and Supabase", "Auth and roles", "Custom APIs", "From ₹5,000"],
     color: "#3B82F6",
     focus: 50,
     button: "Get a Quote",
@@ -63,7 +63,7 @@ const SWATCH_SERVICES: SwatchItem[] = [
   {
     title: "POS and Billing Software",
     description: "Production-ready point-of-sale billing and inventory software, custom-built for retail shops, restaurants, and pharmacies.",
-    tags: "Offline-capable · GST invoices · From ₹8,000",
+    tags: ["Offline-capable", "GST invoices", "From ₹8,000"],
     color: "#EF4444",
     focus: 50,
     button: "Get a Quote",
@@ -77,7 +77,7 @@ const SWATCH_SERVICES: SwatchItem[] = [
   {
     title: "Mobile Web App",
     description: "Progressive web apps (PWAs) with a native-app feel, offline support, smooth touch gestures, and instant installation with no app store needed.",
-    tags: "Works offline · Mobile first · Touch optimized · From ₹4,000",
+    tags: ["Works offline", "Mobile first", "Touch optimized", "From ₹4,000"],
     color: "#6366F1",
     focus: 50,
     button: "Get a Quote",
@@ -91,7 +91,7 @@ const SWATCH_SERVICES: SwatchItem[] = [
   {
     title: "Business Website",
     description: "Lead-generating, SEO-optimized multi-page websites and online stores that build trust, rank on Google, and turn visitors into customers.",
-    tags: "Technical SEO · WhatsApp leads · Core Web Vitals · From ₹3,000",
+    tags: ["Technical SEO", "WhatsApp leads", "Core Web Vitals", "From ₹3,000"],
     color: "#10B981",
     focus: 50,
     button: "Get a Quote",

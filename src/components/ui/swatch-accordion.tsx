@@ -51,7 +51,7 @@ export const DEFAULT_SWATCH_IMAGES = [
 export interface SwatchItem {
   title: string;
   description?: string;
-  tags?: string;
+  tags?: string | string[];
   image?: { src: string; alt?: string; srcSet?: string };
   color?: string;
   focus?: number;
@@ -618,10 +618,20 @@ export default function SwatchAccordion(props: SwatchAccordionProps) {
               100,
               Math.max(0, Number.isFinite(item.focus) ? (item.focus as number) : 50),
             ) / 100;
-          const tags = String(item.tags || "")
-            .split(",")
-            .map((s) => s.trim())
-            .filter(Boolean);
+          const tags: string[] = Array.isArray(item.tags)
+            ? item.tags.map((s) => String(s).trim()).filter(Boolean)
+            : typeof item.tags === "string"
+              ? (item.tags.includes("·")
+                  ? item.tags.split("·")
+                  : item.tags.includes("•")
+                    ? item.tags.split("•")
+                    : item.tags.includes("|")
+                      ? item.tags.split("|")
+                      : item.tags.split(",")
+                )
+                  .map((s) => s.trim())
+                  .filter(Boolean)
+              : [];
           const linked = hasLink(item.link);
           const triggerId = `swa-${uid}-t${index}`;
           const panelId = `swa-${uid}-p${index}`;
