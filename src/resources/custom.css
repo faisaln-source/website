@@ -158,6 +158,43 @@ a[class*="primary"],
   fill: #ffffff !important;
 }
 
+/* ── Hero Explore Mobile CTA (Strictly mobile-only, hidden on desktop) ── */
+@media (min-width: 769px) {
+  [class*="heroExploreMobile"],
+  [class*="heroExploreWrapper"] {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  [class*="heroExploreMobile"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    padding: 8px 18px !important;
+    font-size: 0.8125rem !important;
+    font-weight: 600 !important;
+    gap: 6px !important;
+    background: #ea580c !important;
+    background: linear-gradient(135deg, #ea580c 0%, #f97316 100%) !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    fill: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 4px 16px rgba(234, 88, 12, 0.45) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  [class*="heroExploreMobile"] * {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    fill: #ffffff !important;
+  }
+}
+
 /* ── Outline Buttons ("Send email") ── */
 .btnOutline,
 [data-button-outline="true"] {

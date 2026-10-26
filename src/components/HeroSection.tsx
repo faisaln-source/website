@@ -198,15 +198,20 @@ export function HeroSection() {
             </p>
           </RevealFx>
 
-          {/* Mobile CTA to explore */}
-          <RevealFx translateY="16" delay={400}>
+          {/* Mobile CTA to explore (hidden on desktop, mobile-only) */}
+          <RevealFx
+            translateY="16"
+            delay={400}
+            horizontal="center"
+            className={styles.heroExploreWrapper}
+          >
             <button
               type="button"
               onClick={raiseCurtain}
               className={styles.heroExploreMobile}
               aria-label="Explore Services & Digital Solutions"
             >
-              <span>Explore Services &amp; Digital Solutions</span>
+              <span>Explore Services</span>
               <span className={styles.heroExploreArrow}>↓</span>
             </button>
           </RevealFx>
