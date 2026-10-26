@@ -151,7 +151,7 @@ export default function ServicesPage() {
 
       {/* Header */}
       <section className={styles.heroHeader} aria-label="Services and Pricing">
-        <RevealFx translateY="8" delay={100}>
+        <RevealFx translateY="8" delay={100} horizontal="center">
           <div className={styles.statusPill}>
             <span className={styles.statusDotPulse} aria-hidden="true">
               <span className={styles.statusDotWave} />
@@ -161,13 +161,13 @@ export default function ServicesPage() {
           </div>
         </RevealFx>
 
-        <RevealFx translateY="12" delay={200}>
+        <RevealFx translateY="12" delay={200} horizontal="center">
           <h1 className={styles.mainHeading}>
             Services and <span className={styles.gradientText}>Pricing</span>
           </h1>
         </RevealFx>
 
-        <RevealFx translateY="12" delay={300}>
+        <RevealFx translateY="12" delay={300} horizontal="center">
           <p className={styles.leadSubtitle}>
             From resumes to full-stack apps, every service has transparent pricing and fast
             turnaround. Websites and apps include your full source code.

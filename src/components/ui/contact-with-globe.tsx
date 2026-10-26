@@ -4,7 +4,8 @@ import * as React from "react";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Mail, Phone, MessageCircle } from "lucide-react";
+import { Mail, Phone, MessageCircle } from "lucide-react";
+import { Button } from "@once-ui-system/core";
 import * as SeparatorPrimitive from "@radix-ui/react-separator";
 import * as d3 from "d3";
 import { feature } from "topojson-client";
@@ -712,17 +713,15 @@ export default function ContactWithGlobe({
               </div>
 
               <div className="flex justify-center w-full pt-2">
-                <button
+                <Button
                   id="contact-submit"
                   type="submit"
-                  className="w-full sm:w-auto min-w-[200px] h-11 px-8 rounded-full font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer shadow-md hover:opacity-90 active:scale-95"
-                  style={{
-                    background: "var(--brand-background-strong)",
-                    color: "var(--brand-on-solid-strong)",
-                  }}
+                  variant="primary"
+                  size="l"
+                  arrowIcon
                 >
-                  {submitted ? "✓ Email opened!" : <>Send message <ArrowRight className="w-4 h-4" /></>}
-                </button>
+                  {submitted ? "✓ Email opened!" : "Send message"}
+                </Button>
               </div>
             </form>
           </motion.div>

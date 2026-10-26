@@ -26,6 +26,11 @@
   z-index: 0;
 }
 
+:global([data-theme="dark"]) .ambientBackground,
+:root:not([data-theme="light"]) .ambientBackground {
+  display: none !important;
+}
+
 .topGlowOrb {
   position: absolute;
   top: -120px;

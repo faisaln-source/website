@@ -28,6 +28,11 @@
   z-index: 0;
 }
 
+:global([data-theme="dark"]) .ambientBackground,
+:root:not([data-theme="light"]) .ambientBackground {
+  display: none !important;
+}
+
 .topGlowOrb {
   position: absolute;
   top: -100px;
@@ -78,8 +83,19 @@
   text-align: center;
   gap: 1.25rem;
   max-width: 820px;
+  width: 100%;
   margin: 0 auto;
   padding-bottom: 0.5rem;
+}
+
+.heroHeader :global(.revealFx),
+.heroHeader :global([class*="revealFx"]),
+.heroHeader > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .statusPill {
@@ -145,7 +161,9 @@
   line-height: 1.15;
   letter-spacing: -0.03em;
   color: var(--neutral-on-background-strong, #ffffff);
-  margin: 0;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
 }
 
 :global([data-theme="light"]) .mainHeading {
